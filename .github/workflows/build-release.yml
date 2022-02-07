@@ -1,0 +1,51 @@
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  release:
+    types:
+      - created
+
+name: build-deploy-to-cdn
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+          cache: npm
+
+      - name: set package.json version
+        uses: menduz/oddish-action@master
+        with:
+          deterministic-snapshot: true
+          only-update-versions: true
+
+      - id: install
+        name: install
+        run: npm ci
+
+      - name: build
+        run: npm run build
+
+      - name: test
+        run: npm run test
+
+      - name: publish npm package
+        uses: menduz/oddish-action@master
+        with:
+          scope: "@dcl"
+
+          ## use action runId instead of current date to generate snapshot numbers
+          deterministic-snapshot: true
+
+          ## inform gitlab after publishing to proceed with CDN propagation and rollouts
+          # 104 == https://dcl.tools/pipelines/static-sites-pipeline
+          gitlab-pipeline-url: ${{ secrets.GITLAB_CDN_DEPLOYER_URL }}
+          gitlab-token: ${{ secrets.GITLAB_CDN_DEPLOYER_TOKEN }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
