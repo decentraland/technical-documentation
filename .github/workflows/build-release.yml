@@ -39,6 +39,7 @@ jobs:
         uses: menduz/oddish-action@master
         with:
           scope: "@dcl"
+          access: public
 
           ## use action runId instead of current date to generate snapshot numbers
           deterministic-snapshot: true
