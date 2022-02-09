@@ -1,7 +1,12 @@
 module.exports = {
+  flags: {
+    DEV_SSR: false,
+  },
   siteMetadata: {
-    title: `docs-beta`,
-    siteUrl: `https://www.yourdomain.tld`,
+    title: "docs-beta",
+    description: "Decentraland technical documentation",
+    author: "@decentraland",
+    siteUrl: "https://beta-docs.decentraland.zone",
   },
   plugins: [
     "gatsby-plugin-sitemap",
