@@ -35,7 +35,7 @@ jobs:
       - name: test
         run: npm run test
         
-      - name: build
+      - name: copy package.json
         run: cp "./package.json" "./public/package.json"
 
       - name: publish npm package
