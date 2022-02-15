@@ -5,15 +5,18 @@ import { Page } from "decentraland-ui/dist/components/Page/Page";
 import { Header } from "decentraland-ui/dist/components/Header/Header";
 import { Footer } from "decentraland-ui/dist/components/Footer/Footer";
 import { Link } from "gatsby";
+import { Section, Sidebar } from "decentraland-ui";
+import "./../style.css";
 
 const Welcome = () => {
   return (
     <>
-      <>
-        <Navbar activePage="marketplace" />
+      <Navbar activePage="marketplace" />
+      <Section className="flex">
+        <Sidebar />
         <Page>Aaaa</Page>
-        <Footer />
-      </>
+      </Section>
+      <Footer />
     </>
   );
 };

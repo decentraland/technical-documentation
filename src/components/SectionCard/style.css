@@ -1,0 +1,31 @@
+.section-card {
+    border-radius: 8px;
+    padding: 20px;
+    width: 230px;
+    height: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: left;
+    transition: margin 0.5s ease-in-out;
+}
+
+.section-card:hover {
+    margin-top: -20px;
+    transition: margin 0.2s ease-in;
+}
+
+.section-card img {
+   display: block;
+   margin: 0 auto;
+   flex: 1;
+}
+
+.section-card-info {
+    width: 100%;
+    color: #ffffff;
+}
+
+.section-card-info, h3, p {
+    color: #ffffff;
+}
