@@ -2,8 +2,15 @@ import React from "react";
 import "./types";
 import "./style.css";
 import { Link } from "gatsby";
+import { SectionCardProps } from "./types";
 
-export default function SectionCard({ img, title, url, bgColor, description }) {
+export default function SectionCard({
+  img,
+  title,
+  url,
+  bgColor,
+  description,
+}: SectionCardProps) {
   console.log(bgColor);
   return (
     <div className="section-card" style={{ background: bgColor }}>

@@ -1,21 +1,21 @@
 {
   "data": [
     {
-      "name": "One section",
+      "title": "One section",
       "img": "image-api.svg",
       "url": "www.google.com",
       "bgColor": "#AC18C9",
       "description": "A description, not longer than two lines"
     },
     {
-      "name": "Another section",
+      "title": "Another section",
       "img": "image-ship.svg",
       "url": "www.google.com",
       "bgColor": "#00ADA5",
       "description": "A description, not longer than two lines"
     },
     {
-      "name": "And another section",
+      "title": "And another section",
       "img": "image-scene.svg",
       "url": "www.google.com",
       "bgColor": "#314ADE",

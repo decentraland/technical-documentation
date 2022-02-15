@@ -36,6 +36,7 @@
     "react-dom": "^17.0.1"
   },
   "devDependencies": {
+    "@dcl/eslint-config": "^1.0.0",
     "postcss-assets": "^6.0.0",
     "postcss-svg": "^3.0.0"
   }

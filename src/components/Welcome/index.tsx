@@ -4,14 +4,15 @@ import "./style.css";
 import { Page, Header, Section } from "decentraland-ui";
 import SectionCard from "../SectionCard";
 const sections = require("./../../mocks/sections.json");
+import { SectionCardProps } from "../SectionCard/types";
 
-export default function Welcome(props) {
+export default function Welcome() {
   return (
     <Section>
       <Header>Build the Metaverse</Header>
       <p>This is a regular page</p>
       <div className="section-cards-container">
-        {sections.data.map((item, i) => {
+        {sections.data.map((item: SectionCardProps, i: number) => {
           console.log(item, 1);
           return (
             <SectionCard
@@ -19,7 +20,7 @@ export default function Welcome(props) {
               img={item.img}
               url={item.url}
               bgColor={item.bgColor}
-              title={item.name}
+              title={item.title}
               description={item.description}
             />
           );

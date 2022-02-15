@@ -1,3 +1,7 @@
-export type Props = {
-  children: React.ReactNode;
+export type SectionCardProps = {
+  img: string;
+  url: string;
+  bgColor: string;
+  title: string;
+  description: string;
 };
