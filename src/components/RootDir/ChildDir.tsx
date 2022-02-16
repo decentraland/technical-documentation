@@ -8,12 +8,25 @@ type Props = {
 
 export default function ChildDir(props: Props) {
   const { name, children, offset } = props;
+
   return (
     <>
-      <li style={{ paddingLeft: `${10 * offset}px` }}>{name}</li>
+      <div
+        className="child-container"
+        style={{ paddingLeft: `${10 * offset}px` }}
+      >
+        {name}
+      </div>
       {children &&
         children.map((item: any, key: number) => {
-          return <ChildDir name={item.name} key={key} offset={offset + 1} />;
+          return (
+            <ChildDir
+              name={item.name}
+              key={key}
+              offset={offset + 1}
+              children={item.children}
+            />
+          );
         })}
     </>
   );

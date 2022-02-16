@@ -5,17 +5,22 @@ import "./style.css";
 type Props = {
   name: string;
   icon: string;
-  children: JSX.Element[];
+  children?: JSX.Element[]; // verify type
 };
 
 export default function RootDir(props: Props) {
   const { name, icon, children } = props;
+
   return (
     <>
-      <div>{name}</div>
+      <div className="root-container">
+        {" "}
+        <img className="icon" src={`/images/${name}.svg`} />
+        {name}
+      </div>
       {children &&
+        // TO-DO: type the objects, need to define data structure first
         children.map((item: any) => {
-          console.log(item.children, "this is the children");
           return (
             <ChildDir name={item.name} children={item.children} offset={1} />
           );

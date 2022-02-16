@@ -4,8 +4,6 @@ import "./style.css";
 
 const menu = require("./../../mocks/menu.json");
 
-console.log(menu, 999);
-
 export default function Sidebar() {
   return (
     <aside className="sidebar-container">

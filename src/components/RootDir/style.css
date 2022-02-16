@@ -1,3 +1,13 @@
-p {
-    color: red;
+.root-container {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.icon {
+    margin-right: 10px;
+}
+
+.child-container {
+    padding: 5px;
 }
