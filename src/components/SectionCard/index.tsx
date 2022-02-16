@@ -11,7 +11,6 @@ export default function SectionCard({
   bgColor,
   description,
 }: SectionCardProps) {
-  console.log(bgColor);
   return (
     <div className="section-card" style={{ background: bgColor }}>
       <Link to={url}>

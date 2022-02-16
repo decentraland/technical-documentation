@@ -1,0 +1,42 @@
+{
+  "data": [
+    {
+      "name": "repo1",
+      "children": [
+        { "name": "filename 1", "type": "file" },
+        {
+          "name": "dirname 1",
+          "type": "dir",
+          "children": [
+            { "name": "filename 2", "type": "file" },
+            {
+              "name": "un dir más",
+              "type": "dir",
+              "children": [
+                { "name": "otro file soy", "type": "file" },
+                {
+                  "name": "un dir más 2",
+                  "type": "dir",
+                  "children": [
+                    { "name": "otro file adentro de otro dir", "type": "file" }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "repo3",
+      "children": [
+        { "name": "filename 3", "type": "file" },
+        {
+          "name": "dirname 3",
+          "type": "dir",
+          "children": [{ "name": "filename 4", "type": "file" }]
+        }
+      ]
+    }
+  ]
+}

@@ -8,6 +8,7 @@
     justify-content: space-around;
     text-align: left;
     transition: margin 0.5s ease-in-out;
+    margin-right: 20px;
 }
 
 .section-card:hover {
@@ -26,6 +27,6 @@
     color: #ffffff;
 }
 
-.section-card-info, h3, p {
+.section-card-info h3, .section-card-info p {
     color: #ffffff;
 }
