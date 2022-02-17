@@ -4,24 +4,15 @@ import "decentraland-ui/dist/themes/alternative/light-theme.css";
 import { Navbar } from "decentraland-ui/dist/components/Navbar/Navbar";
 import { Footer } from "decentraland-ui/dist/components/Footer/Footer";
 import { Page } from "decentraland-ui/dist/components/Page/Page";
-import { Section } from "decentraland-ui/dist/components/Section/Section";
-import Welcome from "../components/Welcome";
-import Sidebar from "../components/Sidebar";
-import "./../style.css";
 
-export default function IndexPage () {
+export default function WelcomePage() {
   return (
     <>
       <>
         <Navbar activePage="marketplace" />
-        <Page>
-          <Section className="flex">
-            <Sidebar />
-            <Welcome />
-          </Section>
-        </Page>
+        <Page>otra page</Page>
         <Footer />
       </>
     </>
   );
-};
+}

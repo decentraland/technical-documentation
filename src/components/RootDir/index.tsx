@@ -20,13 +20,14 @@ export default function RootDir(props: Props) {
         </div>
         {children &&
           // TO-DO: type the objects, need to define data structure first
-          children.map((item: any) => {
+          children.map((item: any, key: number) => {
             return (
               <ChildDir
                 name={item.name}
                 children={item.children}
                 offset={1}
                 type={item.type}
+                key={key}
               />
             );
           })}

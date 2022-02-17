@@ -6,6 +6,7 @@ import { Section } from "decentraland-ui/dist/components/Section/Section";
 import SectionCard from "../SectionCard";
 const sections = require("./../../mocks/sections.json");
 import { SectionCardProps } from "../SectionCard/types";
+import { Link } from "gatsby";
 
 export default function Welcome() {
   return (
@@ -26,6 +27,7 @@ export default function Welcome() {
             />
           );
         })}
+        <Link to="/welcome/">Un link</Link>
       </div>
     </Section>
   );

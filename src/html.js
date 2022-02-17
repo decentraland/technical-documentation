@@ -1,6 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "decentraland-ui/lib/styles.css";
+import "decentraland-ui/dist/themes/base-theme.css";
+import "decentraland-ui/dist/themes/alternative/light-theme.css";
+import "decentraland-ui/lib/dark-theme.css";
+
 
 
 export default function HTML(props) {
