@@ -1,7 +1,8 @@
 import React from "react";
 import "./types";
 import "./style.css";
-import { Page, Header, Section } from "decentraland-ui";
+import { Header } from "decentraland-ui/dist/components/Header/Header";
+import { Section } from "decentraland-ui/dist/components/Section/Section";
 import SectionCard from "../SectionCard";
 const sections = require("./../../mocks/sections.json");
 import { SectionCardProps } from "../SectionCard/types";

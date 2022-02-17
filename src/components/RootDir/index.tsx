@@ -1,6 +1,6 @@
 import React from "react";
 import ChildDir from "./ChildDir";
-import "./style.css";
+import "./style.module.css";
 
 type Props = {
   name: string;
@@ -14,17 +14,23 @@ export default function RootDir(props: Props) {
   return (
     <>
       <div className="root-container">
-        {" "}
-        <img className="icon" src={`/images/${name}.svg`} />
-        {name}
+        <div>
+          <img className="icon" src={`/images/${name}.svg`} />
+          {name}
+        </div>
+        {children &&
+          // TO-DO: type the objects, need to define data structure first
+          children.map((item: any) => {
+            return (
+              <ChildDir
+                name={item.name}
+                children={item.children}
+                offset={1}
+                type={item.type}
+              />
+            );
+          })}
       </div>
-      {children &&
-        // TO-DO: type the objects, need to define data structure first
-        children.map((item: any) => {
-          return (
-            <ChildDir name={item.name} children={item.children} offset={1} />
-          );
-        })}
     </>
   );
 }

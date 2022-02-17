@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "decentraland-ui/lib/styles.css";
+
 
 export default function HTML(props) {
   return (
