@@ -1,5 +1,6 @@
 module.exports = {
   assetPrefix: process.env.ASSETPATH,
+  pathPrefix: process.env.ASSETPATH,
   flags: {
     DEV_SSR: true,
   },

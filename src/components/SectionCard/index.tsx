@@ -3,6 +3,7 @@ import "./types";
 import "./style.css";
 import { Link } from "gatsby";
 import { SectionCardProps } from "./types";
+import { withPrefix } from "gatsby";
 
 export default function SectionCard({
   img,
@@ -14,7 +15,7 @@ export default function SectionCard({
   return (
     <div className="section-card" style={{ background: bgColor }}>
       <Link to={url}>
-        <img src={`/${img}`} />
+        <img src={withPrefix(img)} />
         <div className="section-card-info">
           <h3>{title}</h3>
           <p>{description}</p>

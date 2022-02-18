@@ -1,5 +1,6 @@
 import React from "react";
 import ChildDir from "./ChildDir";
+import { withPrefix } from "gatsby";
 import "./style.module.css";
 
 type Props = {
@@ -15,7 +16,7 @@ export default function RootDir(props: Props) {
     <>
       <div className="root-container">
         <div>
-          <img className="icon" src={`/images/${name}.svg`} />
+          <img className="icon" src={withPrefix(`/${name}.svg`)} />
           {name}
         </div>
         {children &&
