@@ -15,7 +15,6 @@ export default function Welcome() {
       <p>This is a regular page</p>
       <div className="section-cards-container">
         {sections.data.map((item: SectionCardProps, i: number) => {
-          console.log(item, 1);
           return (
             <SectionCard
               key={i}

@@ -16,7 +16,10 @@ export default function RootDir(props: Props) {
     <>
       <div className="root-container">
         <div>
-          <img className="icon" src={withPrefix(`/${name}.svg`)} />
+          <img
+            className="icon"
+            src={`https://cdn.decentraland.com/${withPrefix(`/${name}.svg`)}`}
+          />
           {name}
         </div>
         {children &&
