@@ -8,6 +8,7 @@
     "develop": "gatsby develop",
     "start": "gatsby develop",
     "build": "gatsby build",
+    "build-prefix": "ASSETPATH=https://cdn.decentraland.org/@dcl/docs-site/$npm_package_version gatsby build --prefix-paths",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
@@ -22,8 +23,11 @@
   },
   "homepage": "https://github.com/decentraland/test-static-pipeline#readme",
   "dependencies": {
+    "@loadable/component": "^5.15.2",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
+    "@types/loadable__component": "^5.13.4",
+    "decentraland-dapps": "^12.37.1",
     "decentraland-ui": "^3.19.0",
     "gatsby": "^4.6.2",
     "gatsby-plugin-mdx": "^3.6.0",
