@@ -8,7 +8,7 @@
     "develop": "gatsby develop",
     "start": "gatsby develop",
     "build": "gatsby build",
-    "build-prefix": "ASSETPATH=https://cdn.decentraland.org/@dcl/docs-site/$npm_package_version gatsby build --prefix-paths",
+    "build-prefix": "PATHPREFIX=/@dcl/docs-site/$npm_package_version ASSETPATH=https://cdn.decentraland.org/@dcl/docs-site/$npm_package_version gatsby build --prefix-paths",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
