@@ -3,7 +3,7 @@ import './types'
 import './style.scss'
 import { Link } from 'gatsby'
 import { SectionCardProps } from './types'
-import { withPrefix } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 
 export default function UserTypeCard({
   img,
@@ -17,9 +17,7 @@ export default function UserTypeCard({
       <Link to={url}>
         {/* <img src={`https://cdn.decentraland.org${withPrefix(img)}`} /> */}
         <div className="card-img">
-          <img src={withPrefix(img)} />
           <img src={img} />
-
         </div>
         <div className="section-card-info">
           <h3>{title}</h3>
@@ -27,7 +25,7 @@ export default function UserTypeCard({
         </div>
         <div className="section-card-cta">
           VIEW MORE
-          <img src={withPrefix('caret.png')} />
+          <StaticImage src="../../images/caret.png" alt="caret" />
         </div>
       </Link>
     </div>
