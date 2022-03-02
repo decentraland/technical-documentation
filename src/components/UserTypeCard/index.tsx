@@ -18,6 +18,8 @@ export default function UserTypeCard({
         {/* <img src={`https://cdn.decentraland.org${withPrefix(img)}`} /> */}
         <div className="card-img">
           <img src={withPrefix(img)} />
+          <img src={img} />
+
         </div>
         <div className="section-card-info">
           <h3>{title}</h3>
