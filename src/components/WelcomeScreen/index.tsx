@@ -3,9 +3,7 @@ import './types'
 import './style.css'
 import { Header } from 'decentraland-ui/dist/components/Header/Header'
 import { Section } from 'decentraland-ui/dist/components/Section/Section'
-const sections = require('./../../mocks/sections.json')
 import { SectionCardProps } from '../SectionCard/types'
-import { Link } from 'gatsby'
 import UserTypeCard from '../UserTypeCard'
 
 const info = [

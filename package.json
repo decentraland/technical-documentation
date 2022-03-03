@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\"",
     "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
-    "build-prefix": "PREFIX_PATHS=true ASSETPATH=https://cdn.decentraland.org/@dcl/docs-site/$npm_package_version/ gatsby build",
+    "start": "GATSBY_ENV=develop gatsby develop",
+    "build": "GATSBY_VERSION=$npm_package_version GATSBY_ENV=prod gatsby build",
+    "build-prefix": "GATSBY_VERSION=$npm_package_version GATSBY_ENV=prod PREFIX_PATHS=true ASSETPATH=https://cdn.decentraland.org/ gatsby build",
     "serve": "gatsby serve --prefix-paths",
     "clean": "gatsby clean",
     "lint": "eslint . --ext .ts"
@@ -32,6 +32,7 @@
     "decentraland-ui": "^3.19.0",
     "dotenv": "^16.0.0",
     "gatsby": "^4.6.2",
+    "gatsby-plugin-env-variables": "^2.2.0",
     "gatsby-plugin-image": "^2.9.0",
     "gatsby-plugin-mdx": "^3.6.0",
     "gatsby-plugin-postcss": "^5.6.0",

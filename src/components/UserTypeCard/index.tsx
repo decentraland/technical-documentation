@@ -4,11 +4,19 @@ import './style.scss'
 import { Link } from 'gatsby'
 import { SectionCardProps } from './types'
 import { StaticImage } from 'gatsby-plugin-image'
-import { GatsbyImage } from 'gatsby-plugin-image'
+
+// TODO move to utils
+function formatPaths(url: string) {
+  const finalPath =
+    process.env.GATSBY_ENV === 'prod'
+      ? `https://cdn.decentraland.org/@dcl/docs-site/${process.env.GATSBY_VERSION}/${url}`
+      : url
+  return finalPath
+}
 
 export default function UserTypeCard({
-  img,
   title,
+  img,
   url,
   bgColor,
   description
@@ -17,8 +25,7 @@ export default function UserTypeCard({
     <div className="section-card" style={{ background: bgColor }}>
       <Link to={url}>
         <div className="card-img">
-          <img src={img} />
-          <GatsbyImage src={img} alt={title} />
+          <img src={formatPaths(img)} alt={title} />
         </div>
         <div className="section-card-info">
           <h3>{title}</h3>

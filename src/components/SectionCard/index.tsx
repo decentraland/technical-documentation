@@ -1,18 +1,17 @@
-import React from "react";
-import "./types";
-import "./style.css";
-import { Link } from "gatsby";
-import { SectionCardProps } from "./types";
-import { withPrefix } from "gatsby";
+import React from 'react'
+import './types'
+import './style.css'
+import { Link } from 'gatsby'
+import { SectionCardProps } from './types'
+import { withPrefix } from 'gatsby'
 
 export default function SectionCard({
   img,
   title,
   url,
   bgColor,
-  description,
+  description
 }: SectionCardProps) {
-
   return (
     <div className="section-card" style={{ background: bgColor }}>
       <Link to={url}>
@@ -23,5 +22,5 @@ export default function SectionCard({
         </div>
       </Link>
     </div>
-  );
+  )
 }

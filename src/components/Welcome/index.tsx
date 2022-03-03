@@ -1,12 +1,13 @@
-import React from "react";
-import "./types";
-import "./style.css";
-import { Header } from "decentraland-ui/dist/components/Header/Header";
-import { Section } from "decentraland-ui/dist/components/Section/Section";
-import SectionCard from "../SectionCard";
-const sections = require("./../../mocks/sections.json");
-import { SectionCardProps } from "../SectionCard/types";
-import { Link } from "gatsby";
+import React from 'react'
+import './types'
+import './style.css'
+import { Header } from 'decentraland-ui/dist/components/Header/Header'
+import { Section } from 'decentraland-ui/dist/components/Section/Section'
+import SectionCard from '../SectionCard'
+import { SectionCardProps } from '../SectionCard/types'
+import { Link } from 'gatsby'
+
+const sections = require('./../../mocks/sections.json')
 
 export default function Welcome() {
   return (
@@ -24,10 +25,10 @@ export default function Welcome() {
               title={item.title}
               description={item.description}
             />
-          );
+          )
         })}
         <Link to="/welcome/">Un link</Link>
       </div>
     </Section>
-  );
+  )
 }
