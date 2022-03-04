@@ -1,8 +1,8 @@
-import React from "react";
-import RootDir from "../RootDir";
-import "./style.css";
+import React from 'react'
+import RootDir from '../RootDir'
+import './style.css'
 
-const menu = require("./../../mocks/menu.json");
+const menu = require('./../../mocks/menu.json')
 
 export default function Sidebar() {
   return (
@@ -18,8 +18,8 @@ export default function Sidebar() {
               children={item.children}
               key={key}
             />
-          );
+          )
         })}
     </aside>
-  );
+  )
 }

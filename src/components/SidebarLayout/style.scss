@@ -1,0 +1,26 @@
+.flex {
+    display: flex;
+}
+
+.docs-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px 0;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(115, 110, 125, 0.24);
+
+    h2 {
+        margin: 0;
+        padding: 0;
+        font-size: 28px;
+        font-weight: normal;
+        text-transform: capitalize;
+    }
+
+    img {
+        width: 40px;
+        padding-right: 12px;
+    }
+
+}
