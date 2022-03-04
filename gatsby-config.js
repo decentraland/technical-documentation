@@ -1,3 +1,6 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 module.exports = {
   assetPrefix: process.env.ASSETPATH,
   pathPrefix: process.env.PATHPREFIX,
@@ -26,10 +29,11 @@ module.exports = {
       },
       __key: "pages",
     },
-    {resolve: "gatsby-source-filesystem",
-    options: {
-      name: "images",
-      path: "./src/images/",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: "./src/images/",
     },
     __key: "images",
   },

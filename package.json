@@ -8,7 +8,7 @@
     "develop": "gatsby develop",
     "start": "GATSBY_ENV=develop gatsby develop",
     "build": "GATSBY_VERSION=$npm_package_version GATSBY_ENV=prod gatsby build",
-    "build-prefix": "GATSBY_VERSION=$npm_package_version GATSBY_ENV=prod PREFIX_PATHS=true ASSETPATH=https://cdn.decentraland.org/ gatsby build",
+    "build-prefix": "GATSBY_VERSION=$npm_package_version GATSBY_ENV=prod ASSETPATH=https://cdn.decentraland.org/@dcl/docs-site/$npm_package_version/ gatsby build --prefix-paths",
     "serve": "gatsby serve --prefix-paths",
     "clean": "gatsby clean",
     "lint": "eslint . --ext .ts"
