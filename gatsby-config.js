@@ -25,7 +25,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "pages",
-        path: "./src/docs/",
+        path: "./src/repos/",
       },
       __key: "pages",
     },
@@ -38,5 +38,11 @@ module.exports = {
     __key: "images",
   },
     "gatsby-transformer-remark",
+    {
+      resolve: `gatsby-plugin-compile-es6-packages`,
+      options: {
+        modules: [`./src/scripts/docsScrapper.js`, `./src/utils/cloneRepos.js`, `./src/utils/shellCommands.js`]
+      }
+    }
   ],
 };

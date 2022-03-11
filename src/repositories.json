@@ -1,0 +1,14 @@
+{
+    "repositories": [
+      {
+        "category": "SDK",
+        "name": "kernel",
+        "url": "https://github.com/decentraland/kernel"       
+      },
+      {
+        "category": "SDK",
+        "name": "linker-dapp",
+        "url": "https://github.com/decentraland/linker-dapp"       
+      }
+    ]
+  }

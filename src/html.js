@@ -1,10 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import "decentraland-ui/dist/themes/base-theme.css";
-import "decentraland-ui/dist/themes/alternative/light-theme.css";
-import "decentraland-ui/lib/dark-theme.css";
-
-
+import React from 'react'
+import PropTypes from 'prop-types'
+import 'decentraland-ui/dist/themes/base-theme.css'
+import 'decentraland-ui/dist/themes/alternative/light-theme.css'
+import 'decentraland-ui/lib/dark-theme.css'
 
 export default function HTML(props) {
   return (
@@ -29,7 +27,7 @@ export default function HTML(props) {
         {props.postBodyComponents}
       </body>
     </html>
-  );
+  )
 }
 
 HTML.propTypes = {
@@ -38,5 +36,5 @@ HTML.propTypes = {
   bodyAttributes: PropTypes.object,
   preBodyComponents: PropTypes.array,
   body: PropTypes.string,
-  postBodyComponents: PropTypes.array,
-};
+  postBodyComponents: PropTypes.array
+}
