@@ -35,9 +35,6 @@ export const query = graphql`
       }
       html
       tableOfContents
-      frontmatter {
-        title
-      }
     }
   }
 `

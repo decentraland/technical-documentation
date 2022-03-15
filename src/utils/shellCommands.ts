@@ -6,7 +6,7 @@ const FileDescriptorStandardOption = {
   ONLY_IF_THROW: 3
 }
 
-export function runCommand({ workingDir, command, args, fdStandards }) {
+export function runCommand({ workingDir, command, args, fdStandards }: any) {
   const standarOption = fdStandards || FileDescriptorStandardOption.SILENT
   return new Promise((resolve, reject) => {
     const child = spawn(command, args, {
@@ -48,12 +48,16 @@ export function runCommand({ workingDir, command, args, fdStandards }) {
           reject(new Error(errorMessage))
         }
       }
-      resolve()
+      resolve(true)
     })
   })
 }
 
-export function downloadRepo(workingDir, url, destinationPath) {
+export function downloadRepo(
+  workingDir: string,
+  url: string,
+  destinationPath: string
+) {
   return runCommand({
     workingDir,
     command: 'git',
@@ -62,7 +66,7 @@ export function downloadRepo(workingDir, url, destinationPath) {
   })
 }
 
-export function cleanUpDependencies(workingDir, targetDir) {
+export function cleanUpDependencies(workingDir: string, targetDir: string) {
   return runCommand({
     workingDir,
     command: 'find',

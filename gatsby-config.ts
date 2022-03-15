@@ -1,6 +1,8 @@
-require("dotenv").config({
+import dotenv from "dotenv";
+
+dotenv.config({
   path: `.env.${process.env.NODE_ENV}`,
-})
+});
 module.exports = {
   assetPrefix: process.env.ASSETPATH,
   pathPrefix: process.env.PATHPREFIX,
@@ -34,15 +36,19 @@ module.exports = {
       options: {
         name: "images",
         path: "./src/images/",
+      },
+      __key: "images",
     },
-    __key: "images",
-  },
     "gatsby-transformer-remark",
     {
       resolve: `gatsby-plugin-compile-es6-packages`,
       options: {
-        modules: [`./src/scripts/docsScrapper.js`, `./src/utils/cloneRepos.js`, `./src/utils/shellCommands.js`]
-      }
-    }
+        modules: [
+          `./src/scripts/docsScrapper.js`,
+          `./src/utils/cloneRepos.ts`,
+          `./src/utils/shellCommands.js`,
+        ],
+      },
+    },
   ],
 };

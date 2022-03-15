@@ -7,7 +7,7 @@ import SectionCard from '../SectionCard'
 import { SectionCardProps } from '../SectionCard/types'
 import { Link } from 'gatsby'
 
-const sections = require('./../../mocks/sections.json')
+import sections from './../../mocks/sections.json'
 
 export default function Welcome() {
   return (

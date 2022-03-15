@@ -8,20 +8,24 @@ import { downloadRepo } from './shellCommands.js'
 
 export async function cloneRepos() {
   const queue = new PQueue({ concurrency: 10 })
-  const currentWorkingDir = path.resolve(process.cwd(), DOCS_FOLDER)
+  const currentWorkingDir = process.cwd()
   const promises = repositoryListJson.repositories.map((repo) =>
     queue.add(async () => {
       if (!repo.url.startsWith('https://')) {
         throw new Error(`Repo ${repo.url} is not safe.`)
       }
 
-      const dir = `${process.cwd()}/src/${DOCS_FOLDER}/${repo.category}/${
-        repo.name
-      }`
+      console.log(process.cwd())
+
+      const dir = `${currentWorkingDir}/src/${DOCS_FOLDER}/${repo.category}/${repo.name}`
 
       if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, { recursive: true })
-        await downloadRepo(currentWorkingDir, repo.url, dir)
+        try {
+          await downloadRepo(process.cwd(), repo.url, dir)
+        } catch (e) {
+          console.log(e)
+        }
       }
     })
   )

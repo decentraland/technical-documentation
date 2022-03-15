@@ -2,7 +2,7 @@ import React from 'react'
 import RootDir from '../RootDir'
 import './style.css'
 
-const menu = require('./../../mocks/menu.json')
+import menu from '../../mocks/menu.json'
 
 export default function Sidebar() {
   return (
