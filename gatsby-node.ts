@@ -1,10 +1,5 @@
 import path from 'path'
 import { createFilePath } from 'gatsby-source-filesystem'
-import { cloneRepos } from './src/utils/cloneRepos'
-import {
-  cleanUpDependencies
-  // moveToParentDir,
-} from './src/utils/shellCommands'
 
 exports.onCreateNode = async ({ node, getNode, actions }: any) => {
   const { createNodeField } = actions
@@ -17,17 +12,6 @@ exports.onCreateNode = async ({ node, getNode, actions }: any) => {
     })
   }
 }
-
-// exports.onPreInit = async () => {
-//   console.log('running pre build scripts')
-//   async function main() {
-//     await cloneRepos()
-//     await cleanUpDependencies(process.cwd(), './src/repos')
-//     // await moveToParentDir(process.cwd(), "./src/repos");
-//   }
-
-//   await main()
-// }
 
 exports.createPages = ({ graphql, actions }: any) => {
   const { createPage } = actions

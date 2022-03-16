@@ -1,7 +1,5 @@
 import fs from 'fs-extra'
-import path from 'path'
 import PQueue from 'p-queue'
-
 import repositoryListJson from './../repositories.json'
 const DOCS_FOLDER = 'repos'
 import { downloadRepo } from './shellCommands.js'
@@ -15,14 +13,12 @@ export async function cloneRepos() {
         throw new Error(`Repo ${repo.url} is not safe.`)
       }
 
-      console.log(process.cwd())
-
       const dir = `${currentWorkingDir}/src/${DOCS_FOLDER}/${repo.category}/${repo.name}`
 
       if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, { recursive: true })
         try {
-          await downloadRepo(process.cwd(), repo.url, dir)
+          await downloadRepo(currentWorkingDir, repo.url, dir)
         } catch (e) {
           console.log(e)
         }
