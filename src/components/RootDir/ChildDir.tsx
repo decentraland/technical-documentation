@@ -9,15 +9,12 @@ type Props = {
 
 export default function ChildDir(props: Props) {
   const { name, children, offset, type } = props;
-  const [open, setOpen] = useState<boolean>();
 
   return (
     <>
       {type === "dir" && (
         <div
-          className={open ? "child-container" : "child-container-collapsed"}
           style={{ paddingLeft: `${10 * offset}px` }}
-          onClick={(prevState) => setOpen(!prevState)}
         >
           <div>{name}</div>
           {children &&

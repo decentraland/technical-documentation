@@ -4,15 +4,7 @@ import './style.scss'
 import { Link } from 'gatsby'
 import { SectionCardProps } from './types'
 import { StaticImage } from 'gatsby-plugin-image'
-
-// TODO move to utils
-function formatPaths(url: string) {
-  const finalPath =
-    process.env.GATSBY_ENV === 'prod'
-      ? `https://cdn.decentraland.org/@dcl/docs-site/${process.env.GATSBY_VERSION}/${url}`
-      : url
-  return finalPath
-}
+import formatPaths from '../../utils/formatPaths'
 
 export default function UserTypeCard({
   title,
