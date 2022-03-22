@@ -3,9 +3,9 @@ import { graphql, StaticQuery, useStaticQuery } from 'gatsby'
 import RootDir from '../RootDir'
 import './style.css'
 
-import menu from '../../mocks/menu.json'
-import { CommentContent } from 'decentraland-ui'
+import menu from '../../mocks/generated-menu.json'
 
+console.log(menu)
 export default function Sidebar() {
 
   const data = useStaticQuery(graphql`
@@ -25,21 +25,13 @@ export default function Sidebar() {
 
 `)
 
-function generateMenu(data) {
-  data.map(item => {
-    console.log(item)
-  })
-}
-
-generateMenu(data.allFile.edges)
-
   return (
     <aside className="sidebar-container">
       <span>This is a sidebar</span>
       
 
-      {menu.data &&
-        menu.data.map((item: any, key: number) => {
+      {menu &&
+        menu.map((item: any, key: number) => {
           return (
             <RootDir
               name={item.name}
