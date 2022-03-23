@@ -1,14 +1,24 @@
 {
     "repositories": [
       {
-        "category": "SDK",
-        "name": "kernel",
-        "url": "https://github.com/decentraland/kernel"       
+        "category": "architecture",
+        "name": "ADR",
+        "url": "https://github.com/decentraland/adr"
+      },
+      {
+        "category": "architecture",
+        "name": "unity-renderer",
+        "url": "https://github.com/decentraland/unity-renderer"
       },
       {
         "category": "SDK",
-        "name": "linker-dapp",
-        "url": "https://github.com/decentraland/linker-dapp"       
+        "name": "kernel",
+        "url": "https://github.com/decentraland/kernel"
+      },
+      {
+        "category": "platform",
+        "name": "catalyst",
+        "url": "https://github.com/decentraland/catalyst"
       }
     ]
   }

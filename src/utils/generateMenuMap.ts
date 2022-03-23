@@ -38,7 +38,6 @@ function buildLeafs(currentScope, path) {
     nextLayer.forEach((nextItem, i) => {
         if (fs.statSync(`${path}/${nextItem}`).isDirectory()) {
             if (nextItem.toLowerCase() === "docs") {
-                console.log(currentScope, 11)
             } else {
                 currentScope.push({
                     name: nextItem.toLowerCase(),
