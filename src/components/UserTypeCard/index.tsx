@@ -17,7 +17,7 @@ export default function UserTypeCard({
     <div className="section-card" style={{ background: bgColor }}>
       <Link to={url}>
         <div className="card-img">
-          <img src={formatPaths(img)} alt={title} />
+          {/* <img src={formatPaths(img)} alt={title} /> */}
         </div>
         <div className="section-card-info">
           <h3>{title}</h3>

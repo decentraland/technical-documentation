@@ -7,20 +7,20 @@ import { SectionCardProps } from '../SectionCard/types'
 import UserTypeCard from '../UserTypeCard'
 
 const info = [
-  {
-    img: 'user.png',
-    url: 'user',
-    bgColor: '#FF2D55',
-    title: 'User',
-    description: 'A description'
-  },
-  {
-    img: 'contributor.png',
-    url: 'creator',
-    bgColor: '#4947CD',
-    title: 'Creator',
-    description: 'A description'
-  },
+  // {
+  //   img: 'user.png',
+  //   url: 'user',
+  //   bgColor: '#FF2D55',
+  //   title: 'User',
+  //   description: 'A description'
+  // },
+  // {
+  //   img: 'contributor.png',
+  //   url: 'creator',
+  //   bgColor: '#4947CD',
+  //   title: 'Creator',
+  //   description: 'A description'
+  // },
   {
     img: 'creator.png',
     url: 'contributor',

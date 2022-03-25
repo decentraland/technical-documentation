@@ -17,8 +17,6 @@ export async function generateMenuMap() {
         })
     }))
 
-    console.log(menu)
-
     fs.writeFile('./src/mocks/generated-menu.json', JSON.stringify(menu), err => {
         if (err) {
           console.error(err)
@@ -33,18 +31,13 @@ export async function generateMenuMap() {
 function buildLeafs(currentScope, path) {
     const nextLayer = getDirectories(path)    
 
-    console.log(currentScope)
-
     nextLayer.forEach((nextItem, i) => {
         if (fs.statSync(`${path}/${nextItem}`).isDirectory()) {
-            if (nextItem.toLowerCase() === "docs") {
-            } else {
                 currentScope.push({
                     name: nextItem.toLowerCase(),
                     type: 'dir',
                     children: buildLeafs([], `${path}/${nextItem}`)
                 })
-            }
         } else {
             currentScope.push({
                 name: nextItem.toLowerCase(),
@@ -55,3 +48,5 @@ function buildLeafs(currentScope, path) {
 
     return currentScope
 }
+
+generateMenuMap()

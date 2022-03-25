@@ -13,7 +13,7 @@ export default function Template({ data }: any) {
   const { html } = markdownRemark
   return (
     <>
-      <SidebarLayout name={getLocation(markdownRemark.fields.slug)}>
+      <SidebarLayout name="contributor">
         <div className="blog-post-container">
           <div className="blog-post">
             <div

@@ -5,7 +5,6 @@ import './style.css'
 
 import menu from '../../mocks/generated-menu.json'
 
-console.log(menu)
 export default function Sidebar() {
 
   const data = useStaticQuery(graphql`
@@ -38,6 +37,7 @@ export default function Sidebar() {
               offset={0}
               children={item.children}
               key={key}
+              prevName={item.name}
             />
           )
         })}

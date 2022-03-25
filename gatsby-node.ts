@@ -8,7 +8,7 @@ exports.onCreateNode = async ({ node, getNode, actions }: any) => {
     createNodeField({
       node,
       name: `slug`,
-      value: slug.replace('/docs', '')
+      value: slug.toLowerCase()
     })
   }
 }
