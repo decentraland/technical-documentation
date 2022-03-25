@@ -21,6 +21,7 @@ export function runCommand({ workingDir, command, args, fdStandards }: any) {
     if (standarOption === FileDescriptorStandardOption.PIPE) {
       child.stdout.pipe(process.stdout)
       child.stderr.pipe(process.stderr)
+
     } else if (standarOption === FileDescriptorStandardOption.ONLY_IF_THROW) {
       child.stdout.on('data', (data) => {
         stdOut += data.toString()
@@ -86,3 +87,40 @@ export function cleanUpDependencies(workingDir: string, targetDir: string) {
     fdStandards: FileDescriptorStandardOption.PIPE
   })
 }
+
+// export function moveToParentDir(workingDir: string, targetDir: string) {
+//   return runCommand({
+//     workingDir,
+//     command: 'find',
+//     args: [
+//       targetDir,
+//       "-name '*.md'",
+//       '-execdir',
+//       'mv',
+//       '{}',
+//       '".."',
+//       '\;'
+//     ],
+//     fdStandards: FileDescriptorStandardOption.PIPE
+//   })
+// }
+
+export function removeFolder(workingDir: string, targetDir: string, folder: string) {
+  return runCommand({
+    workingDir,
+    command: 'find',
+    args: [
+      targetDir,
+      '-name',
+      folder,
+      '-exec',
+      'rm',
+      '-rf',
+      '{}',
+      '+'
+    ],
+    fdStandards: FileDescriptorStandardOption.PIPE
+  })
+}
+
+//find ./src/repos -name '*.md' -execdir mv {} '../' \;

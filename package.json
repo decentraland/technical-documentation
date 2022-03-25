@@ -6,10 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\"",
     "develop": "gatsby develop",
-    "clone-and-clean": "npx tsc --OutDir './src/scripts/dist' --skipLibCheck --resolveJsonModule --esModuleInterop ./src/scripts/docsScrapper.ts && node --experimental-json-modules ./src/scripts/dist/scripts/docsScrapper.js",
+    "clone-and-clean": "npx tsc --OutDir './src/scripts/dist' --skipLibCheck --resolveJsonModule --esModuleInterop ./src/scripts/docsScrapper.ts && node --experimental-json-modules ./src/scripts/dist/scripts/docsScrapper.js && ./src/utils/moveToParentDir.sh",
+    "generate-menu": "npx tsc --OutDir './src/scripts/dist' --skipLibCheck --resolveJsonModule --esModuleInterop ./src/utils/generateMenuMap.ts && node --experimental-json-modules ./src/scripts/dist/generateMenuMap.js",
     "start": "GATSBY_ENV=develop gatsby develop",
     "build": "GATSBY_VERSION=$npm_package_version GATSBY_ENV=prod gatsby build",
-    "build-prefix": "npm run clone-and-clean && GATSBY_VERSION=$npm_package_version GATSBY_ENV=prod ASSETPATH=https://cdn.decentraland.org/@dcl/docs-site/$npm_package_version/ gatsby build --prefix-paths",
+    "build-prefix": "npm run clone-and-clean && npm run generate-menu && GATSBY_VERSION=$npm_package_version GATSBY_ENV=prod ASSETPATH=https://cdn.decentraland.org/@dcl/docs-site/$npm_package_version/ gatsby build --prefix-paths",
     "serve": "gatsby serve --prefix-paths",
     "clean": "gatsby clean",
     "lint": "eslint . --ext .ts"

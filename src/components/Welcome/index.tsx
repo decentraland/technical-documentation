@@ -27,7 +27,6 @@ export default function Welcome() {
             />
           )
         })}
-        <Link to="/welcome/">Un link</Link>
       </div>
     </Section>
   )

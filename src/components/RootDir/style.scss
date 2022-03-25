@@ -1,6 +1,10 @@
-.rootContainer {
+.root-container {
     align-items: center;
     padding: 5px 0;
+
+    .root-title {
+        font-weight: bold;
+    }
 }
 
 .icon {
@@ -8,14 +12,14 @@
 }
 
 .child-container {
-    padding: 10px 0;
+    padding:
+    0;
     max-height: 1000px;
     transition: max-height 0.4s ease-in-out;
 }
 
 .child-container-collapsed {
-    padding: 10px 0;
-    max-height: 30px;
+    max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease-in-out;
 }
