@@ -11,6 +11,7 @@ function getLocation(slug: string) {
 export default function Template({ data }: any) {
   const { markdownRemark } = data
   const { html } = markdownRemark
+  console.log(markdownRemark, 33)
   return (
     <>
       <SidebarLayout name="contributor">
@@ -35,6 +36,10 @@ export const query = graphql`
       }
       html
       tableOfContents
+      frontmatter {
+        slug
+        title
+      }
     }
   }
 `
