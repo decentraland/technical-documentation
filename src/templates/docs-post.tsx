@@ -10,13 +10,13 @@ function getLocation(slug: string) {
 
 export default function Template({ data }: any) {
   const { markdownRemark } = data
-  const { html } = markdownRemark
-  console.log(markdownRemark, 33)
+  const { html, frontmatter } = markdownRemark
   return (
     <>
       <SidebarLayout name="contributor">
         <div className="blog-post-container">
           <div className="blog-post">
+            <h1>{frontmatter.title}</h1>
             <div
               className="blog-post-content"
               dangerouslySetInnerHTML={{ __html: html }}
