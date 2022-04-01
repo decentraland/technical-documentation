@@ -88,20 +88,3 @@ export function cleanUpDependencies(workingDir: string, targetDir: string) {
   })
 }
 
-export function removeFolder(workingDir: string, targetDir: string, folder: string) {
-  return runCommand({
-    workingDir,
-    command: 'find',
-    args: [
-      targetDir,
-      '-name',
-      folder,
-      '-exec',
-      'rm',
-      '-rf',
-      '{}',
-      '+'
-    ],
-    fdStandards: FileDescriptorStandardOption.PIPE
-  })
-}
