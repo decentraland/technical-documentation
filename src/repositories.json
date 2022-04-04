@@ -1,24 +1,9 @@
 {
-    "repositories": [
-      {
-        "category": "architecture",
-        "name": "ADR",
-        "url": "https://github.com/decentraland/adr"
-      },
-      {
-        "category": "architecture",
-        "name": "unity-renderer",
-        "url": "https://github.com/decentraland/unity-renderer"
-      },
-      {
-        "category": "SDK",
-        "name": "kernel",
-        "url": "https://github.com/decentraland/kernel"
-      },
-      {
-        "category": "platform",
-        "name": "catalyst",
-        "url": "https://github.com/decentraland/catalyst"
-      }
-    ]
-  }
+  "repositories": [
+    {
+      "category": "mockumentary",
+      "name": "mock-repo",
+      "url": "https://github.com/doomling/mock-docs"
+    }
+  ]
+}
