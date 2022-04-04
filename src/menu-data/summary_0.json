@@ -1,0 +1,19 @@
+{
+  "test repo": {
+    "children": [
+      {
+        "name": "Mockumentary",
+        "children": [
+          {
+            "name": "Code review standards",
+            "slug": "/contributor/mock/getting-started/code-review-standards"
+          },
+          {
+            "name": "Code style guidelines",
+            "slug": "slug: /contributor/mock/getting-started/style-guidelines"
+          }
+        ]
+      }
+    ]
+  }
+}

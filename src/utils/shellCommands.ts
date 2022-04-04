@@ -88,39 +88,3 @@ export function cleanUpDependencies(workingDir: string, targetDir: string) {
   })
 }
 
-// export function moveToParentDir(workingDir: string, targetDir: string) {
-//   return runCommand({
-//     workingDir,
-//     command: 'find',
-//     args: [
-//       targetDir,
-//       "-name '*.md'",
-//       '-execdir',
-//       'mv',
-//       '{}',
-//       '".."',
-//       '\;'
-//     ],
-//     fdStandards: FileDescriptorStandardOption.PIPE
-//   })
-// }
-
-export function removeFolder(workingDir: string, targetDir: string, folder: string) {
-  return runCommand({
-    workingDir,
-    command: 'find',
-    args: [
-      targetDir,
-      '-name',
-      folder,
-      '-exec',
-      'rm',
-      '-rf',
-      '{}',
-      '+'
-    ],
-    fdStandards: FileDescriptorStandardOption.PIPE
-  })
-}
-
-//find ./src/repos -name '*.md' -execdir mv {} '../' \;

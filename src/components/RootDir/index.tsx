@@ -1,3 +1,4 @@
+import { Item } from "decentraland-ui";
 import React from "react";
 import { useState } from "react";
 import ChildDir from "./ChildDir";
@@ -7,13 +8,12 @@ type Props = {
   name: string;
   offset: number;
   path?: string;
-  prevName?:string;
-  type?: string; 
+  slug?: string; 
   children?: JSX.Element[]; // TODO - verify type
 };
 
 export default function RootDir(props: Props) {
-  const { name, children, offset, type, prevName } = props;
+  const { name, children, offset, slug } = props;
   const [open, setOpen] = useState<boolean>(false);
 
 
@@ -25,21 +25,19 @@ export default function RootDir(props: Props) {
             className="icon"
             src={`https://cdn.decentraland.org${withPrefix(`/${name}.svg`)}`}
           /> */}
-          {type === 'file' ? <a href={`/${prevName.replace('.md', "")}`}>{name}</a> : <span>{name}</span>}
+          {!children ? <a href={slug}>{name}</a> : <span>{name}</span>}
         </div>
         <div className={open ? "child-container" : "child-container-collapsed"} style={{ paddingLeft: `${10 * offset}px` }}>
         {children &&
           // TO-DO: type the objects, need to define data structure first
           children.map((item: any, key: number) => {
-            const formattedName = item.name.replaceAll("-", " ").replace(".md", "")
             return (
               <RootDir
-                name={formattedName}
+                name={item.name}
                 children={item.children}
                 offset={1}
-                type={item.type}
+                slug={item.slug}
                 key={key}
-                prevName={`${prevName}/${item.name}`}
               />
             );
           })}

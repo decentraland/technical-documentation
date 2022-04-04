@@ -18,10 +18,13 @@ exports.createPages = ({ graphql, actions }: any) => {
   return new Promise((resolve, reject) => {
     graphql(`
       {
-        allMarkdownRemark {
+        allMarkdownRemark(filter: { frontmatter: { slug: { ne: null } } }) {
           edges {
             node {
               fields {
+                slug
+              }
+              frontmatter {
                 slug
               }
             }
@@ -29,9 +32,10 @@ exports.createPages = ({ graphql, actions }: any) => {
         }
       }
     `).then((result: any) => {
+      console.log(result)
       result.data.allMarkdownRemark.edges.forEach(({ node }: any) => {
         createPage({
-          path: node.fields.slug,
+          path: node.frontmatter.slug,
           component: path.resolve(`./src/templates/docs-post.tsx`),
           context: {
             slug: node.fields.slug
