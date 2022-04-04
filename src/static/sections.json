@@ -1,0 +1,11 @@
+{
+  "data": [
+    {
+      "title": "One section",
+      "img": "image-api.svg",
+      "url": "contributor",
+      "bgColor": "#AC18C9",
+      "description": "A description, not longer than two lines"
+    }
+  ]
+}

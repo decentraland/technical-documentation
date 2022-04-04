@@ -3,7 +3,7 @@ import { graphql, StaticQuery, useStaticQuery } from 'gatsby'
 import RootDir from '../RootDir'
 import './style.css'
 
-import menu from '../../mocks/generated-menu.json'
+import menu from '../../repos/menu.json'
 
 export default function Sidebar() {
 

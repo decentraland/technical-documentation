@@ -1,3 +1,15 @@
-
-find ./src/repos -name 'summary.json' -execdir mv {} './src/static-data/' \;
-find ./src/repos/static-data/* -name \*json cat {} |  jq -s 'flatten' > 'menu.json'
+A=0 && for i in ./src/repos/*/*/*/summary.json; do cp ${i} ./src/menu-data/summary_${A}.json && let  A++ ; done
+echo -n "["                                  
+                                             
+FILES=(./src/menu-data/*)                               
+LEN=${#FILES[@]}                             
+INDEX=0                                      
+                                             
+for i in ${FILES[@]}; do                     
+                                             
+      cat $i                                 
+      [ $INDEX -ne $((LEN-1)) ] && echo ","  
+      let INDEX++;                           
+done                                         
+                                             
+echo "]"
