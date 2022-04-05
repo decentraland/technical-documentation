@@ -1,4 +1,5 @@
 import { Item } from "decentraland-ui";
+import { Link } from "gatsby";
 import React from "react";
 import { useState } from "react";
 import ChildDir from "./ChildDir";
@@ -25,7 +26,7 @@ export default function RootDir(props: Props) {
             className="icon"
             src={`https://cdn.decentraland.org${withPrefix(`/${name}.svg`)}`}
           /> */}
-          {!children ? <a href={slug}>{name}</a> : <span>{name}</span>}
+          {!children ? <Link to={slug}>{name}</Link> : <span>{name}</span>}
         </div>
         <div className={open ? "child-container" : "child-container-collapsed"} style={{ paddingLeft: `${10 * offset}px` }}>
         {children &&
