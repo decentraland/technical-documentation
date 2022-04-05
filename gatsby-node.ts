@@ -32,7 +32,6 @@ exports.createPages = ({ graphql, actions }: any) => {
         }
       }
     `).then((result: any) => {
-      console.log(result)
       result.data.allMarkdownRemark.edges.forEach(({ node }: any) => {
         createPage({
           path: node.frontmatter.slug,
