@@ -1,6 +1,18 @@
 import path from 'path'
 import { createFilePath } from 'gatsby-source-filesystem'
 
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        '@components': path.resolve('./src/components'),
+        '@styles': path.resolve('./src/styles'),
+        '@utils': path.resolve('./src/utils')
+      }
+    }
+  })
+}
+
 exports.onCreateNode = async ({ node, getNode, actions }: any) => {
   const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {

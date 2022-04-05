@@ -1,9 +1,8 @@
 import React from 'react'
 import './types'
-import './style.css'
+import './style.scss'
 import { Link } from 'gatsby'
 import { SectionCardProps } from './types'
-import { withPrefix } from 'gatsby'
 
 export default function SectionCard({
   img,
@@ -15,7 +14,7 @@ export default function SectionCard({
   return (
     <div className="section-card" style={{ background: bgColor }}>
       <Link to={url}>
-        <img src={`https://cdn.decentraland.org${withPrefix(img)}`} />
+        <img src={img} />
         <div className="section-card-info">
           <h3>{title}</h3>
           <p>{description}</p>

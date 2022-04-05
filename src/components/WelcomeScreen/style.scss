@@ -1,0 +1,17 @@
+@import "@styles/variables.scss";
+
+.welcome-subheader {
+  font-size: 21px;
+  color: $gray;
+  margin-bottom: 20px;
+}
+
+.section-cards-container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+}
+
+.tag-wrapper {
+  display: flex;
+}

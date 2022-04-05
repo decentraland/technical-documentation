@@ -1,0 +1,20 @@
+@import "./../../styles/variables.scss";
+
+.tag-container {
+  background-color: #f2f2f5;
+  border-radius: 6px;
+  padding: 10px;
+  color: $black;
+  display: flex;
+  align-items: center;
+  margin: 0 10px 10px 0;
+  font-size: 1em;
+
+  span {
+    text-transform: capitalize;
+  }
+
+  img {
+    margin-right: 10px;
+  }
+}
