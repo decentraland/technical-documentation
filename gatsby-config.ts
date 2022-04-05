@@ -22,7 +22,6 @@ module.exports = {
     "gatsby-plugin-sass",
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`, // Needed for dynamic images
     {
       resolve: "gatsby-source-filesystem",
       options: {

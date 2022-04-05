@@ -47,8 +47,8 @@ const tags = [
 export default function WelcomeScreen() {
   return (
     <Section>
-      <Header>Documentation</Header>
-      <p>Help build the Metaverse</p>
+      <Header size="huge">Documentation</Header>
+      <p className='welcome-subheader'>Help build the Metaverse</p>
       <Header>Profiles</Header>
       <p>
         We divided the content of our documentation in different profiles,
