@@ -7,23 +7,16 @@ import { Section } from 'decentraland-ui/dist/components/Section/Section'
 import { Navbar } from 'decentraland-ui/dist/components/Navbar/Navbar'
 import Sidebar from '../../components/Sidebar'
 import './style.scss'
-import formatPaths from '../../utils/formatPaths'
 
 export type Props = {
   children?: JSX.Element[] | JSX.Element // verify type
-  name: string
 }
 
-export default function SidebarLayout({ name, children }: Props) {
+export default function SidebarLayout({ children }: Props) {
   return (
     <>
-      <>
-        <Navbar onSignIn={() => console.log('Clicked on sign in')} />
-        <Page>
-          <div className="docs-header">
-            <img src={formatPaths(name + '.png')} />
-            <h2 className="docs-title">{name} Documentation</h2>
-          </div>
+      <Navbar isFullscreen onSignIn={() => console.log('Clicked on sign in')} />
+        <Page isFullscreen>
           <Section className="flex">
             <Sidebar />
             {children}
@@ -31,6 +24,5 @@ export default function SidebarLayout({ name, children }: Props) {
         </Page>
         <Footer />
       </>
-    </>
   )
 }

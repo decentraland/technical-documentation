@@ -6,30 +6,7 @@ import { Section } from 'decentraland-ui/dist/components/Section/Section'
 import { SectionCardProps } from '../SectionCard/types'
 import UserTypeCard from '../UserTypeCard'
 import Tags from '../Tags'
-
-const info = [
-  {
-    img: 'user.png',
-    url: 'user',
-    bgColor: '#FF2D55',
-    title: 'User',
-    description: 'A description'
-  },
-  {
-    img: 'contributor.png',
-    url: 'creator',
-    bgColor: '#4947CD',
-    title: 'Creator',
-    description: 'A description'
-  },
-  {
-    img: 'creator.png',
-    url: 'contributor',
-    bgColor: '#EE834A',
-    title: 'Contributor',
-    description: 'A description'
-  }
-]
+import categories from  "../../mocks/categories.json"
 
 const tags = [
   {
@@ -55,7 +32,7 @@ export default function WelcomeScreen() {
         choose the appropiate one for your needs
       </p>
       <div className="section-cards-container">
-        {info.map((item: SectionCardProps, i: number) => {
+        {categories.data.map((item: SectionCardProps, i: number) => {
           return (
             <UserTypeCard
               key={i}

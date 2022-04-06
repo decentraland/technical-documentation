@@ -4,9 +4,9 @@ import 'decentraland-ui/dist/themes/alternative/light-theme.css'
 import Welcome from '../components/Welcome'
 import SidebarLayout from '../components/SidebarLayout'
 
-export default function IndexPage() {
+export default function IndexPage(props) {
   return (
-    <SidebarLayout name="creator">
+    <SidebarLayout category={props.location.pathname}>
       <Welcome />
     </SidebarLayout>
   )
