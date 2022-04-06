@@ -1,19 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import SidebarLayout from './../components/SidebarLayout'
-
-// TODO MOVE TO UTILS
-function getLocation(slug: string) {
-  const segment = slug.split('/')
-  return segment[1]
-}
+import "./style.scss"
 
 export default function Template({ data }: any) {
   const { markdownRemark } = data
   const { html, frontmatter } = markdownRemark
   return (
     <>
-      <SidebarLayout name="contributor">
+      <SidebarLayout>
         <div className="blog-post-container">
           <div className="blog-post">
             <h1>{frontmatter.title}</h1>

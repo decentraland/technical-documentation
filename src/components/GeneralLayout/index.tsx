@@ -4,7 +4,6 @@ import 'decentraland-ui/dist/themes/alternative/light-theme.css'
 import { Footer } from 'decentraland-ui/dist/components/Footer/Footer'
 import { Page } from 'decentraland-ui/dist/components/Page/Page'
 import { Navbar } from 'decentraland-ui/dist/components/Navbar/Navbar'
-import Sidebar from '../../components/Sidebar'
 import './style.css'
 
 export type Props = {
@@ -15,7 +14,7 @@ export default function GeneralLayout({ children }: Props) {
   return (
     <>
       <>
-        <Navbar onSignIn={() => console.log('Clicked on sign in')} />
+        <Navbar isFullscreen onSignIn={() => console.log('Clicked on sign in')} />
         <Page>
           <Page className="flex">
             {/* <Sidebar /> */}

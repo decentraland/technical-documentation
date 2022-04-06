@@ -2,7 +2,7 @@ import { Item } from "decentraland-ui";
 import { Link } from "gatsby";
 import React from "react";
 import { useState } from "react";
-import ChildDir from "./ChildDir";
+import formatPaths from '../../utils/formatPaths'
 import "./style.scss";
 
 type Props = {
@@ -26,9 +26,9 @@ export default function RootDir(props: Props) {
             className="icon"
             src={`https://cdn.decentraland.org${withPrefix(`/${name}.svg`)}`}
           /> */}
-          {!children ? <Link to={slug}>{name}</Link> : <span>{name}</span>}
+          {children ? offset === 0 ?  <span className="sidebar-category">{name}</span> : <span className="sidebar-dir"><img src={formatPaths("drop-down.png")} />{name}</span> : <Link className="sidebar-item" to={slug}>{name}</Link> }
         </div>
-        <div className={open ? "child-container" : "child-container-collapsed"} style={{ paddingLeft: `${10 * offset}px` }}>
+        <div className={open ? "child-container" : "child-container-collapsed"} style={{ paddingLeft: `${20 * offset}px` }}>
         {children &&
           // TO-DO: type the objects, need to define data structure first
           children.map((item: any, key: number) => {

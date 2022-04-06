@@ -1,9 +1,26 @@
+@import "@styles/variables.scss";
+
 .root-container {
     align-items: center;
     padding: 5px 0;
+    font-size: 1em;
+    line-height: 24px;
+    text-transform: capitalize;
 
     .root-title {
         font-weight: bold;
+    }
+
+    .sidebar-dir, .sidebar-item {
+        color: $gray;
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+        padding: 5px 0;
+
+        img {
+            margin-right: 8px;
+        }
     }
 }
 
@@ -12,8 +29,7 @@
 }
 
 .child-container {
-    padding:
-    0;
+    padding: 0;
     max-height: 1000px;
     transition: max-height 0.4s ease-in-out;
 }

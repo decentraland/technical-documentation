@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import 'decentraland-ui/dist/themes/base-theme.css'
-import 'decentraland-ui/dist/themes/alternative/light-theme.css'
-import 'decentraland-ui/lib/dark-theme.css'
+import "@fontsource/inter"
+import "./styles/global-styles.scss"
+import "@styles/docs-theme.scss"
 
 export default function HTML(props) {
   return (
