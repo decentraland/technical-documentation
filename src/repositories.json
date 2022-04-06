@@ -4,6 +4,16 @@
       "category": "mockumentary",
       "name": "mock-repo",
       "url": "https://github.com/doomling/mock-docs"
+    },
+    {
+      "category": "test",
+      "name": "sample",
+      "url": "https://github.com/doomling/doom-docs"
+    },
+    {
+      "category": "another test",
+      "name": "guides",
+      "url": "https://github.com/doomling/sample-docs"
     }
   ]
 }
