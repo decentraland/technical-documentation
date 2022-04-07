@@ -3,21 +3,21 @@
     {
       "title": "One section",
       "img": "image-api.svg",
-      "url": "www.google.com",
+      "url": "mock/getting-started/code-review-standards",
       "bgColor": "#AC18C9",
       "description": "A description, not longer than two lines"
     },
     {
       "title": "Another section",
       "img": "image-ship.svg",
-      "url": "www.google.com",
+      "url": "mock/getting-started/style-guidelines",
       "bgColor": "#00ADA5",
       "description": "A description, not longer than two lines"
     },
     {
       "title": "And another section",
       "img": "image-scene.svg",
-      "url": "www.google.com",
+      "url": "mock/getting-started/style-guidelines",
       "bgColor": "#314ADE",
       "description": "A description, not longer than two lines"
     }
