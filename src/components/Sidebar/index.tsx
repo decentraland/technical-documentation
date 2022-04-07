@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import RootDir from '../RootDir'
 import './style.scss'
 import formatPaths from '../../utils/formatPaths'
@@ -10,34 +10,46 @@ import categories from  "../../mocks/categories.json"
 
 export default function Sidebar() {
 
-  const category = location.pathname.split("/")[1]
-  const properties = categories.data.find(item => {
-    console.log(category, item.title)
-    return item.title.toLowerCase() == category 
+  const [category, setCategory] = useState<string>("")
+  const [properties, setProperties] = useState<any>()
+
+  useEffect(() => {
+    setCategory(location.pathname.split("/")[1])
+    const properties = categories.data.find(item => {
+      console.log(category, item.title)
+      return item.title.toLowerCase() == category 
+    })
+
+    setProperties(properties)
+
   })
 
   console.log(properties)
 
   return (
     <aside className="sidebar-container">
-      <div className="sidebar-header" style={{background: properties.bgColor}}>
-            <img src={formatPaths(`banner-${category}.png`)} />
-            <h2 className="sidebar-title">{category} Documentation</h2>
-          </div>
-      <div className='sidebar-items'>
-      {menu &&
-        menu.map((item: any, key: number) => {
-          return (
-            <RootDir
-              name={item.name}
-              offset={0}
-              children={item.children}
-              slug={item.slug}
-              key={key}
-            />
-          )
-        })}
-        </div>
+      {category && properties && 
+        <>
+          <div className="sidebar-header" style={{background: properties.bgColor}}>
+                <img src={formatPaths(`banner-${category}.png`)} />
+                <h2 className="sidebar-title">{category} Documentation</h2>
+              </div>
+          <div className='sidebar-items'>
+          {menu &&
+            menu.map((item: any, key: number) => {
+              return (
+                <RootDir
+                  name={item.name}
+                  offset={0}
+                  children={item.children}
+                  slug={item.slug}
+                  key={key}
+                />
+              )
+            })}
+            </div>
+          </>
+        }
     </aside>
   )
 }
