@@ -1,17 +1,16 @@
 import React from 'react'
 import './types'
-import './style.css'
+import './style.scss'
 import { Header } from 'decentraland-ui/dist/components/Header/Header'
 import { Section } from 'decentraland-ui/dist/components/Section/Section'
 import SectionCard from '../SectionCard'
 import { SectionCardProps } from '../SectionCard/types'
-import { Link } from 'gatsby'
 
 import sections from './../../mocks/sections.json'
 
 export default function Welcome() {
   return (
-    <Section>
+    <Section className='welcome-container'>
       <Header>Build the Metaverse</Header>
       <p>This is a regular page</p>
       <div className="section-cards-container">

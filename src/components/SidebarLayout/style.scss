@@ -1,3 +1,5 @@
+@import "@styles/variables.scss";
+
 .flex {
     display: flex;
 }
@@ -23,4 +25,17 @@
         padding-right: 12px;
     }
 
+}
+
+.navbar-border {
+    border-bottom: 1px solid $divider !important;
+}
+
+.section-no-margin {
+    margin: 0 !important;;
+}
+
+.footer {
+    width: 100%;
+    border-top: 1px solid $divider;
 }

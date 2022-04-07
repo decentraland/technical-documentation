@@ -1,6 +1,8 @@
+@import "@styles/variables.scss";
+
 .blog-post-container {
-    box-sizing: border-box;
+    // box-sizing: border-box;
     width: 70%;
-    margin: auto;
-    margin-top: 30px;
+    padding: 30px;
+    min-height: 100vh;
 }
