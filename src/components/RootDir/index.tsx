@@ -1,5 +1,5 @@
-import { Item } from "decentraland-ui";
 import { Link } from "gatsby";
+import { useEffect } from "react";
 import React from "react";
 import { useState } from "react";
 import formatPaths from '../../utils/formatPaths'
@@ -11,11 +11,26 @@ type Props = {
   path?: string;
   slug?: string; 
   children?: JSX.Element[]; // TODO - verify type
+  isOpen?: boolean;
+  openParent?: () => void;
 };
 
 export default function RootDir(props: Props) {
-  const { name, children, offset, slug } = props;
+  const { name, children, offset, slug, isOpen, openParent } = props;
   const [open, setOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (location.pathname.includes(slug)) {
+      openParent()
+      setOpen(true)
+    }
+  }, [])
+
+  function handleOpen() {
+    setOpen(true)
+
+    openParent && openParent()
+  }
 
 
   return (
@@ -26,7 +41,7 @@ export default function RootDir(props: Props) {
             className="icon"
             src={`https://cdn.decentraland.org${withPrefix(`/${name}.svg`)}`}
           /> */}
-          {children ? offset === 0 ?  <span className="sidebar-category">{name}</span> : <span className="sidebar-dir"><img src={formatPaths("drop-down.png")} />{name}</span> : <Link className="sidebar-item" to={slug}>{name}</Link> }
+          {children ? offset === 0 ?  <span className="sidebar-category">{name}</span> : <span className="sidebar-dir"><img src={formatPaths("drop-down.png")} />{name}</span> : <Link className={isOpen ? "sidebar-open" : "sidebar-item"} to={slug}>{name}</Link> }
         </div>
         <div className={open ? "child-container" : "child-container-collapsed"} style={{ paddingLeft: `${20 * offset}px` }}>
         {children &&
@@ -39,6 +54,8 @@ export default function RootDir(props: Props) {
                 offset={1}
                 slug={item.slug}
                 key={key}
+                isOpen={open}
+                openParent={handleOpen}
               />
             );
           })}
