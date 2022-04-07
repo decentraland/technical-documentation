@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import 'decentraland-ui/dist/themes/base-theme.css'
 import "@fontsource/inter"
 import "./styles/global-styles.scss"
-import "@styles/docs-theme.scss"
 
 export default function HTML(props) {
   return (
