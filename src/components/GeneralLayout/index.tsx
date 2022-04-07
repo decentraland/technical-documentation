@@ -14,7 +14,7 @@ export default function GeneralLayout({ children }: Props) {
   return (
     <>
       <>
-        <Navbar isFullscreen onSignIn={() => console.log('Clicked on sign in')} />
+        <Navbar onSignIn={() => console.log('Clicked on sign in')} />
         <Page>
           <Page className="flex">
             {/* <Sidebar /> */}

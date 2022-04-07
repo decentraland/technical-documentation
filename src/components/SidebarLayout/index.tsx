@@ -1,5 +1,4 @@
 import * as React from 'react'
-import 'decentraland-ui/dist/themes/base-theme.css'
 import 'decentraland-ui/dist/themes/alternative/light-theme.css'
 import { Footer } from 'decentraland-ui/dist/components/Footer/Footer'
 import { Page } from 'decentraland-ui/dist/components/Page/Page'
@@ -15,14 +14,14 @@ export type Props = {
 export default function SidebarLayout({ children }: Props) {
   return (
     <>
-      <Navbar isFullscreen onSignIn={() => console.log('Clicked on sign in')} />
-        <Page isFullscreen>
-          <Section className="flex">
+      <Navbar isFullscreen className='navbar-border' onSignIn={() => console.log('Clicked on sign in')} />
+        <Page isFullscreen className='container-full-height'>
+          <Section className="flex section-no-margin">
             <Sidebar />
             {children}
           </Section>
         </Page>
-        <Footer />
+        <Footer isFullscreen />
       </>
   )
 }

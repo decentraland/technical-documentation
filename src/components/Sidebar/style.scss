@@ -3,7 +3,7 @@
 .sidebar-container {
   min-width: 300px;
   max-width: 350px;
-  border-right: 1px solid $gray;
+  border-right: 1px solid $divider;
   min-height: 100%;
 
   .sidebar-header {
@@ -30,7 +30,7 @@
   }
 
   .sidebar-items {
-    padding: 25px;
+    padding: 0 25px;
     box-sizing: border-box;
   }
 }
