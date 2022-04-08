@@ -42,7 +42,7 @@ export default function RootDir(props: Props) {
         <div className={children && "root-title"} onClick={() => setOpen(prevState => !prevState )} style={{ paddingLeft: `${10 * offset}px` }}>
           {children ? offset === 0 ?  <span className="sidebar-category">{name}</span> : <span className="sidebar-dir"><img src={formatPaths("drop-down.png")} />{name}</span> : <Link className={active ? "sidebar-open" : "sidebar-item"} to={slug}>{name}</Link> }
         </div>
-        <div className={open ? "child-container" : "child-container-collapsed"} style={{ paddingLeft: `${20 * offset}px` }}>
+        <div className={open && children ? "child-container" : "child-container-collapsed"} style={{ paddingLeft: `${20 * offset}px` }}>
         {children &&
           // TO-DO: type the objects, need to define data structure first
           children.map((item: any, key: number) => {

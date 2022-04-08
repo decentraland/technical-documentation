@@ -16,7 +16,6 @@
         font-weight: 400;
         display: flex;
         align-items: center;
-        padding: 5px 0;
         text-shadow:0px 0px 1px transparent;
 
         img {
@@ -36,7 +35,12 @@
 .child-container {
     padding: 0;
     max-height: 1000px;
-    transition: max-height 0.4s ease-in-out;
+    transition: max-height 0.3s ease-in-out;
+
+    &:last-of-type {
+        margin-bottom: 30px;
+    }
+
 }
 
 .child-container-collapsed {

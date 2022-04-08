@@ -1,10 +1,11 @@
 @import "./../../styles/variables.scss";
 
 .sidebar-container {
-  min-width: 300px;
-  max-width: 350px;
+  min-width: 360px;
+  max-width: 360px;
   border-right: 1px solid $divider;
   min-height: 100%;
+  box-sizing: border-box;
 
   .sidebar-header {
     position: relative;
