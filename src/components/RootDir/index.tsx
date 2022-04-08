@@ -13,17 +13,21 @@ type Props = {
   children?: JSX.Element[]; // TODO - verify type
   isOpen?: boolean;
   openParent?: () => void;
+  isActive?: boolean
 };
 
 export default function RootDir(props: Props) {
   const { name, children, offset, slug, isOpen, openParent } = props;
   const [open, setOpen] = useState<boolean>(false);
+  const [active, setActive] = useState<boolean>(false)
 
   useEffect(() => {
     if (location.pathname.includes(slug)) {
       openParent()
       setOpen(true)
+      setActive(true)
     }
+
   }, [])
 
   function handleOpen() {
@@ -32,12 +36,11 @@ export default function RootDir(props: Props) {
     openParent && openParent()
   }
 
-
   return (
     <>
       <div className="root-container">
         <div className={children && "root-title"} onClick={() => setOpen(prevState => !prevState )} style={{ paddingLeft: `${10 * offset}px` }}>
-          {children ? offset === 0 ?  <span className="sidebar-category">{name}</span> : <span className="sidebar-dir"><img src={formatPaths("drop-down.png")} />{name}</span> : <Link className={isOpen ? "sidebar-open" : "sidebar-item"} to={slug}>{name}</Link> }
+          {children ? offset === 0 ?  <span className="sidebar-category">{name}</span> : <span className="sidebar-dir"><img src={formatPaths("drop-down.png")} />{name}</span> : <Link className={active ? "sidebar-open" : "sidebar-item"} to={slug}>{name}</Link> }
         </div>
         <div className={open ? "child-container" : "child-container-collapsed"} style={{ paddingLeft: `${20 * offset}px` }}>
         {children &&
