@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import 'decentraland-ui/dist/themes/base-theme.css'
+// import 'decentraland-ui/dist/themes/base-theme.css'
 import "@fontsource/inter"
 import "./styles/global-styles.scss"
 
