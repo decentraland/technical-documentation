@@ -4,6 +4,10 @@
     display: flex;
 }
 
+.container-full-height {
+    min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+}
+
 .docs-header {
     display: flex;
     align-items: center;
