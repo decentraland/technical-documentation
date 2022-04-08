@@ -16,7 +16,7 @@ export default function SidebarLayout({ children }: Props) {
     <>
       <Navbar isFullscreen className='navbar-border' onSignIn={() => console.log('Clicked on sign in')} />
         <Page isFullscreen className='container-full-height'>
-          <Section className="flex section-no-margin">
+          <Section className="flex section-no-margin container-full-height">
             <Sidebar />
             {children}
           </Section>
