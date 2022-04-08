@@ -6,7 +6,7 @@ import SidebarLayout from '../components/SidebarLayout'
 
 export default function IndexPage() {
   return (
-    <SidebarLayout name="User">
+    <SidebarLayout>
       <Welcome />
     </SidebarLayout>
   )

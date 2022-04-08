@@ -16,15 +16,12 @@ export default function Sidebar() {
   useEffect(() => {
     setCategory(location.pathname.split("/")[1])
     const properties = categories.data.find(item => {
-      console.log(category, item.title)
       return item.title.toLowerCase() == category 
     })
 
     setProperties(properties)
 
   })
-
-  console.log(properties)
 
   return (
     <aside className="sidebar-container">

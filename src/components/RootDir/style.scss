@@ -2,7 +2,7 @@
 
 .root-container {
     align-items: center;
-    padding: 5px 0;
+    padding: 25px 5px 0;
     font-size: 1em;
     line-height: 24px;
     text-transform: capitalize;
@@ -21,6 +21,10 @@
         img {
             margin-right: 8px;
         }
+    }
+
+    .sidebar-open {
+        font-weight: 600;
     }
 }
 

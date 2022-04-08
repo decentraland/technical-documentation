@@ -6,7 +6,7 @@ import SidebarLayout from '../components/SidebarLayout'
 
 export default function IndexPage(props) {
   return (
-    <SidebarLayout category={props.location.pathname}>
+    <SidebarLayout>
       <Welcome />
     </SidebarLayout>
   )
