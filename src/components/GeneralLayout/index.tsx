@@ -14,14 +14,14 @@ export default function GeneralLayout({ children }: Props) {
   return (
     <>
       <>
-        <Navbar onSignIn={() => console.log('Clicked on sign in')} />
+        <Navbar onSignIn={() => console.log('Clicked on sign in')} isFullWidth />
         <Page>
           <Page className="flex">
             {/* <Sidebar /> */}
             {children}
           </Page>
         </Page>
-        <Footer />
+        <Footer isFullWidth />
       </>
     </>
   )
