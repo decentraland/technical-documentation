@@ -8,9 +8,9 @@ import { Page } from 'decentraland-ui/dist/components/Page/Page'
 export default function WelcomePage() {
   return (
     <>
-      <Navbar activePage="marketplace" />
+      <Navbar isFullWidth activePage="marketplace" />
       <Page>otra page</Page>
-      <Footer />
+      <Footer isFullWidth />
     </>
   )
 }

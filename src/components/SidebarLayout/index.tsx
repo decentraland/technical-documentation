@@ -14,14 +14,14 @@ export type Props = {
 export default function SidebarLayout({ children }: Props) {
   return (
     <>
-      <Navbar isFullscreen className='navbar-border' onSignIn={() => console.log('Clicked on sign in')} />
+      <Navbar isFullscreen isFullWidth className='navbar-border' onSignIn={() => console.log('Clicked on sign in')} />
         <Page isFullscreen className='container-full-height'>
           <Section className="flex section-no-margin container-full-height">
             <Sidebar />
             {children}
           </Section>
         </Page>
-        <Footer isFullscreen />
+        <Footer isFullscreen isFullWidth />
       </>
   )
 }
