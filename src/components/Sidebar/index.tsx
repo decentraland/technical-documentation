@@ -24,6 +24,8 @@ export default function Sidebar() {
 
   })
 
+  console.log(menu[category])
+
   return (
     <aside className="sidebar-container">
       {category && properties && 
@@ -35,7 +37,7 @@ export default function Sidebar() {
           </div>
           <div className='sidebar-items'>
           {menu &&
-            menu.map((item: any, key: number) => {
+            menu[category].map((item: any, key: number) => {
               return (
                 <RootDir
                   name={item.name}

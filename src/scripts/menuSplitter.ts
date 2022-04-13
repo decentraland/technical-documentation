@@ -13,10 +13,12 @@ export default function menuSplitter() {
           const data = JSON.parse(fs.readFileSync("./src/menu-data/" + file, 'utf8'))
 
           Object.keys(data).map((key) => {
-            menu[key] = menu[key] ? [...menu[key], data[key]] : [data[key]]
+            data[key].map(item => {
+              menu[key] = menu[key] ? [...menu[key], item] : [item]
+            })
           })
 
-          fs.writeFileSync("menu.json", JSON.stringify(menu))
+          fs.writeFileSync("./src/repos/menu.json", JSON.stringify(menu))
         } catch (err) {
           console.error(err)
         }
