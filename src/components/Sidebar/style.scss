@@ -31,7 +31,13 @@
   }
 
   .sidebar-items {
-    padding: 0 25px;
+    padding: 20px 25px 0;
     box-sizing: border-box;
+
+    .sidebar-home-link {
+      color: black;
+      padding: 8px 5px 0;
+      cursor: pointer;
+    }
   }
 }

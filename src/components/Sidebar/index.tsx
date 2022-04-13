@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import RootDir from '../RootDir'
 import './style.scss'
 import formatPaths from '../../utils/formatPaths'
+import { Link } from 'gatsby'
 
 // TODO - right now this data is hardcoded for all sidebars but it should
 // probably be a prop since we want different versions per section
@@ -36,18 +37,19 @@ export default function Sidebar() {
             <Search />
           </div>
           <div className='sidebar-items'>
-          {menu &&
-            menu[category].map((item: any, key: number) => {
-              return (
-                <RootDir
-                  name={item.name}
-                  offset={0}
-                  children={item.children}
-                  slug={item.slug}
-                  key={key}
-                />
-              )
-            })}
+            <Link className='sidebar-home-link' to="/">HOME</Link>
+            {menu &&
+              menu[category].map((item: any, key: number) => {
+                return (
+                  <RootDir
+                    name={item.name}
+                    offset={0}
+                    children={item.children}
+                    slug={item.slug}
+                    key={key}
+                  />
+                )
+              })}
             </div>
           </>
         }
