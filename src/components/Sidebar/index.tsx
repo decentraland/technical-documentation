@@ -7,6 +7,7 @@ import formatPaths from '../../utils/formatPaths'
 // probably be a prop since we want different versions per section
 import menu from '../../repos/menu.json'
 import categories from  "../../mocks/categories.json"
+import Search from '../Search'
 
 export default function Sidebar() {
 
@@ -23,17 +24,20 @@ export default function Sidebar() {
 
   })
 
+  console.log(menu[category])
+
   return (
     <aside className="sidebar-container">
       {category && properties && 
         <>
           <div className="sidebar-header" style={{background: properties.bgColor}}>
-                <img src={formatPaths(`banner-${category}.png`)} />
-                <h2 className="sidebar-title">{category} Documentation</h2>
-              </div>
+            <img className='sidebar-header-background' src={formatPaths(`banner-${category}.png`)} />
+            <h2 className="sidebar-title">{category} Documentation</h2>
+            <Search />
+          </div>
           <div className='sidebar-items'>
           {menu &&
-            menu.map((item: any, key: number) => {
+            menu[category].map((item: any, key: number) => {
               return (
                 <RootDir
                   name={item.name}

@@ -73,8 +73,8 @@ export function cleanUpDependencies(workingDir: string, targetDir: string) {
     command: 'find',
     args: [
       targetDir,
-      '-mindepth 3',
-      '-maxdepth 3',
+      '-mindepth 2',
+      '-maxdepth 2',
       '-not',
       '-name',
       'docs',

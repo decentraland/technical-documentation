@@ -13,7 +13,7 @@ export async function cloneRepos() {
         throw new Error(`Repo ${repo.url} is not safe.`)
       }
 
-      const dir = `${currentWorkingDir}/src/${DOCS_FOLDER}/${repo.category.toLowerCase()}/${repo.name}`
+      const dir = `${currentWorkingDir}/src/${DOCS_FOLDER}/${repo.name}`
 
       if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, { recursive: true })
