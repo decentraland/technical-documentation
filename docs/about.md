@@ -1,7 +1,4 @@
----
-title: "About Decentraland documentation"
-slug: "contributor/sdk/documentation/about"
----
+# Contribute to docs
 
 Welcome to **Decentraland technical documentation**, the goal of this repository is to have a single point of access for  all necessary information to use, create and contribute to Decentraland.
 
@@ -17,9 +14,13 @@ Technical documentation is divided in three major areas:
 
 ### **Render your own docs:**
 
-In your repository:
+**In this repository:**
 
-- Create a docs folder
+- Simply add your repository in [repositories.json](https://github.com/decentraland/technical-documentation/blob/main/src/repositories.json).
+
+**In your repository:**
+
+- Create a docs folder at root level
 - Push your documents as .md files
 - Create a summary.json file with the sidebar wanted structure:
   - Example:
@@ -47,8 +48,26 @@ In your repository:
         }
         ```
 
-  - See samples summary
+  - See [sample summary](https://github.com/decentraland/technical-documentation/blob/main/docs/summary.json)
 
-### Contribute to the docs codebase
+### Contribute to the codebase
 
-// TO-DO
+// TO - DO
+
+### Deploy & publish
+
+## test-static-pipeline
+
+Repository to test the health and integration of static pipelines
+
+Implements all the pipeline stages of this document:
+
+<https://docs.google.com/drawings/d/1hDa0mOk4Fb0rwzDKR8AVzLQeINlPmKqEIABeEyS_LNE/edit>
+
+1. Every push to master generates an NPM package, it is published with the `@next` dist-tag
+
+2. Every semver release creates and publishes a `@latest` dist tag
+
+3. Every time a package is published, the gitlab pipeline pipelines/static-sites-pipeline is triggered. That pipeline uploads the content of the published package to `https://cdn.decentraland.org`
+
+4. The then pipeline starts a rollout pipeline. Which is out of scope of this documentation.

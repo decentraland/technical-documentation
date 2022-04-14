@@ -14,9 +14,13 @@ Technical documentation is divided in three major areas:
 
 ### **Render your own docs:**
 
-In your repository:
+**In this repository:**
 
-- Create a docs folder
+- Simply add your repository in [repositories.json](https://github.com/decentraland/technical-documentation/blob/main/src/repositories.json).
+
+**In your repository:**
+
+- Create a docs folder at root level
 - Push your documents as .md files
 - Create a summary.json file with the sidebar wanted structure:
   - Example:
@@ -44,7 +48,7 @@ In your repository:
         }
         ```
 
-  - See samples summary
+  - See [sample summary](https://github.com/decentraland/technical-documentation/blob/main/docs/summary.json)
 
 ### Contribute to the codebase
 
