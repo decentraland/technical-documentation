@@ -1,12 +1,12 @@
 {
   "repositories": [
     {
-      "name": "mock-repo",
-      "url": "https://github.com/doomling/mock-docs"
-    },
-    {
       "name": "sdk",
       "url": "https://github.com/decentraland/sdk"
+    },
+    {
+      "name": "docs",
+      "url": "https://github.com/decentraland/technical-documentation"
     }
   ]
 }
