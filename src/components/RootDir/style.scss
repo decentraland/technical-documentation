@@ -12,6 +12,11 @@
         cursor: pointer;
     }
 
+    .root-title-closed {
+        @extend .root-title;
+        margin-bottom: 30px;
+    }
+
     .sidebar-dir, .sidebar-item {
         color: $gray;
         font-weight: 400;
@@ -26,6 +31,7 @@
 
     .sidebar-open {
         font-weight: 600;
+        margin-bottom: 30px;
     }
 }
 
@@ -37,11 +43,6 @@
     padding: 0;
     max-height: 1000px;
     transition: max-height 0.3s ease-in-out;
-
-    &:last-of-type {
-        margin-bottom: 30px;
-    }
-
 }
 
 .child-container-collapsed {
