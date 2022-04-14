@@ -3,6 +3,10 @@
     {
       "name": "mock-repo",
       "url": "https://github.com/doomling/mock-docs"
+    },
+    {
+      "name": "sdk",
+      "url": "https://github.com/decentraland/sdk"
     }
   ]
 }
