@@ -22,32 +22,32 @@ In your repository:
 - Create a docs folder
 - Push your documents as .md files
 - Create a summary.json file with the sidebar wanted structure:
-    - Example:
-        
+  - Example:
+
         ```jsx
         /*
-        	This structure renders the following sidebar inside the contributor docs
-        		SDK
-        			- Diagrams
-        					-- Metaverse runtime 
+         This structure renders the following sidebar inside the contributor docs
+          SDK
+           - Diagrams
+             -- Metaverse runtime 
         */
         
         {
-        	"contributor": [{
-        		"name": "SDK",
-        		"children": [{
-        			"name": "Diagrams",
-        			"children": [{
-        					"name": "Metaverse runtime",
-        					"slug": "/contributor/sdk/diagrams/metaverse-runtime"
-        				}
-        			]
-        		}]
-        	}]
+         "contributor": [{
+          "name": "SDK",
+          "children": [{
+           "name": "Diagrams",
+           "children": [{
+             "name": "Metaverse runtime",
+             "slug": "/contributor/sdk/diagrams/metaverse-runtime"
+            }
+           ]
+          }]
+         }]
         }
         ```
-        
-    - See samples summary
+
+  - See samples summary
 
 ### Contribute to the docs codebase
 

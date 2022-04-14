@@ -19,32 +19,32 @@ In your repository:
 - Create a docs folder
 - Push your documents as .md files
 - Create a summary.json file with the sidebar wanted structure:
-    - Example:
-        
+  - Example:
+
         ```jsx
         /*
-        	This structure renders the following sidebar inside the contributor docs
-        		SDK
-        			- Diagrams
-        					-- Metaverse runtime 
+         This structure renders the following sidebar inside the contributor docs
+          SDK
+           - Diagrams
+             -- Metaverse runtime 
         */
         
         {
-        	"contributor": [{
-        		"name": "SDK",
-        		"children": [{
-        			"name": "Diagrams",
-        			"children": [{
-        					"name": "Metaverse runtime",
-        					"slug": "/contributor/sdk/diagrams/metaverse-runtime"
-        				}
-        			]
-        		}]
-        	}]
+         "contributor": [{
+          "name": "SDK",
+          "children": [{
+           "name": "Diagrams",
+           "children": [{
+             "name": "Metaverse runtime",
+             "slug": "/contributor/sdk/diagrams/metaverse-runtime"
+            }
+           ]
+          }]
+         }]
         }
         ```
-        
-    - See samples summary
+
+  - See samples summary
 
 ### Contribute to the codebase
 
@@ -52,13 +52,13 @@ In your repository:
 
 ### Deploy & publish
 
-# test-static-pipeline
+## test-static-pipeline
 
 Repository to test the health and integration of static pipelines
 
 Implements all the pipeline stages of this document:
 
-https://docs.google.com/drawings/d/1hDa0mOk4Fb0rwzDKR8AVzLQeINlPmKqEIABeEyS_LNE/edit
+<https://docs.google.com/drawings/d/1hDa0mOk4Fb0rwzDKR8AVzLQeINlPmKqEIABeEyS_LNE/edit>
 
 1. Every push to master generates an NPM package, it is published with the `@next` dist-tag
 
