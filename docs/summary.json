@@ -1,0 +1,18 @@
+{
+  "contributor": [
+    {
+      "name": "SDK",
+      "children": [
+        {
+          "name": "Documentation",
+          "children": [
+            {
+              "name": "About decentraland documentation",
+              "slug": "/contributor/sdk/documentation/about"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
