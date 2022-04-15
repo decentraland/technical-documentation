@@ -1,9 +1,9 @@
-@import "./../../styles/variables.scss";
+@import "./../../styles/mixins.scss";
 
 .sidebar-container {
   min-width: 360px;
   max-width: 360px;
-  border-right: 1px solid $divider;
+  border-right: 1px solid var(--divider);
   min-height: 100%;
   box-sizing: border-box;
 
@@ -14,7 +14,7 @@
     box-sizing: border-box;
 
     h2 {
-      color: $white;
+      color: var(--white);
       margin: 0;
       position: relative;
       z-index: 1;
@@ -35,10 +35,14 @@
     box-sizing: border-box;
 
     .sidebar-home-link {
+      @include sidebarItem();
       color: black;
-      padding: 8px 5px 0;
-      cursor: pointer;
+      padding: 5px 5px 5px 10px;
       font-weight: bold;
+
+        &:hover {
+          padding-left: 10px;
+          }
     }
   }
 }

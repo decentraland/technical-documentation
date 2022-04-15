@@ -1,12 +1,13 @@
-// colors - fonts
 
-$gray: #736E7D;
-$black: #16141A;
-$white: #ffffff;
+:root {
+// colors - fonts
+--gray: #736E7D;
+--black: #16141A;
+--white: #ffffff;
 
 // colors - sections
-
-$user: #FF2D55;
-$creator: #4947CD; 
-$contributor: #EE834A;
-$divider: #67637033;
+--user: #FF2D55;
+--creator: #4947CD; 
+--contributor: #EE834A;
+--divider: #67637033;
+}

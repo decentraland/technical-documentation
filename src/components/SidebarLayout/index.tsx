@@ -6,6 +6,7 @@ import { Section } from 'decentraland-ui/dist/components/Section/Section'
 import { Navbar } from 'decentraland-ui/dist/components/Navbar/Navbar'
 import Sidebar from '../../components/Sidebar'
 import './style.scss'
+import Search from '../Search'
 
 export type Props = {
   children?: JSX.Element[] | JSX.Element // verify type
@@ -14,7 +15,7 @@ export type Props = {
 export default function SidebarLayout({ children }: Props) {
   return (
     <>
-      <Navbar isFullscreen isFullWidth className='navbar-border' onSignIn={() => console.log('Clicked on sign in')} />
+      <Navbar isFullWidth activePage="docs" onSignIn={() => console.log('Clicked on sign in')} />
         <Page isFullscreen className='container-full-height'>
           <Section className="flex section-no-margin container-full-height">
             <Sidebar />

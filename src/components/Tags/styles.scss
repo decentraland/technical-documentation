@@ -1,14 +1,15 @@
-@import "./../../styles/variables.scss";
+@import "./../../styles/mixins.scss";
 
 .tag-container {
   background-color: #f2f2f5;
   border-radius: 6px;
   padding: 10px;
-  color: $black;
+  color: var(--black);
   display: flex;
   align-items: center;
   margin: 0 10px 10px 0;
   font-size: 1em;
+  @include generalHoverColor();
 
   span {
     text-transform: capitalize;

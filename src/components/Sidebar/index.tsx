@@ -25,8 +25,6 @@ export default function Sidebar() {
 
   })
 
-  console.log(menu[category])
-
   return (
     <aside className="sidebar-container">
       {category && properties && 
