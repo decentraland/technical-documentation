@@ -1,8 +1,6 @@
-@import "@styles/variables.scss";
-
 .welcome-subheader {
   font-size: 21px;
-  color: $gray;
+  color: var(--gray);
   margin-bottom: 20px;
 }
 

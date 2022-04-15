@@ -1,4 +1,4 @@
-@import "@styles/variables.scss";
+@import "@styles/mixins.scss";
 
 .root-container {
     align-items: center;
@@ -17,8 +17,13 @@
         margin-bottom: 30px;
     }
 
+    .sidebar-category {
+        @include sidebarItem();
+    }
+
     .sidebar-dir, .sidebar-item {
-        color: $gray;
+        @include sidebarItem();
+        color: var(--gray);
         font-weight: 400;
         display: flex;
         align-items: center;
@@ -42,11 +47,11 @@
 .child-container {
     padding: 0;
     max-height: 1000px;
-    transition: max-height 0.3s ease-in-out;
+    transition: all 700ms ease;
 }
 
 .child-container-collapsed {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease-in-out;
+    transition: max-height 250ms ease;
 }

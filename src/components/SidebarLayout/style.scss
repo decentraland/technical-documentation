@@ -32,7 +32,7 @@
 }
 
 .navbar-border {
-    border-bottom: 1px solid $divider !important;
+    border-bottom: 1px solid var(--divider) !important;
 }
 
 .section-no-margin {
@@ -41,5 +41,5 @@
 
 .footer {
     width: 100%;
-    border-top: 1px solid $divider;
+    border-top: 1px solid var(--divider);
 }
