@@ -14,22 +14,16 @@ export default function menuSplitter() {
 
           Object.keys(data).map((key) => {
             data[key].map(item => {
-              // menu[key] = menu[key] ? [...menu[key], item] : [item]
-
               if (menu[key]) {
                 const categoryIndex = menu[key].findIndex(element => {
                   if (element.name === item.name ) {
                     return true
                   }
                 })
-
+                
                 if (menu[key][categoryIndex]) {
-                  console.log(key, categoryIndex)
                   menu[key][categoryIndex].children = [...menu[key][categoryIndex].children, ...item.children]
-                  // console.log(menu)
-
                 } else {
-                  console.log("si en category no existe repo", 2)
                   menu[key] = [...menu[key], item]
                 }
               } else {

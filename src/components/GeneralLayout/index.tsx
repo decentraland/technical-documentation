@@ -5,7 +5,6 @@ import { Footer } from 'decentraland-ui/dist/components/Footer/Footer'
 import { Page } from 'decentraland-ui/dist/components/Page/Page'
 import { Navbar } from 'decentraland-ui/dist/components/Navbar/Navbar'
 import './style.css'
-import Search from '../Search'
 
 export type Props = {
   children?: JSX.Element[] | JSX.Element // verify type
@@ -15,10 +14,9 @@ export default function GeneralLayout({ children }: Props) {
   return (
     <>
       <>
-        <Navbar onSignIn={() => console.log('Clicked on sign in')} isFullWidth activePage='docs' />
+        <Navbar onSignIn={() => console.log('Clicked on sign in')} isFullWidth activePage="docs" />
         <Page>
           <Page className="flex">
-            {/* <Sidebar /> */}
             {children}
           </Page>
         </Page>
