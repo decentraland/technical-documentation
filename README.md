@@ -22,32 +22,36 @@ Technical documentation is divided in three major areas:
 
 - Create a docs folder at root level
 - Push your documents as .md files
+- Add metadata to your .md files, **slug and title metadata are required** for documents to render so don’t forget to add them at the top of every file:
+- 
+```jsx
+// frontmatter metadata example:
+---
+title: "About Decentraland documentation"
+slug: "contributor/sdk/documentation/about"
+---
+```
 - Create a summary.json file with the sidebar wanted structure:
-  - Example:
+    - Example:
+    ```
+    This structure renders the following sidebar inside the contributor docs
+     SDK
+      - Diagrams
+       -- Metaverse runtime 
 
-        ```jsx
-        /*
-         This structure renders the following sidebar inside the contributor docs
-          SDK
-           - Diagrams
-             -- Metaverse runtime 
-        */
-        
-        {
-         "contributor": [{
-          "name": "SDK",
-          "children": [{
-           "name": "Diagrams",
-           "children": [{
-             "name": "Metaverse runtime",
-             "slug": "/contributor/sdk/diagrams/metaverse-runtime"
-            }
-           ]
-          }]
-         }]
-        }
-        ```
-
+  {
+      "contributor": [{
+      "name": "SDK",
+      "children": [{
+        "name": "Diagrams",
+        "children": [{
+          "name": "Metaverse runtime",
+          "slug": "/contributor/sdk/diagrams/metaverse-runtime"
+        }]
+       }]
+      }]
+  }
+    ```
   - See [sample summary](https://github.com/decentraland/technical-documentation/blob/main/docs/summary.json)
 
 ### Contribute to the codebase
