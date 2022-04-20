@@ -7,6 +7,10 @@
     {
       "name": "docs",
       "url": "https://github.com/decentraland/technical-documentation"
+    },
+    {
+      "name": "sdk-new-ecs",
+      "url": "https://github.com/decentraland/ecs"
     }
   ]
 }
