@@ -27,7 +27,6 @@ const queries = [
   {
     query: myQuery,
     transformer: ({ data }) => data.allMarkdownRemark.edges.map(edge => edge.node),
-    // indexName: 'index name to target', // overrides main index name, optional
     settings: {
       // optional, any index settings
       // Note: by supplying settings, you will overwrite all existing settings on the index
