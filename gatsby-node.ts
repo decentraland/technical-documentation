@@ -1,5 +1,6 @@
 import path from 'path'
 import { createFilePath } from 'gatsby-source-filesystem'
+import { uid } from 'uid'
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -20,7 +21,7 @@ exports.onCreateNode = async ({ node, getNode, actions }: any) => {
     createNodeField({
       node,
       name: `slug`,
-      value: slug.toLowerCase()
+      value: slug.toLowerCase(),
     })
   }
 }
