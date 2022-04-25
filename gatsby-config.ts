@@ -7,21 +7,20 @@ dotenv.config({
 /* -> Algolia integration queries */
 
 const myQuery = `{
-    allMarkdownRemark(filter: { frontmatter: { slug: { ne: null } } }) {
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          html
-          frontmatter {
-            slug
-          }
+  allMarkdownRemark(filter: {frontmatter: {slug: {ne: null}, title: {}}}) {
+    edges {
+      node {
+        id
+        html
+        frontmatter {
+          slug
+          title
         }
       }
     }
-  }`;
+  }
+}
+`;
 
 const queries = [
   {

@@ -29,9 +29,46 @@ button.ais-SearchBox-reset {
 .ais-Hits {
   margin-top: 5px;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
   box-shadow: 0px 16px 32px 16px rgba(0,0,0,0.16);
-  padding: 10px;
+  overflow: hidden;
   position: relative;
   z-index: 2;
+  
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.ais-Hits-item {
+  list-style-type: none;
+  padding: 10px;
+
+  &:hover {
+    background-color: var(--light-gray);
+  }
+}
+
+.hit-result-container {
+  h4 {
+    margin-bottom: 0;
+  }
+
+}
+
+.ais-Snippet-highlighted {
+  font-weight: bold;
+}
+
+.search-bar-more {
+  background-color: white;
+  position: relative;
+  z-index: 2;
+  border-radius: 0 0 10px 10px;
+  font-weight: bold;
+  text-align: center;
+  color: var(--primary);
+  border-top: 1px solid var(--light-gray);
+  padding: 10px 0;
 }
