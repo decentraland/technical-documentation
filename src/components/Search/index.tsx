@@ -20,7 +20,12 @@ const Hit = ({ hit }) => {
   )}
 
 const Results = connectStateResults(({ searchState }) => {
-  return searchState && searchState.query ? <><Hits hitComponent={Hit} /><div className='search-bar-more'>See more results</div></> : null 
+  return searchState && searchState.query ? 
+    <>
+      <Hits hitComponent={Hit} />
+      <div className='search-bar-more'><Link to={`/results?search=${searchState.query}`}>See more results</Link></div>
+    </> 
+      : null 
 })
 
 const glass = <img className='search-bar-icon' src={formatPaths("search.png")} />
