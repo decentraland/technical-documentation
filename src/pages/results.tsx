@@ -1,11 +1,12 @@
 import * as React from 'react'
+import { useState } from 'react'
 import 'decentraland-ui/dist/themes/base-theme.css'
 import 'decentraland-ui/dist/themes/alternative/light-theme.css'
 import GeneralLayout from '@components/GeneralLayout'
-import WelcomeScreen from '@components/WelcomeScreen'
 import * as queryString from "query-string";
-import { InstantSearch, Hits, SearchBox } from 'react-instantsearch-dom';
+import { InstantSearch, Hits, SearchBox, Snippet} from 'react-instantsearch-dom';
 import algoliasearch from 'algoliasearch/lite';
+import { Link } from 'gatsby'
 
 const searchClient = algoliasearch('ZBR370BA1A', '90d39c58d1ec20ab5f315750f7894b8b');
 
@@ -13,6 +14,18 @@ const searchClient = algoliasearch('ZBR370BA1A', '90d39c58d1ec20ab5f315750f7894b
 export default function ResultsPage({location}) {
 
   const { search } = queryString.parse(location.search);
+  const [query, setQuery] = useState(search)
+
+  const Hit = ({ hit }) => {
+    console.log(hit, 123)
+    return (
+      <div className="hit-result-container">
+        <Link to={hit.frontmatter.slug}>
+          <h4>The title</h4>
+          <Snippet attribute="html" hit={hit} />
+        </Link>
+      </div>
+    )}
 
   const SearchTitle = () => {
     return (
@@ -23,9 +36,9 @@ export default function ResultsPage({location}) {
   return (
     <GeneralLayout>
       <SearchTitle />
-      <InstantSearch searchClient={searchClient} indexName="DCL_DOCS" searchState={{query: search}}>
-        <SearchBox />
-        <Hits />
+      <InstantSearch searchClient={searchClient} indexName="DCL_DOCS" searchState={{query}}>
+        <SearchBox onChange={(e) => setQuery(e.target.value)}/>
+        {query && <Hits hitComponent={Hit} />}
       </InstantSearch>
     </GeneralLayout>
   )

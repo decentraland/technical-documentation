@@ -52,12 +52,21 @@ button.ais-SearchBox-reset {
 
 .hit-result-container {
   h4 {
+    color: black;
     margin-bottom: 0;
   }
 
 }
 
+.ais-Snippet {
+  color: var(--gray) !important;
+  &::before, &::after {
+    content: "...";
+  }
+}
+
 .ais-Snippet-highlighted {
+  color: black;
   font-weight: bold;
 }
 
@@ -70,5 +79,11 @@ button.ais-SearchBox-reset {
   text-align: center;
   color: var(--primary);
   border-top: 1px solid var(--light-gray);
-  padding: 10px 0;
+  padding: 15px 0;
+  display: flex;
+
+  a {
+    display: inline-block;
+    width: 100%;
+  }
 }
