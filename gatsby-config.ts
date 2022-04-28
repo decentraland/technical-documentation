@@ -39,9 +39,9 @@ module.exports = {
       __key: "images",
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
+        gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-highlight-code`,
             options: {
@@ -49,6 +49,7 @@ module.exports = {
             },
           },
         ],
+        extensions: [`.md`, `.mdx`]
       },
     },
     {

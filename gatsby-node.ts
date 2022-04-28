@@ -15,7 +15,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 
 exports.onCreateNode = async ({ node, getNode, actions }: any) => {
   const { createNodeField } = actions
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `Mdx`) {
     const slug = createFilePath({ node, getNode, basePath: `pages` })
     createNodeField({
       node,
@@ -30,7 +30,7 @@ exports.createPages = ({ graphql, actions }: any) => {
   return new Promise((resolve, reject) => {
     graphql(`
       {
-        allMarkdownRemark(filter: { frontmatter: { slug: { ne: null } } }) {
+        allMdx(filter: { frontmatter: { slug: { ne: null } } }) {
           edges {
             node {
               fields {
@@ -44,7 +44,7 @@ exports.createPages = ({ graphql, actions }: any) => {
         }
       }
     `).then((result: any) => {
-      result.data.allMarkdownRemark.edges.forEach(({ node }: any) => {
+      result.data.allMdx.edges.forEach(({ node }: any) => {
         createPage({
           path: node.frontmatter.slug,
           component: path.resolve(`./src/templates/docs-post.tsx`),

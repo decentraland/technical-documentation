@@ -3,21 +3,20 @@ import { graphql } from 'gatsby'
 import SidebarLayout from './../components/SidebarLayout'
 import "./style.scss"
 import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
+import { MDXRenderer } from "gatsby-plugin-mdx"
+
 deckDeckGoHighlightElement();
 
 export default function Template({ data }: any) {
-  const { markdownRemark } = data
-  const { html, frontmatter } = markdownRemark
+  const { mdx } = data
+  const { body, frontmatter } = mdx
   return (
     <>
       <SidebarLayout>
         <div className="blog-post-container">
           <div className="blog-post">
             <h1>{frontmatter.title}</h1>
-            <div
-              className="blog-post-content"
-              dangerouslySetInnerHTML={{ __html: html }}
-            />
+            +<MDXRenderer>{body}</MDXRenderer>
           </div>
         </div>
       </SidebarLayout>
@@ -27,11 +26,11 @@ export default function Template({ data }: any) {
 
 export const query = graphql`
   query ($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    mdx(fields: { slug: { eq: $slug } }) {
       fields {
         slug
       }
-      html
+      body
       tableOfContents
       frontmatter {
         slug
