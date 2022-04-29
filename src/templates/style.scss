@@ -6,3 +6,12 @@
     padding: 30px;
     min-height: 100vh;
 }
+
+.code-container {
+    border: 1px solid var(--gray);
+    border-radius: 8px;
+    
+    .code-inner-container {
+
+    }
+}
