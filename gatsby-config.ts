@@ -38,7 +38,12 @@ module.exports = {
       },
       __key: "images",
     },
-    "gatsby-transformer-remark",
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.md`, `.mdx`]
+      },
+    },
     {
       resolve: `gatsby-plugin-compile-es6-packages`,
       options: {
