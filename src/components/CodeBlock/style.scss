@@ -13,5 +13,23 @@
         justify-content: flex-end;
         align-items: center;
         cursor: pointer;
+        font-family: var(--font-family);
+
+        .code-action-copy {
+          animation: show 200ms 1 reverse ease;
+        }
+
+        .code-action-animate {
+          animation: show 300ms 1 reverse ease-in-out;
+        }
+
+        @keyframes show {
+          to {opacity: 0;}
+          from {opacity: 1;}
+        }
+
+        svg {
+          margin: 2px 5px 0;
+        }
     }
 }

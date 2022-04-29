@@ -2,13 +2,35 @@ import React, { useState } from 'react'
 import Highlight, {defaultProps} from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/vsLight'
 import './style.scss'
+import { FaCheck, FaCopy } from 'react-icons/fa';
+
 
 export default (props) => {
 
+  const [copied, setCopied] = useState<boolean>(false)
   const code = props.children.trim()
 
   function copy(text){
     navigator.clipboard.writeText(text)
+    setCopied(true)
+    
+    setTimeout(() => {
+      setCopied(false)
+    }, 3000)
+  }
+
+  type CopyProps = {
+    copied: boolean
+  }
+
+  function Copy(props : CopyProps ) {
+    const { copied } = props
+    return (          
+      <span className={copied ? 'code-action-copy code-action-animate' : 'code-action-copy'} onClick={(e) => copy(code)}>
+        {copied ? <FaCheck /> : <FaCopy/>}
+        {copied ? 'COPIED!' : 'COPY CODE'}
+      </span>
+    )
   }
 
   return (
@@ -28,7 +50,9 @@ export default (props) => {
         )}
       </Highlight>
       <div className="code-container-actions">
-        <span onClick={(e) => copy(code)}>COPY CODE</span>
+        <div className="code-actions-wrapper">
+          <Copy copied={copied} />
+        </div>
       </div>
     </div>
   )
