@@ -41,14 +41,6 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-highlight-code`,
-            options: {
-              terminal: "none",
-            },
-          },
-        ],
         extensions: [`.md`, `.mdx`]
       },
     },
