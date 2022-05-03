@@ -1,5 +1,6 @@
 import path from 'path'
 import { createFilePath } from 'gatsby-source-filesystem'
+import { uid } from 'uid'
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -38,6 +39,7 @@ exports.createPages = ({ graphql, actions }: any) => {
               }
               frontmatter {
                 slug
+                title
               }
             }
           }

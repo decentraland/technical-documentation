@@ -1,19 +1,67 @@
-.search-bar-container {
+// override Algolia Searchbox custom buttons
+
+button.ais-SearchBox-submit {
+  border: 0;
+  position: absolute;
+  left: 8px;
+  top: 27px;
+  background: transparent;
+}
+
+button.ais-SearchBox-reset {
+  display: none;
+}
+
+.ais-Hits {
+  margin-top: 5px;
+  background-color: white;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0px 16px 32px 16px rgba(0,0,0,0.16);
+  overflow: hidden;
   position: relative;
-
-  input {
-    border-radius: 20px;
-    padding: 7px 7px 7px 40px;
-    width: 100%;
-    border: 0;
-    z-index: 2;
-    margin-top: 20px;
-    min-height: 40px;
+  z-index: 2;
+  
+  ul {
+    margin: 0;
+    padding: 0;
   }
+}
 
-  .search-bar-icon {
-    position: absolute;
-    left: 12px;
-    bottom: 7px;
+.ais-Hits-item {
+  list-style-type: none;
+  padding: 10px;
+
+  &:hover {
+    background-color: var(--light-gray);
+  }
+}
+
+.ais-Snippet {
+  color: var(--gray) !important;
+  &::before, &::after {
+    content: "...";
+  }
+}
+
+.ais-Snippet-highlighted {
+  color: black;
+  font-weight: bold;
+}
+
+.search-bar-more {
+  background-color: white;
+  position: relative;
+  z-index: 2;
+  border-radius: 0 0 10px 10px;
+  font-weight: bold;
+  text-align: center;
+  color: var(--primary);
+  border-top: 1px solid var(--light-gray);
+  padding: 15px 0;
+  display: flex;
+
+  a {
+    display: inline-block;
+    width: 100%;
   }
 }
