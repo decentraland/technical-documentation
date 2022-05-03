@@ -21,7 +21,7 @@ exports.onCreateNode = async ({ node, getNode, actions }: any) => {
     createNodeField({
       node,
       name: `slug`,
-      value: slug.toLowerCase(),
+      value: slug.toLowerCase()
     })
   }
 }
@@ -39,6 +39,7 @@ exports.createPages = ({ graphql, actions }: any) => {
               }
               frontmatter {
                 slug
+                title
               }
             }
           }

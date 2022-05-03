@@ -2,12 +2,9 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import SidebarLayout from './../components/SidebarLayout'
 import "./style.scss"
-import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { MDXProvider } from "@mdx-js/react"
 import CodeBlock from '../components/CodeBlock'
-
-// deckDeckGoHighlightElement();
 
 export default function Template({ data }: any) {
 

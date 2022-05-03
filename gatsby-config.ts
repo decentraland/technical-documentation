@@ -7,7 +7,7 @@ dotenv.config({
 /* -> Algolia integration queries */
 
 const myQuery = `{
-  allMarkdownRemark(filter: {frontmatter: {slug: {ne: null}, title: {}}}) {
+  allMdx(filter: {frontmatter: {slug: {ne: null}, title: {}}}) {
     edges {
       node {
         id
@@ -25,7 +25,7 @@ const myQuery = `{
 const queries = [
   {
     query: myQuery,
-    transformer: ({ data }) => data.allMarkdownRemark.edges.map(edge => edge.node),
+    transformer: ({ data }) => data.allMdx.edges.map(edge => edge.node),
     settings: {
       // optional, any index settings
       // Note: by supplying settings, you will overwrite all existing settings on the index

@@ -1,15 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './types'
 import './style.scss'
 import formatPaths from '@utils/formatPaths'
 import algoliasearch from 'algoliasearch/lite';
-import { InstantSearch, SearchBox, Hits, connectStateResults, Snippet } from 'react-instantsearch-dom';
+import { InstantSearch, Hits, connectStateResults, Snippet } from 'react-instantsearch-dom';
 import { Link } from 'gatsby';
+import CustomSearchBox from '../CustomSearchBox';
 
 const searchClient = algoliasearch('ZBR370BA1A', '90d39c58d1ec20ab5f315750f7894b8b');
 
 const Hit = ({ hit }) => {
-  console.log(hit, 123)
   return (
     <div className="hit-result-container">
       <Link to={hit.frontmatter.slug}>
@@ -28,14 +28,13 @@ const Results = connectStateResults(({ searchState }) => {
       : null 
 })
 
-const glass = <img className='search-bar-icon' src={formatPaths("search.png")} />
-
 export default function Search() {
+
+  const [query, setQuery] = useState()
+
   return (
       <InstantSearch searchClient={searchClient} indexName="DCL_DOCS">
-        <div className="search-bar-container">
-          <SearchBox submit={glass}/>
-        </div>
+        <CustomSearchBox getQuery={setQuery} />
         <Results />
       </InstantSearch>
   )}
