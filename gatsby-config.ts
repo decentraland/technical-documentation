@@ -30,7 +30,7 @@ const queries = [
       // optional, any index settings
       // Note: by supplying settings, you will overwrite all existing settings on the index
     },
-    matchFields: ['slug', 'modified'], // Array<String> overrides main match fields, optional
+    // matchFields: ['slug', 'modified'], // Array<String> overrides main match fields, optional
   },
 ];
 
