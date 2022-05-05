@@ -1,6 +1,6 @@
 .search-bar-container {
     position: relative;
-  
+    z-index: 1;
     input {
       border-radius: 20px;
       padding: 7px 7px 7px 40px;

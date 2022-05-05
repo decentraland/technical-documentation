@@ -12,7 +12,7 @@ const Hit = ({ hit }) => {
   return (
     <div className="hit-result-container">
       <Link to={hit.frontmatter.slug}>
-        <h4>The title</h4>
+        <h4>{hit.frontmatter.title}</h4>
         <Snippet attribute="html" hit={hit} />
       </Link>
     </div>
@@ -23,6 +23,7 @@ const Results = connectStateResults(({ searchState }) => {
     <>
       <Hits hitComponent={Hit} />
       <div className='search-bar-more'><Link to={`/results?search=${searchState.query}`}>See more results</Link></div>
+      <div className="hit-results-grayarea" />
     </> 
       : null 
 })

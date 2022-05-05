@@ -65,3 +65,13 @@ button.ais-SearchBox-reset {
     width: 100%;
   }
 }
+
+.hit-results-grayarea {
+  background-color: black;
+  opacity: 0.2;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
