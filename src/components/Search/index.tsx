@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import './types'
 import './style.scss'
-import formatPaths from '@utils/formatPaths'
 import algoliasearch from 'algoliasearch/lite';
 import { InstantSearch, Hits, connectStateResults, Snippet } from 'react-instantsearch-dom';
 import { Link } from 'gatsby';

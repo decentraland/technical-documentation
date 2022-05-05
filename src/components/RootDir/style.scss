@@ -4,7 +4,7 @@
     align-items: center;
     padding: 8px 5px 0;
     font-size: 1em;
-    line-height: 24px;
+    // line-height: 24px;
     text-transform: capitalize;
 
     .root-title {
@@ -35,8 +35,9 @@
     }
 
     .sidebar-open {
+        display: inline-block;
+        padding: 5px;
         font-weight: 600;
-        margin-bottom: 30px;
     }
 }
 

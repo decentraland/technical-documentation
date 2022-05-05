@@ -25,7 +25,7 @@ export default function UserTypeCard({
         </div>
         <div className="section-card-cta">
           <span>VIEW MORE</span>
-          <StaticImage src="../../images/caret.png" alt="caret" />
+          <img src={formatPaths("caret.png")} alt="caret" />
         </div>
       </Link>
     </div>
