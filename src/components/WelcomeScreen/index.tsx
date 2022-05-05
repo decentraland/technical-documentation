@@ -7,6 +7,7 @@ import { SectionCardProps } from '../SectionCard/types'
 import UserTypeCard from '../UserTypeCard'
 import Tags from '../Tags'
 import categories from  "../../mocks/categories.json"
+import Search from '../Search'
 
 const tags = [
   {
@@ -26,6 +27,9 @@ export default function WelcomeScreen() {
     <Section>
       <Header size="huge">Documentation</Header>
       <p className='welcome-subheader'>Help build the Metaverse</p>
+      <div className='welcome-searchbar'>
+        <Search />
+      </div>
       <Header>Profiles</Header>
       <p>
         We divided the content of our documentation in different profiles,

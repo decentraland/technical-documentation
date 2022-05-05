@@ -6,10 +6,9 @@ import { connectHits } from 'react-instantsearch-dom';
 export default function ConnectedResultHits () {
 
     const ResultHits = ({ hits }) => {
-        console.log(hits, 1234)
         return (
           <div className='result-page-hits-wrapper'>
-            {hits.map(hit => {return<Hit hit={hit}/>})}
+            { hits.map(hit => { return <Hit hit={hit}/> } )}
           </div>
       )};
 
