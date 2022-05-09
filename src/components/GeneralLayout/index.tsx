@@ -14,7 +14,7 @@ export default function GeneralLayout({ children }: Props) {
   return (
     <>
       <>
-        <Navbar onSignIn={() => console.log('Clicked on sign in')} isFullWidth activePage="docs" />
+        <Navbar isFullWidth activePage="docs" />
         <Page>
           <Page className="flex">
             {children}

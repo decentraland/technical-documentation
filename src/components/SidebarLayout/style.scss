@@ -6,6 +6,7 @@
 
 .container-full-height {
     min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+    margin-top: -44px;
 }
 
 .docs-header {
