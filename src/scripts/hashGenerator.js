@@ -35,7 +35,7 @@ function getPublicUrls() {
     if (process.env.GITHUB_BASE_REF) {
       // Pull request
       return {
-        PUBLIC_URL: `https://sdk-artifacts.decentraland.org/${packageJson.name}/branch/${process.env.GITHUB_HEAD_REF}`,
+        PUBLIC_URL: `https://sdk-team-cdn.decentraland.org/${packageJson.name}/branch/${process.env.GITHUB_HEAD_REF}`,
       }
     } else if (process.env.CI) {
       // master/main branch, also releases
