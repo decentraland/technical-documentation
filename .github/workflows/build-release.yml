@@ -14,7 +14,7 @@ jobs:
     outputs:
       public_url: ${{ steps.install.outputs.public_url }}
       public_path: ${{ steps.install.outputs.public_path }}
-      dcl_ecs_s3_bucket_key: ${{ steps.publish_dcl_ecs.outputs.s3-bucket-key }}
+      docs_s3_bucket_key: ${{ steps.publish_docs.outputs.s3-bucket-key }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -48,6 +48,7 @@ jobs:
         run: cp "./package.json" "./public/package.json"
 
       - name: publish npm package
+        id: publish_docs
         uses: menduz/oddish-action@master
         with:
           scope: "@dcl"
@@ -86,7 +87,7 @@ jobs:
       - name: Generate S3 URL
         id: url-generator
         run: |
-          body="https://sdk-team-cdn.decentraland.org/${{ needs.build.outputs.dcl_ecs_s3_bucket_key }}"
+          body="{{needs.build.outputs.decentraland_ecs_s3_bucket_key}}"
           echo ::set-output name=body::$body
       - name: Create or update comment
         uses: peter-evans/create-or-update-comment@v1
