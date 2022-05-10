@@ -37,10 +37,8 @@ const queries = [
 
 /* -> end algolia integratiion queries */
 
-console.log(process.env.ALGOLIA_INDEX_NAME, 'el env')
-
 module.exports = {
-  assetPrefix: process.env.ASSETPATH,
+  assetPrefix: process.env.GATSBY_PUBLIC_URL,
   pathPrefix: process.env.PATHPREFIX,
   flags: {
     DEV_SSR: true,

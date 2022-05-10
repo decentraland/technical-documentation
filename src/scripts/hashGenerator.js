@@ -11,7 +11,7 @@ const packageJson = JSON.parse(fs.readFileSync('./package.json').toString())
 
 Object.assign(ENV_CONTENT, getPublicUrls())
 
-packageJson.homepage = ENV_CONTENT['PUBLIC_URL']
+packageJson.homepage = ENV_CONTENT['GATSBY_PUBLIC_URL']
 
 if (packageJson.homepage) {
   // github action outputs. Do not touch.
@@ -35,17 +35,17 @@ function getPublicUrls() {
     if (process.env.GITHUB_BASE_REF) {
       // Pull request
       return {
-        PUBLIC_URL: `https://sdk-team-cdn.decentraland.org/${packageJson.name}/branch/${process.env.GITHUB_HEAD_REF}`,
+        GATSBY_PUBLIC_URL: `https://sdk-team-cdn.decentraland.org/${packageJson.name}/branch/${process.env.GITHUB_HEAD_REF}`,
       }
     } else if (process.env.CI) {
       // master/main branch, also releases
       return {
-        PUBLIC_URL: `https://cdn.decentraland.org/${packageJson.name}/${packageJson.version}`,
+        GATSBY_PUBLIC_URL: `https://cdn.decentraland.org/${packageJson.name}/${packageJson.version}`,
       }
     }
   }
   // localhost
   return {
-    PUBLIC_URL: ``
+    GATSBY_PUBLIC_URL: ``
   }
 }

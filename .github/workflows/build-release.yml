@@ -39,7 +39,7 @@ jobs:
           ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
           ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
           ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
-        run: npm run build-prefix
+        run: npm run build
 
       - name: test
         run: npm run test
@@ -96,4 +96,4 @@ jobs:
           body: |
             # Test this pull request
             This branch can be previewed at ${{ steps.url-generator.outputs.body }}
-
+          edit-mode: replace
