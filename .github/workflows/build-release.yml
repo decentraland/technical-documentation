@@ -62,6 +62,10 @@ jobs:
           # 104 == https://dcl.tools/pipelines/static-sites-pipeline
           gitlab-pipeline-url: ${{ secrets.GITLAB_CDN_DEPLOYER_URL }}
           gitlab-token: ${{ secrets.GITLAB_CDN_DEPLOYER_TOKEN }}
+
+          ## publish every package to s3
+          s3-bucket: ${{ secrets.SDK_TEAM_S3_BUCKET }}
+          s3-bucket-key-prefix: '@dcl/docs-site/branch/${{ github.head_ref || github.ref }}'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           AWS_ACCESS_KEY_ID: ${{ secrets.SDK_TEAM_AWS_ID }}
