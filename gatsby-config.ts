@@ -36,6 +36,7 @@ const queries = [
 ];
 
 /* -> end algolia integratiion queries */
+console.log({ gattsbyConfig: process.env.GATSBY_PUBLIC_URL })
 
 module.exports = {
   assetPrefix: process.env.GATSBY_PUBLIC_URL,
