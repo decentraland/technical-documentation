@@ -62,15 +62,23 @@ jobs:
           # 104 == https://dcl.tools/pipelines/static-sites-pipeline
           gitlab-pipeline-url: ${{ secrets.GITLAB_CDN_DEPLOYER_URL }}
           gitlab-token: ${{ secrets.GITLAB_CDN_DEPLOYER_TOKEN }}
-
-          ## publish every package to s3
-          s3-bucket: ${{ secrets.SDK_TEAM_S3_BUCKET }}
-          s3-bucket-key-prefix: '@dcl/docs-site/branch/${{ github.head_ref || github.ref }}'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           AWS_ACCESS_KEY_ID: ${{ secrets.SDK_TEAM_AWS_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.SDK_TEAM_AWS_SECRET }}
 
+      - name: deploy preview
+        env:
+          AWS_DEFAULT_REGION: us-east-1
+          AWS_ACCESS_KEY_ID: ${{ secrets.SDK_TEAM_AWS_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.SDK_TEAM_AWS_SECRET }}
+          SDK_WEB_BUCKET: ${{ secrets.SDK_TEAM_S3_BUCKET }}
+        if: ${{ steps.install.outputs.public_path }}
+        run: |
+          npx @dcl/cdn-uploader@next \
+            --bucket $SDK_WEB_BUCKET \
+            --local-folder public \
+            --bucket-folder "${{ steps.install.outputs.public_path }}"
   notify_deployment:
     needs: [build]
     if: ${{ github.event.pull_request.number }}
@@ -87,7 +95,7 @@ jobs:
       - name: Generate S3 URL
         id: url-generator
         run: |
-          body="{{needs.build.outputs.decentraland_ecs_s3_bucket_key}}"
+          body="${{needs.build.outputs.decentraland_ecs_s3_bucket_key}}"
           echo ::set-output name=body::$body
       - name: Create or update comment
         uses: peter-evans/create-or-update-comment@v1
