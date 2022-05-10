@@ -17,7 +17,9 @@ export default function ResultsPage({location}) {
   const { search } = queryString.parse(location.search);
   const [query, setQuery] = useState(search)
 
-  const SearchTitle = () => {
+  console.log(query, 123)
+
+  const SearchTitle = ({search}) => {
     return (
       <h2>{search ? `Search results for "${search}"` : "No query was provided"}</h2>
     )
@@ -27,7 +29,7 @@ export default function ResultsPage({location}) {
     <GeneralLayout>
       <InstantSearch searchClient={searchClient} indexName="DCL_DOCS" searchState={{query}}>
         <div style={{display: "flex", justifyContent: "space-between", alignItems: "baseline"}}>
-          <SearchTitle />
+          <SearchTitle search={query} />
           <CustomSearchBox getQuery={setQuery}/>
         </div>
         {query && <ConnectedResultHits />}
