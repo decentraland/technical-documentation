@@ -37,11 +37,9 @@ const queries = [
 
 /* -> end algolia integratiion queries */
 
-console.log(process.env.ALGOLIA_INDEX_NAME, 'el env')
-
 module.exports = {
-  assetPrefix: process.env.ASSETPATH,
-  pathPrefix: process.env.PATHPREFIX,
+  assetPrefix: process.env.GATSBY_URL,
+  pathPrefix: process.env.GATSBY_PUBLIC_PATH,
   flags: {
     DEV_SSR: true,
   },
@@ -65,14 +63,6 @@ module.exports = {
         path: "./src/repos/",
       },
       __key: "pages",
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "images",
-        path: "./src/images/",
-      },
-      __key: "images",
     },
     {
       resolve: `gatsby-plugin-mdx`,

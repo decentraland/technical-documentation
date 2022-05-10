@@ -14,6 +14,7 @@ jobs:
     outputs:
       public_url: ${{ steps.install.outputs.public_url }}
       public_path: ${{ steps.install.outputs.public_path }}
+      docs_s3_bucket_key: ${{ steps.publish_docs.outputs.s3-bucket-key }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -38,7 +39,7 @@ jobs:
           ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
           ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
           ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
-        run: npm run build-prefix
+        run: npm run build
 
       - name: test
         run: npm run test
@@ -47,12 +48,12 @@ jobs:
         run: cp "./package.json" "./public/package.json"
 
       - name: publish npm package
+        id: publish_docs
         uses: menduz/oddish-action@master
         with:
           scope: "@dcl"
           access: public
           cwd: './public'
-
 
           ## use action runId instead of current date to generate snapshot numbers
           deterministic-snapshot: true
@@ -61,6 +62,7 @@ jobs:
           # 104 == https://dcl.tools/pipelines/static-sites-pipeline
           gitlab-pipeline-url: ${{ secrets.GITLAB_CDN_DEPLOYER_URL }}
           gitlab-token: ${{ secrets.GITLAB_CDN_DEPLOYER_TOKEN }}
+
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -69,11 +71,11 @@ jobs:
           AWS_DEFAULT_REGION: us-east-1
           AWS_ACCESS_KEY_ID: ${{ secrets.SDK_TEAM_AWS_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.SDK_TEAM_AWS_SECRET }}
-          SDK_TEAM_S3_BUCKET: ${{ secrets.SDK_TEAM_S3_BUCKET }}
+          SDK_WEB_BUCKET: ${{ secrets.SDK_TEAM_S3_BUCKET }}
         if: ${{ steps.install.outputs.public_path }}
         run: |
           npx @dcl/cdn-uploader@next \
-            --bucket $SDK_TEAM_S3_BUCKET \
+            --bucket $SDK_WEB_BUCKET \
             --local-folder public \
             --bucket-folder "${{ steps.install.outputs.public_path }}"
 
@@ -90,7 +92,11 @@ jobs:
           issue-number: ${{ github.event.pull_request.number }}
           comment-author: "github-actions[bot]"
           body-includes: Test this pull request
-
+      - name: Generate S3 URL
+        id: url-generator
+        run: |
+          body="${{needs.build.outputs.public_url}}"
+          echo ::set-output name=body::$body
       - name: Create or update comment
         uses: peter-evans/create-or-update-comment@v1
         with:
@@ -98,5 +104,5 @@ jobs:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
             # Test this pull request
-            This branch can be previewed at ${{ needs.build.outputs.public_url }}
-
+            This branch can be previewed at ${{ steps.url-generator.outputs.body }}
+          edit-mode: replace

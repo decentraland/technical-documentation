@@ -4,38 +4,46 @@ import './style.scss'
 import formatPaths from '../../utils/formatPaths'
 import { Link } from 'gatsby'
 
-// TODO - right now this data is hardcoded for all sidebars but it should
+// TODO: - right now this data is hardcoded for all sidebars but it should
 // probably be a prop since we want different versions per section
 import menu from '../../repos/menu.json'
-import categories from  "../../mocks/categories.json"
+import categories from '../../mocks/categories.json'
 import Search from '../Search'
 
 export default function Sidebar() {
-
-  const [category, setCategory] = useState<string>("")
+  const [category, setCategory] = useState<string>('')
   const [properties, setProperties] = useState<any>()
 
+  console.log(JSON.stringify({ menu }, null, 2))
+
   useEffect(() => {
-    setCategory(location.pathname.split("/")[1])
-    const properties = categories.data.find(item => {
-      return item.title.toLowerCase() == category 
+    setCategory(location.pathname.split('/')[1])
+    const properties = categories.data.find((item) => {
+      return item.title.toLowerCase() === category
     })
 
     setProperties(properties)
-
   })
 
   return (
     <aside className="sidebar-container">
-      {category && properties && 
+      {category && properties && (
         <>
-          <div className="sidebar-header" style={{background: properties.bgColor}}>
-            <img className='sidebar-header-background' src={formatPaths(`banner-${category}.png`)} />
+          <div
+            className="sidebar-header"
+            style={{ background: properties.bgColor }}
+          >
+            <img
+              className="sidebar-header-background"
+              src={formatPaths(`banner-${category}.png`)}
+            />
             <h2 className="sidebar-title">{category} Documentation</h2>
             <Search />
           </div>
-          <div className='sidebar-items'>
-            <Link className='sidebar-home-link' to="/">HOME</Link>
+          <div className="sidebar-items">
+            <Link className="sidebar-home-link" to="/">
+              HOME
+            </Link>
             {menu &&
               menu[category].map((item: any, key: number) => {
                 return (
@@ -48,9 +56,9 @@ export default function Sidebar() {
                   />
                 )
               })}
-            </div>
-          </>
-        }
+          </div>
+        </>
+      )}
     </aside>
   )
 }

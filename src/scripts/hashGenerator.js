@@ -11,12 +11,15 @@ const packageJson = JSON.parse(fs.readFileSync('./package.json').toString())
 
 Object.assign(ENV_CONTENT, getPublicUrls())
 
-packageJson.homepage = ENV_CONTENT['PUBLIC_URL']
+packageJson.homepage = ENV_CONTENT['GATSBY_PUBLIC_URL']
 
 if (packageJson.homepage) {
+  const url = new URL(packageJson.homepage)
+  ENV_CONTENT['GATSBY_PUBLIC_PATH'] = url.pathname
+  ENV_CONTENT['GATSBY_URL'] = url.origin
   // github action outputs. Do not touch.
   console.log('::set-output name=public_url::' + packageJson.homepage)
-  console.log('::set-output name=public_path::' + new URL(packageJson.homepage).pathname)
+  console.log('::set-output name=public_path::' + url.pathname)
 }
 
 console.log('VERSIONS: ', Object.entries(ENV_CONTENT), '\n')
@@ -30,22 +33,24 @@ fs.writeFileSync(
 
 fs.writeFileSync('./package.json', JSON.stringify(packageJson, null, 2))
 
+console.log(fs.readFileSync('.env').toString())
+
 function getPublicUrls() {
   if (!process.env.GEN_STATIC_LOCAL) {
     if (process.env.GITHUB_BASE_REF) {
       // Pull request
       return {
-        PUBLIC_URL: `https://sdk-artifacts.decentraland.org/${packageJson.name}/branch/${process.env.GITHUB_HEAD_REF}`,
+        GATSBY_PUBLIC_URL: `https://sdk-team-cdn.decentraland.org/${packageJson.name}/branch/${process.env.GITHUB_HEAD_REF}`,
       }
     } else if (process.env.CI) {
       // master/main branch, also releases
       return {
-        PUBLIC_URL: `https://cdn.decentraland.org/${packageJson.name}/${packageJson.version}`,
+        GATSBY_PUBLIC_URL: `https://cdn.decentraland.org/${packageJson.name}/${packageJson.version}`,
       }
     }
   }
   // localhost
   return {
-    PUBLIC_URL: ``
+    GATSBY_PUBLIC_URL: ``
   }
 }
