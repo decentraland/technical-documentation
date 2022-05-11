@@ -39,7 +39,7 @@ const queries = [
 
 module.exports = {
   assetPrefix: process.env.GATSBY_PUBLIC_URL,
-  pathPrefix: process.env.GATSBY_PUBLIC_URL,
+  pathPrefix: 'testing/path',
   flags: {
     DEV_SSR: true,
   },

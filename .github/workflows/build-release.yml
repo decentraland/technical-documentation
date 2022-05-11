@@ -63,7 +63,6 @@ jobs:
           gitlab-pipeline-url: ${{ secrets.GITLAB_CDN_DEPLOYER_URL }}
           gitlab-token: ${{ secrets.GITLAB_CDN_DEPLOYER_TOKEN }}
 
-          ## publish every package to s3
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -79,6 +78,7 @@ jobs:
             --bucket $SDK_WEB_BUCKET \
             --local-folder public \
             --bucket-folder "${{ steps.install.outputs.public_path }}"
+
   notify_deployment:
     needs: [build]
     if: ${{ github.event.pull_request.number }}
