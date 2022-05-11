@@ -27,7 +27,7 @@ exports.onCreateNode = async ({ node, getNode, actions }: any) => {
 
 exports.createPages = ({ graphql, actions }: any) => {
   const { createPage } = actions
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     graphql(`
       {
         allMdx(filter: { frontmatter: { slug: { ne: null } } }) {

@@ -21,7 +21,6 @@ export function runCommand({ workingDir, command, args, fdStandards }: any) {
     if (standarOption === FileDescriptorStandardOption.PIPE) {
       child.stdout.pipe(process.stdout)
       child.stderr.pipe(process.stderr)
-
     } else if (standarOption === FileDescriptorStandardOption.ONLY_IF_THROW) {
       child.stdout.on('data', (data) => {
         stdOut += data.toString()
@@ -87,4 +86,3 @@ export function cleanUpDependencies(workingDir: string, targetDir: string) {
     fdStandards: FileDescriptorStandardOption.PIPE
   })
 }
-
