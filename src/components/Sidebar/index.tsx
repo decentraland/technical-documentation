@@ -14,14 +14,16 @@ export default function Sidebar() {
   const [category, setCategory] = useState<string>('')
   const [properties, setProperties] = useState<any>()
 
-  console.log(JSON.stringify({ menu }, null, 2))
-
   useEffect(() => {
-    setCategory(location.pathname.split('/')[1])
-    const properties = categories.data.find((item) => {
-      return item.title.toLowerCase() === category
-    })
+    const originUrl = new URL(process.env.GATSBY_PUBLIC_URL)
+    const path = location.pathname.replace(originUrl.pathname + '/', '')
+    const value = path.split('/')[0]
+    const properties = categories.data.find(
+      (item) => item.title.toLowerCase() === value
+    )
+    console.log({ path, value, originUrl })
 
+    setCategory(value)
     setProperties(properties)
   })
 
