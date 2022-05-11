@@ -99,7 +99,7 @@ jobs:
       - name: Generate S3 URL
         id: url-generator
         run: |
-          body="${{needs.build.outputs.decentraland_ecs_s3_bucket_key}}"
+          body="${{needs.build.outputs.docs_s3_bucket_key}}"
           echo ::set-output name=body::$body
       - name: Create or update comment
         uses: peter-evans/create-or-update-comment@v1
