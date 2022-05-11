@@ -14,7 +14,7 @@ export default function UserTypeCard({
   description
 }: SectionCardProps) {
   return (
-    <div className="section-card" style={{ background: bgColor }}>
+    <div className="section-card" style={{ background: "#000" }}>
       <Link to={url}>
         <div className="card-img">
           <img src={formatPaths(img)} alt={title} />
