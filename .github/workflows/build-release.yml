@@ -64,12 +64,8 @@ jobs:
           gitlab-token: ${{ secrets.GITLAB_CDN_DEPLOYER_TOKEN }}
 
           ## publish every package to s3
-          s3-bucket: ${{ secrets.SDK_TEAM_S3_BUCKET }}
-          s3-bucket-key-prefix: '@dcl/docs-site/branch/${{ github.head_ref || github.ref }}'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.SDK_TEAM_AWS_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.SDK_TEAM_AWS_SECRET }}
 
       - name: deploy preview
         env:
@@ -99,7 +95,7 @@ jobs:
       - name: Generate S3 URL
         id: url-generator
         run: |
-          body="${{needs.build.outputs.docs_s3_bucket_key}}"
+          body="${{needs.build.outputs.public_url}}"
           echo ::set-output name=body::$body
       - name: Create or update comment
         uses: peter-evans/create-or-update-comment@v1
