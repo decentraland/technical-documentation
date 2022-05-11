@@ -15,21 +15,17 @@ export default function Sidebar() {
   const [properties, setProperties] = useState<any>()
 
   useEffect(() => {
-    const originUrl = new URL(process.env.GATSBY_URL)
+    const originUrl = new URL(process.env.GATSBY_PUBLIC_URL)
     const path = location.pathname.replace(originUrl.pathname + '/', '')
-    const category = path.split('/')[0]
-
-    setCategory(category)
-  }, [setCategory])
-
-  useEffect(() => {
+    const value = path.split('/')[0]
     const properties = categories.data.find(
-      (item) => item.title.toLowerCase() === category
+      (item) => item.title.toLowerCase() === value
     )
-    setProperties(properties)
-  }, [category, setProperties])
+    console.log({ path, value, originUrl })
 
-  console.log({ category, properties })
+    setCategory(value)
+    setProperties(properties)
+  })
 
   return (
     <aside className="sidebar-container">
