@@ -14,9 +14,12 @@ Object.assign(ENV_CONTENT, getPublicUrls())
 packageJson.homepage = ENV_CONTENT['GATSBY_PUBLIC_URL']
 
 if (packageJson.homepage) {
+  const url = new URL(packageJson.homepage)
+  ENV_CONTENT['GATSBY_PUBLIC_PATH'] = url.pathname
+  ENV_CONTENT['GATSBY_URL'] = url.origin
   // github action outputs. Do not touch.
   console.log('::set-output name=public_url::' + packageJson.homepage)
-  console.log('::set-output name=public_path::' + new URL(packageJson.homepage).pathname)
+  console.log('::set-output name=public_path::' + url.pathname)
 }
 
 console.log('VERSIONS: ', Object.entries(ENV_CONTENT), '\n')

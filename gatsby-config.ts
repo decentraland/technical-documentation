@@ -38,8 +38,8 @@ const queries = [
 /* -> end algolia integratiion queries */
 
 module.exports = {
-  assetPrefix: process.env.GATSBY_PUBLIC_URL,
-  pathPrefix: 'testing/path',
+  assetPrefix: process.env.GATSBY_URL,
+  pathPrefix: process.env.GATSBY_PUBLIC_PATH,
   flags: {
     DEV_SSR: true,
   },
@@ -63,14 +63,6 @@ module.exports = {
         path: "./src/repos/",
       },
       __key: "pages",
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "images",
-        path: "./src/images/",
-      },
-      __key: "images",
     },
     {
       resolve: `gatsby-plugin-mdx`,

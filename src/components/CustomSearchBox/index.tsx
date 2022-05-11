@@ -9,7 +9,7 @@ type CustomSearchBoxProps = {
 
 export default function CustomSearchBox({getQuery} : CustomSearchBoxProps) {
 
-  const glass = <img className='search-bar-icon' src={formatPaths("search.png")} />
+  const glass = <img className='search-bar-icon' src="/search.png" />
 
   function handleQuery(query) {
     return getQuery(query)

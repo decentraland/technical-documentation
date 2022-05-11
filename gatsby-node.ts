@@ -1,6 +1,5 @@
 import path from 'path'
 import { createFilePath } from 'gatsby-source-filesystem'
-import { uid } from 'uid'
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
