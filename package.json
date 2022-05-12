@@ -9,10 +9,10 @@
     "clone-and-clean": "npx tsc --OutDir './src/scripts/dist' --skipLibCheck --resolveJsonModule --esModuleInterop ./src/scripts/docsScrapper.ts && node --experimental-json-modules ./src/scripts/dist/scripts/docsScrapper.js",
     "generate-menu": "bash ./src/utils/generateMenu.sh && npx tsc --OutDir './src/scripts/dist' --skipLibCheck --resolveJsonModule --esModuleInterop ./src/scripts/menuSplitter.ts && node --experimental-json-modules ./src/scripts/dist/menuSplitter.js",
     "start": "GATSBY_ENV=develop gatsby develop",
-    "build": "GATSBY_VERSION=$npm_package_version GATSBY_ENV=prod gatsby build",
-    "build-prefix": "npm run clone-and-clean && npm run generate-menu && GATSBY_VERSION=$npm_package_version GATSBY_ENV=prod ASSETPATH=https://cdn.decentraland.org/@dcl/docs-site/$npm_package_version/ gatsby build --prefix-paths",
+    "build": "npm run clone-and-clean && npm run generate-menu && GATSBY_VERSION=$npm_package_version GATSBY_ENV=prod gatsby build --prefix-paths",
     "serve": "gatsby serve --prefix-paths",
     "clean": "gatsby clean",
+    "postinstall": "node src/scripts/hashGenerator.js",
     "lint": "eslint . --ext .ts"
   },
   "repository": {
@@ -24,7 +24,7 @@
   "bugs": {
     "url": "https://github.com/decentraland/test-static-pipeline/issues"
   },
-  "homepage": "https://github.com/decentraland/test-static-pipeline#readme",
+  "homepage": "",
   "dependencies": {
     "@deckdeckgo/highlight-code": "^3.6.0",
     "@fontsource/inter": "^4.5.7",
