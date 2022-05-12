@@ -3,7 +3,6 @@ import './types'
 import './style.scss'
 import { Link } from 'gatsby'
 import { SectionCardProps } from './types'
-import { StaticImage } from 'gatsby-plugin-image'
 import formatPaths from '@utils/formatPaths'
 
 export default function UserTypeCard({
@@ -25,7 +24,7 @@ export default function UserTypeCard({
         </div>
         <div className="section-card-cta">
           <span>VIEW MORE</span>
-          <img src={formatPaths("caret.png")} alt="caret" />
+          <img src={formatPaths('caret.png')} alt="caret" />
         </div>
       </Link>
     </div>

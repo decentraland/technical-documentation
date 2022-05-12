@@ -33,8 +33,6 @@ fs.writeFileSync(
 
 fs.writeFileSync('./package.json', JSON.stringify(packageJson, null, 2))
 
-console.log(fs.readFileSync('.env').toString())
-
 function getPublicUrls() {
   if (!process.env.GEN_STATIC_LOCAL) {
     if (process.env.GITHUB_BASE_REF) {

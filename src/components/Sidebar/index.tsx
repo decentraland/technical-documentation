@@ -16,15 +16,18 @@ export default function Sidebar() {
 
   useEffect(() => {
     const originUrl = new URL(process.env.GATSBY_PUBLIC_URL)
-    console.log(location.pathname, originUrl.pathname)
-    const path = location.pathname.replace(originUrl.pathname, '')
-    const value = path.split('/')[0]
+
+    let path = location.pathname
+
+    if (originUrl.pathname !== '/') {
+      path = path.replace(originUrl.pathname, '')
+    }
+
+    const value = path.split('/')[1]
     const properties = categories.data.find(
       (item) => item.title.toLowerCase() === value
     )
-    console.log({ path, value, originUrl })
 
-    console.log(value, path.split('/'))
     setCategory(value)
     setProperties(properties)
   })
