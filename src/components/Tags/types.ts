@@ -1,5 +1,5 @@
 export type TagProps = {
-  name: string,
-  category: string,
+  name: string
+  category: string
   slug: string
 }

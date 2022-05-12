@@ -10,7 +10,7 @@ import sections from './../../mocks/sections.json'
 
 export default function Welcome() {
   return (
-    <Section className='welcome-container'>
+    <Section className="welcome-container">
       <Header>Build the Metaverse</Header>
       <p>This is a regular page</p>
       <div className="section-cards-container">

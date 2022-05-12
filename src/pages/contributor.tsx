@@ -7,27 +7,26 @@ import SectionCard from './../components/SectionCard'
 import { SectionCardProps } from '../components/UserTypeCard/types'
 
 const featured = [
-    {
-      title: "The metaverse runtime",
-      img: "image-api.svg",
-      url: "sdk/diagrams/metaverse-runtim3",
-      bgColor: "#AC18C9",
-      description: "Explore the platform foundations"
-    },
-    {
-      title: "Technical documentation",
-      img: "image-ship.svg",
-      url: "sdk/documentation/about",
-      bgColor: "#00ADA5",
-      description: "Find out how we document"
-    }
+  {
+    title: 'The metaverse runtime',
+    img: 'image-api.svg',
+    url: 'sdk/diagrams/metaverse-runtime',
+    bgColor: '#AC18C9',
+    description: 'Explore the platform foundations'
+  },
+  {
+    title: 'Technical documentation',
+    img: 'image-ship.svg',
+    url: 'sdk/documentation/about',
+    bgColor: '#00ADA5',
+    description: 'Find out how we document'
+  }
 ]
-
 
 export default function IndexPage() {
   return (
     <SidebarLayout>
-      <Section className='welcome-container'>
+      <Section className="welcome-container">
         <Header>Build the Metaverse</Header>
         <p>This is a regular page</p>
         <div className="section-cards-container">

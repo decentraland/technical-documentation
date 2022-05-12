@@ -11,13 +11,12 @@
     // "rootDir": "./",                                  /* Specify the root folder within your source files. */
     "moduleResolution": "node", /* Specify how TypeScript looks up a file from a given module specifier. */
     "resolveJsonModule": true, /* Enable importing .json files */
-    "esModuleInterop": true, /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables `allowSyntheticDefaultImports` 
+    "esModuleInterop": true, /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables `allowSyntheticDefaultImports`
     /* Type Checking */
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
   "include": [
-    "/src/**/*",
+    "src",
     "./gatsby-node.ts"
-  ],
-  "exclude": ["node_modules"]
+  ]
 }

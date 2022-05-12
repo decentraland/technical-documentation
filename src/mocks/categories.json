@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "img": "creator.png",
+      "img": "./creator.png",
       "url": "contributor",
       "bgColor": "#EE834A",
       "title": "Contributor",
