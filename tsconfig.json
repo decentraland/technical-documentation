@@ -15,6 +15,18 @@
     /* Type Checking */
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
+  "baseUrl": "./src",
+  "paths": {
+    "components*": [
+      "./components*"
+    ],
+    "@utils*": [
+      "./utils*"
+    ],
+    "scripts*": [
+      "./scripts*"
+    ]
+  },
   "include": [
     "src",
     "./gatsby-node.ts"
