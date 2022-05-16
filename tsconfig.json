@@ -13,20 +13,21 @@
     "resolveJsonModule": true, /* Enable importing .json files */
     "esModuleInterop": true, /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables `allowSyntheticDefaultImports`
     /* Type Checking */
-    "skipLibCheck": true /* Skip type checking all .d.ts files. */
+    "skipLibCheck": true, /* Skip type checking all .d.ts files. */
+    "baseUrl": ".",
+    "paths": {
+      "components*": [
+        "./src/components*"
+      ],
+      "utils*": [
+        "./src/utils*"
+      ],
+      "scripts*": [
+        "./src/scripts*"
+      ]
+    },
   },
-  "baseUrl": "./src",
-  "paths": {
-    "components*": [
-      "./components*"
-    ],
-    "@utils*": [
-      "./utils*"
-    ],
-    "scripts*": [
-      "./scripts*"
-    ]
-  },
+  "strict": true /* Enable all strict type-checking options. */,
   "include": [
     "src",
     "./gatsby-node.ts"
