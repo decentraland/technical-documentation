@@ -29,7 +29,7 @@
   },
   "strict": true /* Enable all strict type-checking options. */,
   "include": [
-    "src",
+    "./src",
     "./gatsby-node.ts"
   ]
 }
