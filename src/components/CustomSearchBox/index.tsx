@@ -1,5 +1,5 @@
 import React from 'react'
-import formatPaths from '@utils/formatPaths'
+import formatPaths from 'utils/formatPaths'
 import { SearchBox } from 'react-instantsearch-dom'
 
 import './style.scss'

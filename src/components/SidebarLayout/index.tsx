@@ -6,7 +6,6 @@ import { Section } from 'decentraland-ui/dist/components/Section/Section'
 import { Navbar } from 'decentraland-ui/dist/components/Navbar/Navbar'
 import Sidebar from '../../components/Sidebar'
 import './style.scss'
-import Search from '../Search'
 
 export type Props = {
   children?: JSX.Element[] | JSX.Element // verify type
