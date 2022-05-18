@@ -11,6 +11,10 @@
     {
       "name": "sdk-ecs7",
       "url": "https://github.com/decentraland/ecs"
+    },
+    {
+      "name": "comms",
+      "url": "https://github.com/decentraland/comms-v3"
     }
   ]
 }
