@@ -8,6 +8,8 @@ const NotFound = () => {
     setTimeout(() => navigate('/'), 5000)
   }, [])
 
+  console.log({url: process.env.GATSBY_PUBLIC_URL, path: process.env.GATSBY_PUBLIC_PATH})
+
    return (
     <GeneralLayout>
        <div>
