@@ -15,13 +15,8 @@ packageJson.homepage = ENV_CONTENT['GATSBY_PUBLIC_URL']
 
 if (packageJson.homepage) {
   const url = new URL(packageJson.homepage)
+  // ENV_CONTENT['GATSBY_PUBLIC_PATH'] = url.pathname
   ENV_CONTENT['GATSBY_URL'] = url.origin
-  if (!process.env.GEN_STATIC_LOCAL) {
-    if (process.env.GITHUB_BASE_REF) {
-      ENV_CONTENT['GATSBY_PUBLIC_PATH'] = url.pathname
-
-    }
-  }
   // github action outputs. Do not touch.
   console.log('::set-output name=public_url::' + packageJson.homepage)
   console.log('::set-output name=public_path::' + url.pathname)
@@ -45,7 +40,7 @@ function getPublicUrls() {
     if (process.env.GITHUB_BASE_REF) {
       // Pull request
       return {
-        GATSBY_PUBLIC_URL: `https://sdk-team-cdn.decentraland.org/`,
+        GATSBY_PUBLIC_URL: `https://sdk-team-cdn.decentraland.org/${packageJson.name}/branch/${process.env.GITHUB_HEAD_REF}`,
       }
     } else if (process.env.CI) {
       // master/main branch, also releases
