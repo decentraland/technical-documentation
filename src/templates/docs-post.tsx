@@ -12,7 +12,7 @@ const components = {
   code: CodeBlock
 };
 
-console.log({url: process.env.GATSBY_PUBLIC_URL, path: process.env.GATSBY_PUBLIC_PATH})
+console.log({p_url: process.env.GATSBY_PUBLIC_URL, path: process.env.GATSBY_PUBLIC_PATH, url: process.env.GATSBY_URL})
 
   const { mdx } = data
   const { body, frontmatter } = mdx
