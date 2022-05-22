@@ -38,7 +38,7 @@ const queries = [
 /* -> end algolia integratiion queries */
 
 module.exports = {
-  assetPrefix: process.env.GATSBY_PUBLIC_URL,
+  // assetPrefix: process.env.GATSBY_PUBLIC_URL,
   pathPrefix: process.env.GATSBY_PUBLIC_PATH ?? '',
   flags: {
     DEV_SSR: true,
