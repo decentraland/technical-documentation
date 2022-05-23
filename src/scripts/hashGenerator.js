@@ -16,9 +16,7 @@ packageJson.homepage = ENV_CONTENT['GATSBY_PUBLIC_URL']
 if (packageJson.homepage) {
   const url = new URL(packageJson.homepage)
 
-  console.log('ENV CI', process.env.CI)
   if (process.env.GITHUB_BASE_REF) {
-    console.log('IF')
     ENV_CONTENT['GATSBY_PUBLIC_PATH'] = url.pathname
   } else {
     ENV_CONTENT['ASSET_PREFIX'] = ENV_CONTENT['GATSBY_PUBLIC_URL'];
@@ -29,8 +27,6 @@ if (packageJson.homepage) {
   console.log('::set-output name=public_url::' + packageJson.homepage)
   console.log('::set-output name=public_path::' + url.pathname)
 }
-
-console.log('VERSIONS: ', Object.entries(ENV_CONTENT), '\n')
 
 fs.writeFileSync(
   '.env',
