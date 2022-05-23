@@ -15,7 +15,15 @@ packageJson.homepage = ENV_CONTENT['GATSBY_PUBLIC_URL']
 
 if (packageJson.homepage) {
   const url = new URL(packageJson.homepage)
-  ENV_CONTENT['GATSBY_PUBLIC_PATH'] = url.pathname
+
+  console.log('ENV CI', process.env.CI)
+  if (process.env.GITHUB_BASE_REF) {
+    console.log('IF')
+    ENV_CONTENT['GATSBY_PUBLIC_PATH'] = url.pathname
+  } else {
+    ENV_CONTENT['ASSET_PREFIX'] = ENV_CONTENT['GATSBY_PUBLIC_URL'];
+  }
+  
   ENV_CONTENT['GATSBY_URL'] = url.origin
   // github action outputs. Do not touch.
   console.log('::set-output name=public_url::' + packageJson.homepage)
@@ -49,6 +57,7 @@ function getPublicUrls() {
   }
   // localhost
   return {
-    GATSBY_PUBLIC_URL: ``
+    GATSBY_PUBLIC_URL: ``,
+
   }
 }

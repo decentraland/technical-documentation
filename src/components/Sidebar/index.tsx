@@ -14,10 +14,7 @@ export default function Sidebar() {
   const [category, setCategory] = useState<string>('')
   const [properties, setProperties] = useState<any>()
 
-  useEffect(() => {
-    // console.log(process.env.GATSBY_PUBLIC_URL)
-    // const originUrl = new URL(process.env.GATSBY_PUBLIC_URL)
- 
+  useEffect(() => { 
      let path = location.pathname
  
      if (process.env.GATSBY_PUBLIC_URL !== '/') {
