@@ -41,13 +41,9 @@ fs.writeFileSync(
 
 fs.writeFileSync('./package.json', JSON.stringify(packageJson, null, 2))
 
-console.log(packageJson, 123)
-
 function getPublicUrls() {
   if (!process.env.GEN_STATIC_LOCAL) {
-    console.log("first")
     if (process.env.GITHUB_BASE_REF) {
-      console.log('second')
       // Pull request
       return {
         GATSBY_PUBLIC_URL: `https://sdk-team-cdn.decentraland.org/${packageJson.name}/branch/${process.env.GITHUB_HEAD_REF}`,

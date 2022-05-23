@@ -17,8 +17,6 @@ export default function ResultsPage({location}) {
   const { search } = queryString.parse(location.search);
   const [query, setQuery] = useState(search)
 
-  console.log(query, 123)
-
   const SearchTitle = ({search}) => {
     return (
       <h2>{search ? `Search results for "${search}"` : "No query was provided"}</h2>
