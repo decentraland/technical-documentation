@@ -16,9 +16,11 @@ packageJson.homepage = ENV_CONTENT['GATSBY_PUBLIC_URL']
 if (packageJson.homepage) {
   const url = new URL(packageJson.homepage)
 
+  console.log('ENV CI', process.env.CI)
   if (process.env.CI) {
     ENV_CONTENT['ASSET_PREFIX'] = ENV_CONTENT['GATSBY_PUBLIC_URL'];
   } else {
+    console.log('Else')
     ENV_CONTENT['GATSBY_PUBLIC_PATH'] = url.pathname
   }
   

@@ -37,9 +37,9 @@ const queries = [
 
 /* -> end algolia integratiion queries */
 
-module.exports = {
-  assetPrefix: process.env.ASSET_PREFIX ?? '',
-  pathPrefix: process.env.GATSBY_PUBLIC_PATH ?? '',
+const opts = {
+  assetPrefix: process.env.ASSET_PREFIX,
+  pathPrefix: process.env.GATSBY_PUBLIC_PATH,
   flags: {
     DEV_SSR: true,
   },
@@ -113,3 +113,13 @@ module.exports = {
     },
   ],
 };
+
+if (!process.env.ASSET_PREFIX) {
+  delete opts['assetPrefix']
+}
+
+if (!process.env.GATSBY_PUBLIC_PATH) {
+  delete opts['pathPrefix']
+}
+
+module.exports = opts
