@@ -17,11 +17,11 @@ if (packageJson.homepage) {
   const url = new URL(packageJson.homepage)
 
   console.log('ENV CI', process.env.CI)
-  if (process.env.CI) {
-    ENV_CONTENT['ASSET_PREFIX'] = ENV_CONTENT['GATSBY_PUBLIC_URL'];
-  } else {
-    console.log('Else')
+  if (process.env.GITHUB_BASE_REF) {
+    console.log('IF')
     ENV_CONTENT['GATSBY_PUBLIC_PATH'] = url.pathname
+  } else {
+    ENV_CONTENT['ASSET_PREFIX'] = ENV_CONTENT['GATSBY_PUBLIC_URL'];
   }
   
   ENV_CONTENT['GATSBY_URL'] = url.origin
