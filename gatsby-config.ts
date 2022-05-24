@@ -124,9 +124,7 @@ if (!process.env.GATSBY_PUBLIC_PATH) {
 }
 
 if (process.env.GITHUB_ACTIONS) {
-  console.log('in the action')
-} else {
-  console.log('no action')
+  opts.plugins.push(algoliaOpts)
 }
 
 module.exports = opts
