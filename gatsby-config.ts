@@ -75,9 +75,8 @@ const opts = {
             },
           },
         ],
-        plugins: [`gatsby-remark-images`],
         extensions: [`.md`, `.mdx`]
-      },
+      }
     },
     {
       resolve: `gatsby-plugin-compile-es6-packages`,
@@ -112,7 +111,8 @@ const algoliaOpts = {
     concurrentQueries: false, // default: true
     // skipIndexing: true, // default: false, useful for e.g. preview deploys or local development
     continueOnFailure: false, // default: false, don't fail the build if algolia indexing fails
-  },
+    modules: []
+  }
 }
 
 if (!process.env.ASSET_PREFIX) {
@@ -125,7 +125,6 @@ if (!process.env.GATSBY_PUBLIC_PATH) {
 
 if (process.env.GITHUB_ACTIONS) {
   console.log('in the action')
-  opts.plugins.push(JSON.stringify(algoliaOpts))
 } else {
   console.log('no action')
 }
