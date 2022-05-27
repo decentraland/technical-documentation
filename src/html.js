@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import "@fontsource/inter"
-import "./styles/global-styles.scss"
+import '@fontsource/inter'
+import './styles/global-styles.scss'
 
 export default function HTML(props) {
   return (
@@ -16,9 +16,17 @@ export default function HTML(props) {
         {props.headComponents}
         <link href="https://ui.decentraland.org/styles.css" rel="stylesheet" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-      </head> 
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="true"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+          rel="stylesheet"
+        />
+        <title>Decentraland Technical Documentation</title>
+      </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
         <div
