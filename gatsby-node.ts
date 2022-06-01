@@ -81,7 +81,7 @@ exports.createPages = ({ graphql, actions }: any) => {
     `).then((result: any) => {
       result.data.allMdx.edges.forEach(({ node }: any) => {
         createPage({
-          path: node.fields.slug.replace('_posts/', ''),
+          path: node.fields.slug.replace('_posts/', ),
           component: path.resolve(`./src/templates/docs-post.tsx`),
           // context: {
           //   slug: `legacy/${node.frontmatter.redirect_from}`
