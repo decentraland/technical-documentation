@@ -58,3 +58,37 @@ exports.createPages = ({ graphql, actions }: any) => {
     })
   })
 }
+
+exports.createPages = ({ graphql, actions }: any) => {
+  const { createPage } = actions
+  return new Promise((resolve) => {
+    graphql(`
+      {
+        allMdx(filter: { frontmatter: { redirect_from: { ne: null } } }) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                redirect_from
+                title
+              }
+            }
+          }
+        }
+      }
+    `).then((result: any) => {
+      result.data.allMdx.edges.forEach(({ node }: any) => {
+        createPage({
+          path: node.fields.slug.replace('_posts/', ''),
+          component: path.resolve(`./src/templates/docs-post.tsx`),
+          // context: {
+          //   slug: `legacy/${node.frontmatter.redirect_from}`
+          // }
+        })
+      })
+      resolve(true)
+    })
+  })
+}

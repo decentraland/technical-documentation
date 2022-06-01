@@ -15,6 +15,10 @@
     {
       "name": "comms",
       "url": "https://github.com/decentraland/comms-v3"
+    },
+    {
+      "name": "legacy",
+      "url": "https://github.com/decentraland/documentation"
     }
   ]
 }
