@@ -25,10 +25,9 @@ exports.onCreateNode = async ({ node, getNode, actions }: any) => {
   }
 }
 
-exports.createPages = ({ graphql, actions }: any) => {
-  const { createPage } = actions
-  return new Promise((resolve) => {
-    graphql(`
+exports.createPages = async ({ graphql, actions }: any) => {
+
+  const posts  = await graphql(`
       {
         allMdx(filter: { frontmatter: { slug: { ne: null } } }) {
           edges {
@@ -44,51 +43,46 @@ exports.createPages = ({ graphql, actions }: any) => {
           }
         }
       }
-    `).then((result: any) => {
-      result.data.allMdx.edges.forEach(({ node }: any) => {
-        createPage({
-          path: node.frontmatter.slug,
+    `)
+
+  const legacyData  = await graphql(`
+  {
+    allMdx(filter: { frontmatter: { redirect_from: { ne: null } } }) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            redirect_from
+            title
+          }
+        }
+      }
+    }
+  }
+`)
+
+  const pages = Promise.all([posts, legacyData]).then(values => {
+    
+    values[0].data.allMdx.edges.forEach(({ node }: any) => {
+      actions.createPage({
+        path: node.frontmatter.slug,
+        component: path.resolve(`./src/templates/docs-post.tsx`),
+        context: {
+          slug: node.fields.slug
+        }
+      })
+    })
+    
+    values[1].data.allMdx.edges.forEach(({ node }: any) => {
+        actions.createPage({
+          path: node.fields.slug.replace('_posts/', ''),
           component: path.resolve(`./src/templates/docs-post.tsx`),
           context: {
             slug: node.fields.slug
           }
         })
       })
-      resolve(true)
-    })
-  })
-}
-
-exports.createPages = ({ graphql, actions }: any) => {
-  const { createPage } = actions
-  return new Promise((resolve) => {
-    graphql(`
-      {
-        allMdx(filter: { frontmatter: { redirect_from: { ne: null } } }) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                redirect_from
-                title
-              }
-            }
-          }
-        }
-      }
-    `).then((result: any) => {
-      result.data.allMdx.edges.forEach(({ node }: any) => {
-        createPage({
-          path: node.fields.slug.replace('_posts/', ),
-          component: path.resolve(`./src/templates/docs-post.tsx`),
-          // context: {
-          //   slug: `legacy/${node.frontmatter.redirect_from}`
-          // }
-        })
-      })
-      resolve(true)
-    })
   })
 }
