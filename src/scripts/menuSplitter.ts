@@ -90,5 +90,4 @@ function generateMappedObject(item) {
 }
 
 mapLegacyMenu()
-
 menuSplitter()
