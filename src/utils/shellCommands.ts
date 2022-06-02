@@ -67,7 +67,6 @@ export function downloadRepo(
 }
 
 export function cleanUpDependencies(workingDir: string, targetDir: string) {
-  console.log(targetDir, 123)
   return runCommand({
     workingDir,
     command: 'find',

@@ -13,3 +13,5 @@ for i in ${FILES[@]}; do
 done                                         
                                              
 echo "]"
+
+mv ./src/repos/legacy/_data/menu.json ./src/menu-data/legacy.json`

@@ -6,6 +6,13 @@
       "bgColor": "#EE834A",
       "title": "Contributor",
       "description": "A description"
+    },
+    {
+      "img": "./creator.png",
+      "url": "legacy",
+      "bgColor": "#0c0c0c",
+      "title": "Legacy",
+      "description": "The past is not forgotten"
     }
   ]
 }

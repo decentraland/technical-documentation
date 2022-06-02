@@ -24,12 +24,13 @@ export default function Sidebar() {
  
      const value = path.split('/')[1]
      const properties = categories.data.find(
-       (item) => item.title.toLowerCase() === value
+       (item) => item.title.toLowerCase() === value 
      )
  
      setCategory(value)
      setProperties(properties)
-   })
+
+   }, [])
 
   return (
     <aside className="sidebar-container">
