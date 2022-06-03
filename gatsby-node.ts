@@ -26,63 +26,59 @@ exports.onCreateNode = async ({ node, getNode, actions }: any) => {
 }
 
 exports.createPages = async ({ graphql, actions }: any) => {
-
-  const posts  = await graphql(`
-      {
-        allMdx(filter: { frontmatter: { slug: { ne: null } } }) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                slug
-                title
-              }
+  const posts = await graphql(`
+    {
+      allMdx(filter: { frontmatter: { slug: { ne: null } } }) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              slug
+              title
             }
           }
         }
       }
-    `)
+    }
+  `)
 
-  const legacyData  = await graphql(`
-  {
-    allMdx(filter: { frontmatter: { redirect_from: { ne: null } } }) {
-      edges {
-        node {
-          fields {
-            slug
-          }
-          frontmatter {
-            redirect_from
-            title
+  const legacyData = await graphql(`
+    {
+      allMdx(filter: { frontmatter: { redirect_from: { ne: null } } }) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              redirect_from
+              title
+            }
           }
         }
       }
     }
-  }
-`)
+  `)
 
-  const pages = Promise.all([posts, legacyData]).then(values => {
-    
-    values[0].data.allMdx.edges.forEach(({ node }: any) => {
-      actions.createPage({
-        path: node.frontmatter.slug,
-        component: path.resolve(`./src/templates/docs-post.tsx`),
-        context: {
-          slug: node.fields.slug
-        }
-      })
+  posts.data.allMdx.edges.forEach(({ node }: any) => {
+    actions.createPage({
+      path: node.frontmatter.slug,
+      component: path.resolve(`./src/templates/docs-post.tsx`),
+      context: {
+        slug: node.fields.slug
+      }
     })
-    
-    values[1].data.allMdx.edges.forEach(({ node }: any) => {
-        actions.createPage({
-          path: node.fields.slug.replace('_posts/', ''),
-          component: path.resolve(`./src/templates/docs-post.tsx`),
-          context: {
-            slug: node.fields.slug
-          }
-        })
-      })
+  })
+
+  legacyData.data.allMdx.edges.forEach(({ node }: any) => {
+    actions.createPage({
+      path: node.fields.slug.replace('legacy/_posts/', ''),
+      component: path.resolve(`./src/templates/docs-post.tsx`),
+      context: {
+        slug: node.fields.slug
+      }
+    })
   })
 }
