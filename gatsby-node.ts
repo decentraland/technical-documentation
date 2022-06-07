@@ -25,36 +25,60 @@ exports.onCreateNode = async ({ node, getNode, actions }: any) => {
   }
 }
 
-exports.createPages = ({ graphql, actions }: any) => {
-  const { createPage } = actions
-  return new Promise((resolve) => {
-    graphql(`
-      {
-        allMdx(filter: { frontmatter: { slug: { ne: null } } }) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                slug
-                title
-              }
+exports.createPages = async ({ graphql, actions }: any) => {
+  const posts = await graphql(`
+    {
+      allMdx(filter: { frontmatter: { slug: { ne: null } } }) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              slug
+              title
             }
           }
         }
       }
-    `).then((result: any) => {
-      result.data.allMdx.edges.forEach(({ node }: any) => {
-        createPage({
-          path: node.frontmatter.slug,
-          component: path.resolve(`./src/templates/docs-post.tsx`),
-          context: {
-            slug: node.fields.slug
+    }
+  `)
+
+  const legacyData = await graphql(`
+    {
+      allMdx(filter: { frontmatter: { redirect_from: { ne: null } } }) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              redirect_from
+              title
+            }
           }
-        })
-      })
-      resolve(true)
+        }
+      }
+    }
+  `)
+
+  posts.data.allMdx.edges.forEach(({ node }: any) => {
+    actions.createPage({
+      path: node.frontmatter.slug,
+      component: path.resolve(`./src/templates/docs-post.tsx`),
+      context: {
+        slug: node.fields.slug
+      }
+    })
+  })
+
+  legacyData.data.allMdx.edges.forEach(({ node }: any) => {
+    actions.createPage({
+      path: node.fields.slug.replace('legacy/_posts/', ''),
+      component: path.resolve(`./src/templates/docs-post.tsx`),
+      context: {
+        slug: node.fields.slug
+      }
     })
   })
 }

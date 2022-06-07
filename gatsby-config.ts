@@ -75,7 +75,7 @@ const opts = {
             },
           },
         ],
-        extensions: [`.md`, `.mdx`]
+        extensions: [`.md`, `.mdx`],
       }
     },
     {

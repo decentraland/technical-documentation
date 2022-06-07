@@ -1,16 +1,17 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import SidebarLayout from './../components/SidebarLayout'
-import "./style.scss"
-import { MDXRenderer } from "gatsby-plugin-mdx"
-import { MDXProvider } from "@mdx-js/react"
+import './style.scss'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
+import { MDXProvider } from '@mdx-js/react'
 import CodeBlock from '../components/CodeBlock'
 
 export default function Template({ data }: any) {
+  const components = {
+    code: CodeBlock
+  }
 
-const components = {
-  code: CodeBlock
-};
+  console.log(CodeBlock, 888)
 
   const { mdx } = data
   const { body, frontmatter } = mdx
@@ -21,9 +22,7 @@ const components = {
           <div className="blog-post">
             <h1>{frontmatter.title}</h1>
             <MDXProvider components={components}>
-              <MDXRenderer>
-                {body}
-              </MDXRenderer>
+              <MDXRenderer>{body}</MDXRenderer>
             </MDXProvider>
           </div>
         </div>
