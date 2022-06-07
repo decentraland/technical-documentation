@@ -2,11 +2,11 @@ import * as React from 'react'
 import { useState } from 'react'
 import 'decentraland-ui/dist/themes/base-theme.css'
 import 'decentraland-ui/dist/themes/alternative/light-theme.css'
-import GeneralLayout from '@components/GeneralLayout'
+import GeneralLayout from '../components/GeneralLayout'
 import * as queryString from 'query-string'
 import { InstantSearch } from 'react-instantsearch-dom'
 import algoliasearch from 'algoliasearch/lite'
-import ConnectedResultHits from '../ResultHits'
+import ConnectedResultHits from '../components/ResultHits'
 import CustomSearchBox from '../components/CustomSearchBox'
 
 const searchClient = algoliasearch(
