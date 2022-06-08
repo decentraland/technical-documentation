@@ -46,7 +46,7 @@ exports.createPages = async ({ graphql, actions }: any) => {
 
   const legacyData = await graphql(`
     {
-      allMdx(filter: { frontmatter: { redirect_from: { ne: null } } }) {
+      allMdx(filter: { frontmatter: { date: { ne: null } } }) {
         edges {
           node {
             fields {
