@@ -61,9 +61,9 @@ slug: "the relative slug to your page, ex: /contributor/sdk/diagrams/metaverse-r
 
   - See [sample summary](https://github.com/decentraland/technical-documentation/blob/main/docs/summary.json)
 
-### **Test your docs**
+### **Preview your docs**
 
-Opening a PR will trigger the test CI pipeline which deploys a test version to the cdn. Feel free to test your docs in the PR's generated link before merging.
+Opening a PR will trigger the test CI pipeline which deploys a test version to the cdn. Feel free to preview your docs in the PR's generated link before merging.
 
 ### Contribute to the codebase
 
