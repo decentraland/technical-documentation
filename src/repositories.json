@@ -4,6 +4,10 @@
       "name": "sdk",
       "url": "https://github.com/decentraland/sdk"
     },
+	 {
+      "name": "unity-renderer",
+      "url": "https://github.com/decentraland/unity-renderer"
+    },
     {
       "name": "docs",
       "url": "https://github.com/decentraland/technical-documentation"
