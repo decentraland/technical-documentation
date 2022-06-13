@@ -14,4 +14,4 @@ done
                                              
 echo "]"
 
-mv ./src/repos/legacy/_data/menu.json ./src/menu-data/legacy.json
+mv ./src/repos/legacy/*/_data/menu.json ./src/menu-data/legacy.json
