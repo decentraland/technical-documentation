@@ -7,28 +7,15 @@ import { Link } from 'gatsby'
 // TODO: - right now this data is hardcoded for all sidebars but it should
 // probably be a prop since we want different versions per section
 import menu from '../../repos/menu.json'
-import categories from '../../mocks/categories.json'
 import Search from '../Search'
 
-export default function Sidebar() {
-  const [category, setCategory] = useState<string>('')
-  const [properties, setProperties] = useState<any>()
+export default function Sidebar({ category, properties } : any) {
+  // const [properties, setProperties] = useState<any>()
 
   useEffect(() => { 
-     let path = location.pathname
- 
-     if (process.env.GATSBY_PUBLIC_URL !== '/') {
-       const originUrl = new URL(process.env.GATSBY_PUBLIC_URL)
-       path = path.replace(originUrl.pathname, '')
-     }
- 
-     const value = path.split('/')[1]
-     const properties = categories.data.find(
-       (item) => item.title.toLowerCase() === value 
-     )
- 
-     setCategory(value)
-     setProperties(properties)
+     console.log(category, 8)
+     
+     console.log(properties, 8, category)
 
    }, [])
 
