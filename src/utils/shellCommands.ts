@@ -53,27 +53,14 @@ export function runCommand({ workingDir, command, args, fdStandards }: any) {
   })
 }
 
-export function downloadRepo(
-  workingDir: string,
-  url: string,
-  destinationPath: string
-) {
-  return runCommand({
-    workingDir,
-    command: 'git',
-    args: ['clone', '--depth', '1', url, destinationPath],
-    fdStandards: FileDescriptorStandardOption.PIPE
-  })
-}
-
 export function cleanUpDependencies(workingDir: string, targetDir: string) {
   return runCommand({
     workingDir,
     command: 'find',
     args: [
       targetDir,
-      '-mindepth 2',
-      '-maxdepth 2',
+      '-mindepth 3',
+      '-maxdepth 3',
       '-not',
       '-name',
       'docs',
