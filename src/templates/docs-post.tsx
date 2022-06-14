@@ -11,8 +11,6 @@ export default function Template({ data }: any) {
     code: CodeBlock
   }
 
-  console.log(CodeBlock, 888)
-
   const { mdx } = data
   const { body, frontmatter } = mdx
   return (

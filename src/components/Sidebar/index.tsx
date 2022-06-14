@@ -11,8 +11,6 @@ import Search from '../Search'
 
 export default function Sidebar({ category, properties } : any) {
 
-  console.log(category, '11')
-
   return (
     <aside className="sidebar-container">
       {category && properties && (
