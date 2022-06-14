@@ -10,14 +10,8 @@ import menu from '../../repos/menu.json'
 import Search from '../Search'
 
 export default function Sidebar({ category, properties } : any) {
-  // const [properties, setProperties] = useState<any>()
 
-  useEffect(() => { 
-     console.log(category, 8)
-     
-     console.log(properties, 8, category)
-
-   }, [])
+  console.log(category, '11')
 
   return (
     <aside className="sidebar-container">

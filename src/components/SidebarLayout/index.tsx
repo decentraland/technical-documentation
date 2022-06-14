@@ -25,14 +25,16 @@ export default function SidebarLayout({ children }: Props) {
     if (process.env.GATSBY_PUBLIC_URL !== '/') {
       const originUrl = new URL(process.env.GATSBY_PUBLIC_URL)
       path = path.replace(originUrl.pathname, '')
-  }
+}
 
-    let value = path.split('/')[1]
-    let categoryProps = categories.data.find(
+    const value = path.split('/')[1]
+    const categoryProps = categories.data.find(
     (item) => item.title.toLowerCase() === value 
   )
+
+    const category = categoryProps ? value : 'legacy'
   
-    setSidebarCategory(value)
+    setSidebarCategory(category)
     setSidebarCategoryProps(categoryProps)
   }, [])
 
