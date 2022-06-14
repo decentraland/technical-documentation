@@ -26,7 +26,13 @@ Technical documentation is divided in three major areas:
 **In your repository:**
 
 - Create a docs folder at root level
-- Push your documents as .md files
+- Push your documents as .md files, please include 'title' and 'slug' frontmatter metadata at the beginning of each file, using the following syntax:
+```yaml
+---
+title: "Metaverse runtime"
+slug: "the relative slug to your page, ex: /contributor/sdk/diagrams/metaverse-runtime"
+---
+```
 - Create a summary.json file with the sidebar wanted structure:
   - Example:
 

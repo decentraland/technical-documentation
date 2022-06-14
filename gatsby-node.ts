@@ -46,7 +46,7 @@ exports.createPages = async ({ graphql, actions }: any) => {
 
   const legacyData = await graphql(`
     {
-      allMdx(filter: { frontmatter: { redirect_from: { ne: null } } }) {
+      allMdx(filter: { frontmatter: { date: { ne: null } } }) {
         edges {
           node {
             fields {
@@ -74,7 +74,7 @@ exports.createPages = async ({ graphql, actions }: any) => {
 
   legacyData.data.allMdx.edges.forEach(({ node }: any) => {
     actions.createPage({
-      path: node.fields.slug.replace('legacy/_posts/', ''),
+      path: node.fields.slug.replace('legacy/documentation-master/_posts/', ''),
       component: path.resolve(`./src/templates/docs-post.tsx`),
       context: {
         slug: node.fields.slug
