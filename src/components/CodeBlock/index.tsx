@@ -7,8 +7,6 @@ import { FaCheck, FaCopy } from 'react-icons/fa';
 
 export default (props) => {
 
-  console.log(props, 111)
-
   const [copied, setCopied] = useState<boolean>(false)
   const code = props.children.trim()
 
