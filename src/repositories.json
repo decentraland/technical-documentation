@@ -24,7 +24,8 @@
       "name" : "tutorials",
       "url": "https://github.com/decentraland/technical-tutorials",
       "zipUrl": "https://github.com/decentraland/technical-tutorials/archive/refs/heads/main.zip"
-    }
+    },
+    {
       "name": "comms",
       "url": "https://github.com/decentraland/comms-v3",
       "zipUrl": "https://github.com/decentraland/comms-v3/archive/refs/heads/master.zip"
