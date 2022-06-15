@@ -56,6 +56,7 @@ const opts = {
     "gatsby-plugin-sass",
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-catch-links`,
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -63,6 +64,12 @@ const opts = {
         path: "./src/repos/",
       },
       __key: "pages",
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./src/repos/legacy/documentation-master/images/media/`,
+      },
     },
     {
       resolve: `gatsby-plugin-mdx`,
@@ -74,6 +81,13 @@ const opts = {
               maxWidth: 900,
             },
           },
+          {
+            resolve: "gatsby-remark-external-links",
+            options: {
+              target: "_self",
+              rel: "nofollow"
+            }
+          }
         ],
         extensions: [`.md`, `.mdx`],
       }
