@@ -2,27 +2,32 @@
   "repositories": [
     {
       "name": "sdk",
-      "url": "https://github.com/decentraland/sdk"
+      "url": "https://github.com/decentraland/sdk",
+      "zipUrl": "https://github.com/decentraland/sdk/archive/refs/heads/main.zip"
     },
     {
-      "name": "docs",
-      "url": "https://github.com/decentraland/technical-documentation"
-    },
-    {
-      "name": "sdk-ecs7",
-      "url": "https://github.com/decentraland/ecs"
-    },
-    {
-      "name": "comms",
-      "url": "https://github.com/decentraland/comms-v3"
+      "name": "tech-docs",
+      "url": "https://github.com/decentraland/technical-documentation",
+      "zipUrl": "https://github.com/decentraland/technical-documentation/archive/13a63ea06e8f3fad21c9da23223bfdfa60ced8cf.zip"
     },
     {
       "name": "legacy",
-      "url": "https://github.com/decentraland/documentation"
+      "url": "https://github.com/decentraland/technical-documentation",
+      "zipUrl": "https://github.com/decentraland/documentation/archive/refs/heads/master.zip"
+    },
+    {
+      "name": "sdk-ecs7",
+      "url": "https://github.com/decentraland/ecs",
+      "zipUrl": "https://github.com/decentraland/ecs/archive/refs/heads/master.zip"
     },
     {
       "name" : "tutorials",
-      "url": "https://github.com/decentraland/technical-tutorials"
+      "url": "https://github.com/decentraland/technical-tutorials",
+      "zipUrl": "https://github.com/decentraland/technical-tutorials/archive/refs/heads/main.zip"
+    }
+      "name": "comms",
+      "url": "https://github.com/decentraland/comms-v3",
+      "zipUrl": "https://github.com/decentraland/comms-v3/archive/refs/heads/master.zip"
     }
   ]
 }

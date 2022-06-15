@@ -1,4 +1,4 @@
-A=0 && for i in ./src/repos/*/*/summary.json; do cp ${i} ./src/menu-data/summary_${A}.json && let  A++ ; done
+A=0 && for i in ./src/repos/*/*/*/summary.json; do cp ${i} ./src/menu-data/summary_${A}.json && let  A++ ; done
 echo "["                                  
                                              
 FILES=(./src/menu-data/*)                               
@@ -14,4 +14,4 @@ done
                                              
 echo "]"
 
-mv ./src/repos/legacy/_data/menu.json ./src/menu-data/legacy.json
+mv ./src/repos/legacy/documentation-master/_data/menu.json ./src/menu-data/legacy.json

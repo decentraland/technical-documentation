@@ -52,7 +52,7 @@ export default function RootDir(props: Props) {
                 {name}
               </span>
             )
-          ) : (
+          ) : ( slug &&
             <Link
               className={active ? 'sidebar-open' : 'sidebar-item'}
               to={slug}
