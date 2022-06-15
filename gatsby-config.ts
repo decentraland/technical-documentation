@@ -90,6 +90,8 @@ const opts = {
       options: {
         gatsbyRemarkPlugins: [
           `gatsby-remark-liquid-tags`,
+          `gatsby-remark-mermaid`,
+          `gatsby-remark-sequence`,
           {
             resolve: `gatsby-remark-images`,
             options: {
