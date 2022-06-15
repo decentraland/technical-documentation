@@ -19,6 +19,10 @@
     {
       "name": "legacy",
       "url": "https://github.com/decentraland/documentation"
+    },
+    {
+      "name" : "tutorials",
+      "url": "https://github.com/decentraland/technical-tutorials"
     }
   ]
 }
