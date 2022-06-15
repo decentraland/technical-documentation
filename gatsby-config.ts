@@ -68,6 +68,8 @@ const opts = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         gatsbyRemarkPlugins: [
+          `gatsby-remark-mermaid`,
+          `gatsby-remark-sequence`,
           {
             resolve: `gatsby-remark-images`,
             options: {
