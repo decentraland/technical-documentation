@@ -15,3 +15,4 @@ done
 echo "]"
 
 mv ./src/repos/legacy/documentation-master/_data/menu.json ./src/menu-data/legacy.json
+mv ./src/repos/legacy/documentation-master/images ./static/images
