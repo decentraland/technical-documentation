@@ -1,9 +1,10 @@
 import React from 'react'
+import formatPaths from 'utils/formatPaths'
 
 export default function CustomImg (props : any) {
   
-  const formaattedSrc = props.src && props.src.replace('{{ site.baseurl }}', '')
+  const formattedSrc = props.src && props.src.replace('{{ site.baseurl }}', '')
   return (
-    <img src={formaattedSrc} style={props.style} srcSet={props.srcSet} className={props.className} />
+    <img src={formatPaths(formattedSrc)} style={props.style} srcSet={props.srcSet} className={props.className} />
   )
 }
