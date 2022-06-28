@@ -52,13 +52,15 @@ export default function RootDir(props: Props) {
                 {name}
               </span>
             )
-          ) : ( slug &&
-            <Link
-              className={active ? 'sidebar-open' : 'sidebar-item'}
-              to={slug}
-            >
-              {name}
-            </Link>
+          ) : (
+            slug && (
+              <Link
+                className={active ? 'sidebar-open' : 'sidebar-item'}
+                to={slug}
+              >
+                {name}
+              </Link>
+            )
           )}
         </div>
         <div
@@ -75,7 +77,7 @@ export default function RootDir(props: Props) {
                   name={item.name}
                   children={item.children}
                   offset={1}
-                  slug={item.slug}
+                  slug={item.slug?.toLowerCase()}
                   key={key}
                   isOpen={open}
                   openParent={handleOpen}

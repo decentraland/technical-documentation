@@ -119,6 +119,7 @@ const opts = {
         ],
       },
     },
+    'gatsby-plugin-meta-redirect' // make sure this is always the last one
   ],
 };
 
