@@ -3,7 +3,6 @@ import { yamlToJson } from './../utils/yamlToJson.js'
 import { downloadRepos } from './../utils/downloadRepos.js'
 
 async function main() {
-  //  await cloneRepos()
   await downloadRepos()
   await cleanUpDependencies(process.cwd(), './src/repos')
   await yamlToJson(

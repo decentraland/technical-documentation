@@ -5,10 +5,15 @@
       "url": "https://github.com/decentraland/sdk",
       "zipUrl": "https://github.com/decentraland/sdk/archive/refs/heads/main.zip"
     },
+	 {
+      "name": "unity-renderer",
+      "url": "https://github.com/decentraland/unity-renderer",
+      "zipUrl": "https://github.com/decentraland/unity-renderer/archive/refs/heads/master.zip"
+    },
     {
       "name": "tech-docs",
       "url": "https://github.com/decentraland/technical-documentation",
-      "zipUrl": "https://github.com/decentraland/technical-documentation/archive/13a63ea06e8f3fad21c9da23223bfdfa60ced8cf.zip"
+      "zipUrl": "https://github.com/decentraland/technical-documentation/archive/refs/heads/main.zip"
     },
     {
       "name": "legacy",
@@ -19,6 +24,11 @@
       "name": "sdk-ecs7",
       "url": "https://github.com/decentraland/ecs",
       "zipUrl": "https://github.com/decentraland/ecs/archive/refs/heads/master.zip"
+    },
+    {
+      "name" : "tutorials",
+      "url": "https://github.com/decentraland/technical-tutorials",
+      "zipUrl": "https://github.com/decentraland/technical-tutorials/archive/refs/heads/main.zip"
     },
     {
       "name": "comms",
