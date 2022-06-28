@@ -2,7 +2,7 @@
   "data": [
     {
       "img": "./user.png",
-      "url": "legacy",
+      "url": "player",
       "bgColor": "#FF2D55",
       "title": "Player",
       "description": "Discover how to experience Decentraland and get the most out of it"

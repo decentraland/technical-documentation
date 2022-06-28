@@ -68,7 +68,7 @@ const opts = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `./src/repos/legacy/documentation-master`,
+        path: `./src/repos/player/documentation-master`,
       },
     },
     {
@@ -76,7 +76,7 @@ const opts = {
       options: {
         // [Optional] The root of "media_folder" in your config.yml
         // Defaults to "static"
-        staticFolderName: './src/repos/legacy/documentation-master/',
+        staticFolderName: './src/repos/player/documentation-master/',
         // [Optional] Include the following fields, use dot notation for nested fields
         // All fields are included by default
         include: ['featured'],

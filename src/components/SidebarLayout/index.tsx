@@ -26,11 +26,14 @@ export default function SidebarLayout({ children }: Props) {
     }
 
     const value = path.split('/')[1]
-    const categoryProps = categories.data.find(
-      (item) => item.title.toLowerCase() === value
-    )
 
-    const category = categoryProps ? value : 'legacy'
+    const categoryProps = categories.data.find((item) => {
+      item.title.toLowerCase() === value
+    })
+
+    const category = categoryProps ? value : 'player'
+
+    console.log(category, categoryProps)
 
     setSidebarCategory(category)
     setSidebarCategoryProps(categoryProps)
@@ -44,7 +47,7 @@ export default function SidebarLayout({ children }: Props) {
           {sidebarCategory && (
             <Sidebar
               category={sidebarCategory}
-              properties={sidebarCategoryProps ?? categories.data[1]}
+              properties={sidebarCategoryProps ?? categories.data[0]}
             />
           )}
           {children}
