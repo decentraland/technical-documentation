@@ -74,11 +74,25 @@ exports.createPages = async ({ graphql, actions }: any) => {
 
   legacyData.data.allMdx.edges.forEach(({ node }: any) => {
     actions.createPage({
-      path: node.fields.slug.replace('legacy/documentation-master/_posts/', ''),
+      path: node.fields.slug
+        .replace('legacy/documentation-master/_posts/', '')
+        .toLowerCase(),
       component: path.resolve(`./src/templates/docs-post.tsx`),
       context: {
         slug: node.fields.slug
       }
     })
+
+    if (node.frontmatter.redirect_from) {
+      node.frontmatter.redirect_from.map((item) => {
+        actions.createRedirect({
+          fromPath: item + '/',
+          toPath: node.fields.slug
+            .replace('legacy/documentation-master/_posts/', '')
+            .toLowerCase(),
+          isPermanent: true
+        })
+      })
+    }
   })
 }

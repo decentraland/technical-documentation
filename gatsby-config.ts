@@ -88,6 +88,13 @@ const opts = {
         ],
       },
     },
+    {
+      resolve: 'gatsby-redirect-from',
+      options: {
+        query: 'allMdx'
+      }
+    },
+    'gatsby-plugin-meta-redirect' // make sure this is always the last one
   ],
 };
 
