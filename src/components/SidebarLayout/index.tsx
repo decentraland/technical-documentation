@@ -14,26 +14,24 @@ export type Props = {
 }
 
 export default function SidebarLayout({ children }: Props) {
-
   const [sidebarCategory, setSidebarCategory] = useState<string>('')
   const [sidebarCategoryProps, setSidebarCategoryProps] = useState<any>(null)
 
   useEffect(() => {
-
     let path = location.pathname
- 
+
     if (process.env.GATSBY_PUBLIC_URL !== '/') {
       const originUrl = new URL(process.env.GATSBY_PUBLIC_URL)
       path = path.replace(originUrl.pathname, '')
-}
+    }
 
     const value = path.split('/')[1]
     const categoryProps = categories.data.find(
-    (item) => item.title.toLowerCase() === value 
-  )
+      (item) => item.title.toLowerCase() === value
+    )
 
     const category = categoryProps ? value : 'legacy'
-  
+
     setSidebarCategory(category)
     setSidebarCategoryProps(categoryProps)
   }, [])
@@ -43,7 +41,12 @@ export default function SidebarLayout({ children }: Props) {
       <Navbar isFullWidth activePage="docs" />
       <Page isFullscreen className="container-full-height">
         <Section className="flex section-no-margin container-full-height">
-          {sidebarCategory && <Sidebar category={sidebarCategory} properties={ sidebarCategoryProps ?? categories.data[1]} />}
+          {sidebarCategory && (
+            <Sidebar
+              category={sidebarCategory}
+              properties={sidebarCategoryProps ?? categories.data[1]}
+            />
+          )}
           {children}
         </Section>
       </Page>
