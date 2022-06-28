@@ -9,7 +9,7 @@ export default function menuSplitter() {
       files.forEach((file) => {
         try {
           const data =
-            file !== 'legacy.json' &&
+            file !== 'player.json' &&
             JSON.parse(
               fs
                 .readFileSync('./src/menu-data/' + file, 'utf8')
@@ -40,7 +40,7 @@ export default function menuSplitter() {
             })
           })
 
-          menu['legacy'] = mapLegacyMenu()
+          menu['player'] = mapLegacyMenu()
 
           fs.writeFileSync('./src/repos/menu.json', JSON.stringify(menu))
         } catch (err) {
@@ -55,7 +55,7 @@ export default function menuSplitter() {
 function mapLegacyMenu() {
   try {
     const data = JSON.parse(
-      fs.readFileSync('./src/menu-data/legacy.json', 'utf8')
+      fs.readFileSync('./src/menu-data/player.json', 'utf8')
     )
 
     return data.map((item) => {

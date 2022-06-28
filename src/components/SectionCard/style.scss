@@ -1,25 +1,29 @@
 .section-card {
-    border-radius: 8px;
-    padding: 20px;
-    width: 230px;
-    height: 270px;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    transition: margin 0.5s ease-in-out;
-    margin-right: 20px;
+  border-radius: 8px;
+  padding: 20px;
+  width: 230px;
+  height: 270px;
+  text-align: left;
+  transition: margin 0.5s ease-in-out;
+  margin-right: 20px;
 }
 
 .section-card:hover {
-    margin-top: -20px;
-    transition: margin 0.2s ease-in;
+  margin-top: -20px;
+  transition: margin 0.2s ease-in;
 }
 
 .section-card-info {
-    width: 100%;
-    color: #ffffff;
+  margin-top: -70px;
+  width: 100%;
+  color: #ffffff;
 }
 
-.section-card-info h3, .section-card-info p {
-    color: #ffffff;
+.section-card-info h3,
+.section-card-info p {
+  color: #ffffff;
+}
+
+.section-card-img {
+  width: 200px;
 }
