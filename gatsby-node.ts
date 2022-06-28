@@ -67,7 +67,7 @@ exports.createPages = async ({ graphql, actions }: any) => {
       path: node.frontmatter.slug,
       component: path.resolve(`./src/templates/docs-post.tsx`),
       context: {
-        slug: node.fields.slug
+        slug: node.fields.slug.toLowerCase()
       }
     })
   })
@@ -77,8 +77,21 @@ exports.createPages = async ({ graphql, actions }: any) => {
       path: node.fields.slug.replace('legacy/documentation-master/_posts/', ''),
       component: path.resolve(`./src/templates/docs-post.tsx`),
       context: {
-        slug: node.fields.slug
+        slug: node.fields.slug.toLowerCase()
       }
     })
+
+    if (node.frontmatter.redirect_from) {
+      node.frontmatter.redirect_from.map((item) => {
+        actions.createRedirect({
+          fromPath: item + '/',
+          toPath: node.fields.slug.replace(
+            'legacy/documentation-master/_posts/',
+            ''
+          ),
+          isPermanent: true
+        })
+      })
+    }
   })
 }

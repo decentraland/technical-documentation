@@ -9,8 +9,7 @@ import { Link } from 'gatsby'
 import menu from '../../repos/menu.json'
 import Search from '../Search'
 
-export default function Sidebar({ category, properties } : any) {
-
+export default function Sidebar({ category, properties }: any) {
   return (
     <aside className="sidebar-container">
       {category && properties && (
@@ -37,7 +36,7 @@ export default function Sidebar({ category, properties } : any) {
                     name={item.name}
                     offset={0}
                     children={item.children}
-                    slug={item.slug}
+                    slug={item.slug?.toLowerCase()}
                     key={key}
                   />
                 )
