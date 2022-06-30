@@ -74,7 +74,10 @@ exports.createPages = async ({ graphql, actions }: any) => {
 
   legacyData.data.allMdx.edges.forEach(({ node }: any) => {
     actions.createPage({
-      path: node.fields.slug.replace('player/documentation-master/_posts/', ''),
+      path: node.fields.slug.replace(
+        'player/player-documentation-main/_posts/',
+        ''
+      ),
       component: path.resolve(`./src/templates/docs-post.tsx`),
       context: {
         slug: node.fields.slug.toLowerCase()
@@ -86,7 +89,7 @@ exports.createPages = async ({ graphql, actions }: any) => {
         actions.createRedirect({
           fromPath: item + '/',
           toPath: node.fields.slug.replace(
-            'player/documentation-master/_posts/',
+            'player/player-documentation-main/_posts/',
             ''
           ),
           isPermanent: true
