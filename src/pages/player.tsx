@@ -18,7 +18,7 @@ const featured = [
     title: 'Market',
     img: 'backMarket.png',
     url: 'market/marketplace/',
-    bgColor: '##da4ee0',
+    bgColor: '#da4ee0',
     description: 'Learn how to trade exclusive tokens.'
   },
   {

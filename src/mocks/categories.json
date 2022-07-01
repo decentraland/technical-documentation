@@ -9,7 +9,7 @@
     },
     {
       "img": "./creator.png",
-      "url": "",
+      "url": "creator",
       "bgColor": "#4947CD",
       "title": "Content Creator",
       "description": "Learn how to create content for others to experience in Decentraland"
