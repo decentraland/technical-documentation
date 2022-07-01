@@ -20,6 +20,7 @@ export default function RootDir(props: Props) {
   const { name, children, offset, slug, isOpen, openParent } = props
   const [open, setOpen] = useState<boolean>(false)
   const [active, setActive] = useState<boolean>(false)
+  const match = /[0-9]{4}-[0-9]{2}-[0-9]{2}-/i
 
   useEffect(() => {
     if (location.pathname.includes(slug)) {
@@ -77,7 +78,7 @@ export default function RootDir(props: Props) {
                   name={item.name}
                   children={item.children}
                   offset={1}
-                  slug={item.slug?.toLowerCase()}
+                  slug={item.slug?.toLowerCase().replace(match, '')}
                   key={key}
                   isOpen={open}
                   openParent={handleOpen}

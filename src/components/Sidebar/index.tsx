@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import RootDir from '../RootDir'
 import './style.scss'
 import formatPaths from '../../utils/formatPaths'
-import { Link } from 'gatsby'
 
 // TODO: - right now this data is hardcoded for all sidebars but it should
 // probably be a prop since we want different versions per section
@@ -10,6 +9,8 @@ import menu from '../../repos/menu.json'
 import Search from '../Search'
 
 export default function Sidebar({ category, properties }: any) {
+  const match = /[0-9]{4}-[0-9]{2}-[0-9]{2}-/i
+
   return (
     <aside className="sidebar-container">
       {category && properties && (
@@ -26,9 +27,9 @@ export default function Sidebar({ category, properties }: any) {
             <Search />
           </div>
           <div className="sidebar-items">
-            <Link className="sidebar-home-link" to="/">
+            {/* <Link className="sidebar-home-link" to="/">
               HOME
-            </Link>
+            </Link> */}
             {menu &&
               menu[category].map((item: any, key: number) => {
                 return (
@@ -36,7 +37,7 @@ export default function Sidebar({ category, properties }: any) {
                     name={item.name}
                     offset={0}
                     children={item.children}
-                    slug={item.slug?.toLowerCase()}
+                    slug={item.slug?.toLowerCase().replace(match, '')}
                     key={key}
                   />
                 )

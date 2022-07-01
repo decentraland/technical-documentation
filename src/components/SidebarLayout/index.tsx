@@ -33,8 +33,6 @@ export default function SidebarLayout({ children }: Props) {
 
     const category = categoryProps ? value : 'player'
 
-    console.log(category, categoryProps)
-
     setSidebarCategory(category)
     setSidebarCategoryProps(categoryProps)
   }, [])
