@@ -6,19 +6,29 @@
       "zipUrl": "https://github.com/decentraland/sdk/archive/refs/heads/main.zip"
     },
     {
-      "name": "tech-docs",
-      "url": "https://github.com/decentraland/technical-documentation",
-      "zipUrl": "https://github.com/decentraland/technical-documentation/archive/13a63ea06e8f3fad21c9da23223bfdfa60ced8cf.zip"
+      "name": "unity-renderer",
+      "url": "https://github.com/decentraland/unity-renderer",
+      "zipUrl": "https://github.com/decentraland/unity-renderer/archive/refs/heads/master.zip"
     },
     {
-      "name": "legacy",
+      "name": "tech-docs",
       "url": "https://github.com/decentraland/technical-documentation",
-      "zipUrl": "https://github.com/decentraland/documentation/archive/refs/heads/master.zip"
+      "zipUrl": "https://github.com/decentraland/technical-documentation/archive/refs/heads/main.zip"
+    },
+    {
+      "name": "player",
+      "url": "https://github.com/decentraland/player-documentation",
+      "zipUrl": "https://github.com/decentraland/player-documentation/archive/refs/heads/main.zip"
     },
     {
       "name": "sdk-ecs7",
       "url": "https://github.com/decentraland/ecs",
       "zipUrl": "https://github.com/decentraland/ecs/archive/refs/heads/master.zip"
+    },
+    {
+      "name": "tutorials",
+      "url": "https://github.com/decentraland/technical-tutorials",
+      "zipUrl": "https://github.com/decentraland/technical-tutorials/archive/refs/heads/main.zip"
     },
     {
       "name": "comms",

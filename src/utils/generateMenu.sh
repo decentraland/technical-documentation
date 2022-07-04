@@ -14,4 +14,5 @@ done
                                              
 echo "]"
 
-mv ./src/repos/legacy/documentation-master/_data/menu.json ./src/menu-data/legacy.json
+mv ./src/repos/player/player-documentation-main/_data/menu.json ./src/menu-data/player.json
+mv ./src/repos/player/player-documentation-main/images ./static/images

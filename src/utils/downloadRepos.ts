@@ -1,5 +1,5 @@
 import extract from 'extract-zip'
-import { readdir, remove, writeFile, existsSync, mkdirSync } from 'fs-extra'
+import { remove, writeFile, existsSync, mkdirSync } from 'fs-extra'
 import path from 'path'
 import fetch from 'node-fetch'
 import PQueue from 'p-queue'
@@ -10,11 +10,14 @@ export const downloadFile = async function (url: string, dest: string) {
   await writeFile(dest, Buffer.from(data))
 }
 
-export const downloadRepoZip = async function (url: string, dest: string, name: string) {
+export const downloadRepoZip = async function (
+  url: string,
+  dest: string,
+  name: string
+) {
   const zipFilePath = path.resolve(dest, `${name}.zip`)
-  
+
   await downloadFile(url, zipFilePath)
-  const oldFiles = await readdir(dest)
 
   try {
     await extract(zipFilePath, { dir: dest + '/' + name })
@@ -27,17 +30,17 @@ export const downloadRepoZip = async function (url: string, dest: string, name: 
 }
 
 export async function downloadRepos() {
-    const queue = new PQueue({ concurrency: 10 })
-    const destinationDir = process.cwd() + '/src/repos/'
+  const queue = new PQueue({ concurrency: 10 })
+  const destinationDir = process.cwd() + '/src/repos/'
 
-    if (!existsSync(destinationDir)) {
-        mkdirSync(destinationDir, { recursive: true })
-    }
-    
-    const promises = repositoryListJson.repositories.map((repo) =>
-      queue.add(async () => {
-        await downloadRepoZip(repo.zipUrl, destinationDir, repo.name) 
-      })
-    )
-    await Promise.all(promises)
+  if (!existsSync(destinationDir)) {
+    mkdirSync(destinationDir, { recursive: true })
   }
+
+  const promises = repositoryListJson.repositories.map((repo) =>
+    queue.add(async () => {
+      await downloadRepoZip(repo.zipUrl, destinationDir, repo.name)
+    })
+  )
+  await Promise.all(promises)
+}

@@ -8,18 +8,25 @@ import { SectionCardProps } from '../components/UserTypeCard/types'
 
 const featured = [
   {
-    title: 'The metaverse runtime',
-    img: 'image-api.svg',
-    url: 'sdk/diagrams/metaverse-runtime',
-    bgColor: '#AC18C9',
-    description: 'Explore the platform foundations'
+    title: 'World',
+    img: 'backWorld.png',
+    url: 'decentraland/introduction/',
+    bgColor: '#eb495a',
+    description: 'General info for players'
   },
   {
-    title: 'Technical documentation',
-    img: 'image-ship.svg',
-    url: 'sdk/documentation/about',
-    bgColor: '#00ADA5',
-    description: 'Find out how we document'
+    title: 'Market',
+    img: 'backMarket.png',
+    url: 'market/marketplace/',
+    bgColor: '#da4ee0',
+    description: 'Learn how to trade exclusive tokens.'
+  },
+  {
+    title: 'Ethereum Essentials',
+    img: 'backEth.png',
+    url: 'examples/get-a-wallet/',
+    bgColor: '#392aa8',
+    description: 'Learn how we use the blockchain'
   }
 ]
 
@@ -27,8 +34,8 @@ export default function IndexPage() {
   return (
     <SidebarLayout>
       <Section className="welcome-container">
-        <Header>Build the Metaverse</Header>
-        <p>This is a regular page</p>
+        <Header>Decentraland documentation</Header>
+        <p>Find help about the various topics in each of these sections</p>
         <div className="section-cards-container">
           {featured.map((item: SectionCardProps, i: number) => {
             return (

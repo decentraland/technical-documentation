@@ -67,18 +67,31 @@ exports.createPages = async ({ graphql, actions }: any) => {
       path: node.frontmatter.slug,
       component: path.resolve(`./src/templates/docs-post.tsx`),
       context: {
-        slug: node.fields.slug
+        slug: node.fields.slug.toLowerCase()
       }
     })
   })
 
   legacyData.data.allMdx.edges.forEach(({ node }: any) => {
+    const filePath = '/player/player-documentation-main/_posts/'
+    const match = /[0-9]{4}-[0-9]{2}-[0-9]{2}-/i
+
     actions.createPage({
-      path: node.fields.slug.replace('legacy/documentation-master/_posts/', ''),
+      path: node.fields.slug.replace(filePath, '').replace(match, ''),
       component: path.resolve(`./src/templates/docs-post.tsx`),
       context: {
-        slug: node.fields.slug
+        slug: node.fields.slug.toLowerCase()
       }
     })
+
+    if (node.frontmatter.redirect_from) {
+      node.frontmatter.redirect_from.map((item) => {
+        actions.createRedirect({
+          fromPath: item + '/',
+          toPath: node.fields.slug.replace(filePath, '').replace(match, ''),
+          isPermanent: true
+        })
+      })
+    }
   })
 }

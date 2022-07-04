@@ -15,7 +15,7 @@ export default function SectionCard({
   return (
     <div className="section-card" style={{ background: bgColor }}>
       <Link to={url}>
-        <img src={formatPaths(img)} />
+        <img className="section-card-img" src={formatPaths(img)} />
         <div className="section-card-info">
           <h3>{title}</h3>
           <p>{description}</p>
