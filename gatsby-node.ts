@@ -31,6 +31,7 @@ exports.createPages = async ({ graphql, actions }: any) => {
       allMdx(filter: { frontmatter: { slug: { ne: null } } }) {
         edges {
           node {
+            fileAbsolutePath
             fields {
               slug
             }
@@ -49,6 +50,7 @@ exports.createPages = async ({ graphql, actions }: any) => {
       allMdx(filter: { frontmatter: { date: { ne: null } } }) {
         edges {
           node {
+            fileAbsolutePath
             fields {
               slug
             }
@@ -80,7 +82,8 @@ exports.createPages = async ({ graphql, actions }: any) => {
       path: node.fields.slug.replace(filePath, '').replace(match, ''),
       component: path.resolve(`./src/templates/docs-post.tsx`),
       context: {
-        slug: node.fields.slug.toLowerCase()
+        slug: node.fields.slug.toLowerCase(),
+        s
       }
     })
 
