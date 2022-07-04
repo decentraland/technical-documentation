@@ -82,8 +82,7 @@ exports.createPages = async ({ graphql, actions }: any) => {
       path: node.fields.slug.replace(filePath, '').replace(match, ''),
       component: path.resolve(`./src/templates/docs-post.tsx`),
       context: {
-        slug: node.fields.slug.toLowerCase(),
-        s
+        slug: node.fields.slug.toLowerCase()
       }
     })
 
