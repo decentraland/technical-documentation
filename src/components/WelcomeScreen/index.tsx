@@ -26,16 +26,14 @@ export default function WelcomeScreen() {
   return (
     <Section>
       <Header size="huge">Decentraland Documentation</Header>
-      <p className="welcome-subheader">
-        The first-ever virtual world owned by its users
-      </p>
+      <p className="welcome-subheader">The first-ever virtual world owned by its users</p>
       <div className="welcome-searchbar">
         <Search />
       </div>
       <p className="welcome-description">
         This site is maintained by the Decentraland Foundation. <br />
-        The content in this site is divided into sections for different user
-        profiles. Choose a section that matches your needs.
+        The content in this site is divided into sections for different user profiles. Choose a section that matches
+        your needs.
       </p>
       <div className="section-cards-container">
         {categories.data.map((item: SectionCardProps, i: number) => {
@@ -55,14 +53,7 @@ export default function WelcomeScreen() {
       <div className="tag-wrapper">
         {tags &&
           tags.map((item, i) => {
-            return (
-              <Tags
-                key={i}
-                name={item.name}
-                slug={item.slug}
-                category={item.category}
-              />
-            )
+            return <Tags key={i} name={item.name} slug={item.slug} category={item.category} />
           })}
       </div>
     </Section>

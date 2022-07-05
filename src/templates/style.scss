@@ -1,7 +1,6 @@
 @import "@styles/variables.scss";
 
 .blog-post-container {
-    // box-sizing: border-box;
     width: 70%;
     padding: 30px;
     min-height: 100vh;
@@ -15,3 +14,10 @@
 .sequence {
     font-family: var(--font-family) !important;
 }
+
+@media (max-width: 768px) {
+    .blog-post-container {
+        width: 100%;
+        padding: 70px 20px 0;
+    }
+  }
