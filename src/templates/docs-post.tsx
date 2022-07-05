@@ -8,6 +8,7 @@ import CodeBlock from '../components/CodeBlock'
 import CustomImg from '../components/CustomImg'
 
 export default function Template({ data }: any) {
+  console.log(data, 111)
 
   const components = {
     code: CodeBlock,
@@ -41,6 +42,7 @@ export const query = graphql`
       }
       body
       tableOfContents
+      fileAbsolutePath
       frontmatter {
         slug
         title
