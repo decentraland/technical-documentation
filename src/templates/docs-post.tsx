@@ -39,7 +39,6 @@ export const query = graphql`
     mdx(fields: { slug: { eq: $slug } }) {
       fields {
         slug
-        link
       }
       body
       tableOfContents
