@@ -55,19 +55,14 @@ export default function RootDir(props: Props) {
             )
           ) : (
             slug && (
-              <Link
-                className={active ? 'sidebar-open' : 'sidebar-item'}
-                to={slug}
-              >
+              <Link className={active ? 'sidebar-open' : 'sidebar-item'} to={slug}>
                 {name}
               </Link>
             )
           )}
         </div>
         <div
-          className={
-            open && children ? 'child-container' : 'child-container-collapsed'
-          }
+          className={open && children ? 'child-container' : 'child-container-collapsed'}
           style={{ paddingLeft: `${20 * offset}px` }}
         >
           {children &&
