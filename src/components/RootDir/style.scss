@@ -3,8 +3,7 @@
 .root-container {
     align-items: center;
     padding: 8px 5px 0;
-    font-size: 1em;
-    // line-height: 24px;
+    font-size: 1rem;
     text-transform: capitalize;
 
     .root-title {
@@ -56,3 +55,10 @@
     overflow: hidden;
     transition: max-height 250ms ease;
 }
+
+@media (max-width: 768px) {
+    .root-container {
+        padding: 0 20px;
+        font-size: 1.2rem;
+    }
+  }

@@ -22,3 +22,21 @@
 .welcome-searchbar {
   width: 60%;
 }
+
+@media (max-width: 768px) {
+
+  .welcome-subheader {
+    margin-bottom: 0;
+  }
+  
+  .section-cards-container {
+    width: 100%;
+    padding-top: 0;
+    display: block;
+    height: auto;
+  }
+
+  .welcome-searchbar {
+    width: 100%;
+  }
+}
