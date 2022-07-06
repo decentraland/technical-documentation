@@ -29,12 +29,10 @@ export default function SidebarLayout({ children }: Props) {
     const value = path.split('/')[1]
 
     const categoryProps = categories.data.find((item) => {
-      item.url.toLowerCase() === value
+      return item.url.toLowerCase() === value
     })
 
     const category = categoryProps ? value : 'player'
-
-    console.log(categoryProps)
 
     setSidebarCategory(category)
     setSidebarCategoryProps(categoryProps)
