@@ -68,6 +68,12 @@ const opts = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        path: "./src/configurable-content",
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         path: `./src/repos/player/player-documentation-main`,
       },
     },
