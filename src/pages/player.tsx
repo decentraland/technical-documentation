@@ -24,7 +24,7 @@ const featured = [
   {
     title: 'Ethereum Essentials',
     img: 'player-eth.png',
-    url: 'blockchain-integration/get-a-wallet/',
+    url: '/blockchain-integration/get-a-wallet/',
     bgColor: '#392aa8',
     description: 'Learn how we use the blockchain'
   }
