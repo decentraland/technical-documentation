@@ -34,6 +34,11 @@
       "name": "comms",
       "url": "https://github.com/decentraland/comms-v3",
       "zipUrl": "https://github.com/decentraland/comms-v3/archive/refs/heads/master.zip"
+    },
+    {
+      "name": "creator",
+      "url": "https://github.com/decentraland/documentation-creators",
+      "zipUrl": "https://github.com/decentraland/documentation-creators/archive/refs/heads/feat/migrate-to-new-format.zip"
     }
   ]
 }

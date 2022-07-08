@@ -9,22 +9,22 @@ import { SectionCardProps } from '../components/UserTypeCard/types'
 const featured = [
   {
     title: 'World',
-    img: 'backWorld.png',
-    url: 'decentraland/introduction/',
+    img: 'player-world.png',
+    url: '/general/introduction/',
     bgColor: '#eb495a',
     description: 'General info for players'
   },
   {
     title: 'Market',
-    img: 'backMarket.png',
-    url: 'market/marketplace/',
+    img: 'player-market.png',
+    url: '/market/marketplace',
     bgColor: '#da4ee0',
     description: 'Learn how to trade exclusive tokens.'
   },
   {
     title: 'Ethereum Essentials',
-    img: 'backEth.png',
-    url: 'examples/get-a-wallet/',
+    img: 'player-eth.png',
+    url: '/blockchain-integration/get-a-wallet/',
     bgColor: '#392aa8',
     description: 'Learn how we use the blockchain'
   }

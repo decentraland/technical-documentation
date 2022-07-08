@@ -50,20 +50,26 @@ const opts = {
     siteUrl: "https://beta-docs.decentraland.zone",
   },
   plugins: [
-    "gatsby-plugin-sitemap",
-    "gatsby-plugin-mdx",
-    "gatsby-plugin-postcss",
-    "gatsby-plugin-sass",
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-mdx`,
+    `gatsby-plugin-postcss`,
+    `gatsby-plugin-sass`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-catch-links`,
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-source-filesystem`,
       options: {
         name: "pages",
-        path: "./src/repos/",
+        path: "./src/",
       },
       __key: "pages",
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: "./src/configurable-content",
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,

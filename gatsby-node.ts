@@ -26,6 +26,7 @@ exports.onCreateNode = async ({ node, getNode, actions }: any) => {
 }
 
 exports.createPages = async ({ graphql, actions }: any) => {
+  console.log('corro')
   const posts = await graphql(`
     {
       allMdx(filter: { frontmatter: { slug: { ne: null } } }) {
@@ -75,7 +76,7 @@ exports.createPages = async ({ graphql, actions }: any) => {
   })
 
   legacyData.data.allMdx.edges.forEach(({ node }: any) => {
-    const filePath = '/player/player-documentation-main/_posts/'
+    const filePath = 'repos/player/player-documentation-main/_posts/'
     const match = /[0-9]{4}-[0-9]{2}-[0-9]{2}-/i
 
     actions.createPage({
