@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import RootDir from '../RootDir'
 import './style.scss'
 import formatPaths from '../../utils/formatPaths'
+import { Link } from 'gatsby'
 
 // TODO: - right now this data is hardcoded for all sidebars but it should
 // probably be a prop since we want different versions per section
@@ -15,21 +16,15 @@ export default function Sidebar({ category, properties }: any) {
     <aside className="sidebar-container">
       {category && properties && (
         <>
-          <div
-            className="sidebar-header"
-            style={{ background: properties.bgColor }}
-          >
-            <img
-              className="sidebar-header-background"
-              src={formatPaths(`banner-${category}.png`)}
-            />
+          <div className="sidebar-header" style={{ background: properties.bgColor }}>
+            <img className="sidebar-header-background" src={formatPaths(`banner-${category}.png`)} />
             <h2 className="sidebar-title">{category} Documentation</h2>
             <Search />
           </div>
           <div className="sidebar-items">
-            {/* <Link className="sidebar-home-link" to="/">
+            <Link className="sidebar-home-link" to={`/${category}`}>
               HOME
-            </Link> */}
+            </Link>
             {menu &&
               menu[category].map((item: any, key: number) => {
                 return (
