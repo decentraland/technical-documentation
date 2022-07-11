@@ -25,9 +25,7 @@ export default (props) => {
     const { copied } = props
     return (
       <span
-        className={
-          copied ? 'code-action-copy code-action-animate' : 'code-action-copy'
-        }
+        className={copied ? 'code-action-copy code-action-animate' : 'code-action-copy'}
         onClick={(e) => copy(code)}
       >
         {copied ? <FaCheck /> : <FaCopy />}
@@ -38,12 +36,7 @@ export default (props) => {
 
   return (
     <div className="code-container">
-      <Highlight
-        {...defaultProps}
-        code={code}
-        language={'javascript'}
-        theme={theme}
-      >
+      <Highlight {...defaultProps} code={code} language={'typescript'} theme={theme}>
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre className={className} style={{ ...style, padding: '20px' }}>
             {tokens.map((line, i) => (
