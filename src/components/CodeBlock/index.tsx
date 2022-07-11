@@ -3,13 +3,16 @@ import Highlight, { defaultProps } from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/vsLight'
 import './style.scss'
 import { FaCheck, FaCopy } from 'react-icons/fa'
+import RenderSequenceDiagram from '../RenderSequenceDiagram'
 
 export default (props) => {
+  if (props.className === 'language-sequence') return <RenderSequenceDiagram input={props.children} />
+
   const [copied, setCopied] = useState<boolean>(false)
   const code = props.children.trim()
 
-  function copy(text) {
-    navigator.clipboard.writeText(text)
+  async function copy(text) {
+    await navigator.clipboard.writeText(text)
     setCopied(true)
 
     setTimeout(() => {

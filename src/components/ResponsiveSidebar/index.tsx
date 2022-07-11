@@ -9,7 +9,6 @@ export default function ResponsiveSidebar({ category, properties }: any) {
   const [open, setOpen] = useState<boolean>(false)
   const match = /[0-9]{4}-[0-9]{2}-[0-9]{2}-/i
 
-  console.log(open)
 
   return (
     <div className={'responsive-sidebar-container'} style={{ borderBottom: `3px solid ${properties.bgColor}` }}>
