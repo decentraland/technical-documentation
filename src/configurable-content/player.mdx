@@ -1,5 +1,5 @@
 ---
-title: Let’s build the metaverse together
+title: Decentraland documentation
 categories: 
   - intro-player
 slug: /player/
@@ -14,11 +14,9 @@ import SectionCard from '../components/SectionCard'
 import { SectionCardProps } from '../components/UserTypeCard/types'
 import featured from "./player-highlights.json"
 
-
 export default function IndexPage() {
   return (
-      <Section className="welcome-container">
-        <Header>Decentraland documentation</Header>
+      <Section>
         <p>Find help about the various topics in each of these sections</p>
         <div className="section-cards-container">
           {featured.data.map((item, i) => {
@@ -35,6 +33,5 @@ export default function IndexPage() {
           })}
         </div>
       </Section>
-    </SidebarLayout>
   )
 }
