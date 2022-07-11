@@ -1,8 +1,6 @@
 import React from 'react'
 
-export default function CustomLink (props : any) {
+export default function CustomLink(props: any) {
   const { href, children } = props
-  return (
-    <a href={href}>{children}</a>
-  )
+  return <a href={href}>{children}</a>
 }

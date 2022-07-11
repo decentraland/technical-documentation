@@ -92,12 +92,25 @@ const opts = {
       },
     },
     {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-sequence`,
+            options: {
+              // see more details on https://github.com/bramp/js-sequence-diagrams
+              'theme': 'hand',
+            }
+          },
+        ]
+      }
+    },
+    {
       resolve: `gatsby-plugin-mdx`,
       options: {
         gatsbyRemarkPlugins: [
           `gatsby-remark-liquid-tags`,
           `gatsby-remark-mermaid`,
-          `gatsby-remark-sequence`,
           {
             resolve: `gatsby-remark-images`,
             options: {
