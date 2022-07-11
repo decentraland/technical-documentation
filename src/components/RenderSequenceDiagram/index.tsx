@@ -1,24 +1,33 @@
-import SequenceDiagram from 'react-sequence-diagram'
-import React from 'react'
+import React, { Suspense } from 'react'
+
+const SequenceDiagram = React.lazy(() => import('react-sequence-diagram'))
 
 type Props = {
   input: string
 }
 
 function RenderSequenceDiagram({ input }: Props) {
+  const isSSR = typeof window === 'undefined'
+
   function onError() {
     return 'There was an error rendering the diagram'
   }
 
   return (
-    <SequenceDiagram
-      input={input}
-      className="prueba"
-      options={{
-        theme: 'simple'
-      }}
-      onError={onError}
-    />
+    <div>
+      {!isSSR && (
+        <Suspense fallback={<div>Loading</div>}>
+          <SequenceDiagram
+            input={input}
+            className="prueba"
+            options={{
+              theme: 'simple'
+            }}
+            onError={onError}
+          />
+        </Suspense>
+      )}
+    </div>
   )
 }
 
