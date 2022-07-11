@@ -1,36 +1,27 @@
+---
+title: Let’s build the metaverse together
+categories: 
+  - intro-player
+slug: /player/
+---
+
 import * as React from 'react'
 import SidebarLayout from '../components/SidebarLayout'
 import { Header } from 'decentraland-ui/dist/components/Header/Header'
 
 import { Section } from 'decentraland-ui/dist/components/Section/Section'
-import SectionCard from './../components/SectionCard'
+import SectionCard from '../components/SectionCard'
 import { SectionCardProps } from '../components/UserTypeCard/types'
+import featured from "./player-highlights.json"
 
-const featured = [
-  {
-    title: 'The metaverse runtime',
-    img: 'image-api.svg',
-    url: 'sdk/diagrams/metaverse-runtime',
-    bgColor: '#AC18C9',
-    description: 'Explore the platform foundations'
-  },
-  {
-    title: 'Technical documentation',
-    img: 'image-ship.svg',
-    url: 'sdk/documentation/about',
-    bgColor: '#00ADA5',
-    description: 'Find out how we document'
-  }
-]
 
 export default function IndexPage() {
   return (
-    <SidebarLayout>
       <Section className="welcome-container">
-        <Header>Build the Metaverse</Header>
-        <p>This is a regular page</p>
+        <Header>Decentraland documentation</Header>
+        <p>Find help about the various topics in each of these sections</p>
         <div className="section-cards-container">
-          {featured.map((item: SectionCardProps, i: number) => {
+          {featured.data.map((item, i) => {
             return (
               <SectionCard
                 key={i}
