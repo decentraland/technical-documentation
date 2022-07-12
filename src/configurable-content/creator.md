@@ -9,7 +9,7 @@ Decentraland is made up of _parcels_ of LAND, each 16 meters by 16 meters. A _sc
 
 Scenes are displayed one next to the other and players can freely walk from one to the other. Each scene is its own contained little world, items from one scene can't extend out into another scene, and the code for each scene is sandboxed from all others.
 
-Each parcel of land is tokenized as an NFT. To be allowed to [publish](/development-guide/publishing) a scene to a land parcel, you either need to own that NFT or be given permissions by the owner.
+Each parcel of land is tokenized as an NFT. To be allowed to [publish](/creator/development-guide/publishing) a scene to a land parcel, you either need to own that NFT or be given permissions by the owner.
 
 <!--
 You can also create smart wearables, which are wearable items of clothes that come with their own behavior. Players that put on that wearable can access a whole other layer of experiences on top of Decentraland. -->
@@ -18,9 +18,9 @@ You can also create smart wearables, which are wearable items of clothes that co
 
 The Decentraland SDK allows you to create your scene by writing in TypeScript (JavaScript + types).
 
-- Follow the [SDK 101](/development-guide/SDK-101) tutorial for a quick crash course.
+- Follow the [SDK 101](/creator/development-guide/sdk-101) tutorial for a quick crash course.
 
-- Read the [documentation](/development-guide/entities-components) to grasp some of the fundamental concepts.
+- Read the [documentation](/creator/development-guide/entities-components) to grasp some of the fundamental concepts.
 
 - Check out scene [examples](https://github.com/decentraland-scenes/Awesome-Repository#examples).
 
@@ -44,11 +44,11 @@ There are a number of tools that can help with arranging 3d models into position
 
 You can use any 3rd party modeling tool to create 3D models that can be used in Decentraland scenes. It's easy to [import them into the Builder](/builder/import-items).
 
-See [3D modeling](/3d-modeling/3d-models) for tips and tricks, and information about supported features and formats for 3D models.
+See [3D modeling](/creator/3d-modeling/3d-models) for tips and tricks, and information about supported features and formats for 3D models.
 
 ## Design your experience
 
-No matter which tools you'll use, it's always recommended that you think carefully about what you want to build before you start building it. Read the [Design experiences](/design-experience/mvp-guidelines) section to better understand the context, limitations and possibilities that you'll have as your design space when creating a scene for Decentraland.
+No matter which tools you'll use, it's always recommended that you think carefully about what you want to build before you start building it. Read the [Design experiences](/creator/design-experience/mvp-guidelines) section to better understand the context, limitations and possibilities that you'll have as your design space when creating a scene for Decentraland.
 
 export default function Layout({ children }) {
   return (
