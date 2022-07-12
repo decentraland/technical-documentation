@@ -25,7 +25,7 @@ In your desired repository:
 - Inside the `docs` folder save your documentation files. Here are some important considerations:
 - We render documentation from [markdown files](https://en.wikipedia.org/wiki/Markdown), so every file must include valid markdown in it's body and the `.md` extension. Unsure about `.md` syntax? Check [this awesome cheat sheet](https://www.markdownguide.org/cheat-sheet/)
 - If your files include local images please place them at the same folder level as the corresponding `.md` file
-- In order to render the links to the files in the documentation's site sidebar all `.md` files must include the following [frontmatter](https://middlemanapp.com/basics/frontmatter/) metadata tags at the start: `title` representing the name of the article and `slug` which will be the relative path to the documentation's site url
+- In order to be rendered all `.md` files must include the following [frontmatter](https://middlemanapp.com/basics/frontmatter/) metadata tags at the start: `title` representing the name of the article and `slug` which will be the relative path to the documentation's site url
 
 example:
 
