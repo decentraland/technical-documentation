@@ -26,6 +26,11 @@
       "zipUrl": "https://github.com/decentraland/ecs/archive/refs/heads/master.zip"
     },
     {
+      "name": "catalyst",
+      "url": "https://github.com/decentraland/catalyst-owner",
+      "zipUrl": "https://github.com/decentraland/catalyst-owner/archive/refs/heads/master.zip"
+    },
+    {
       "name": "tutorials",
       "url": "https://github.com/decentraland/technical-tutorials",
       "zipUrl": "https://github.com/decentraland/technical-tutorials/archive/refs/heads/main.zip"
