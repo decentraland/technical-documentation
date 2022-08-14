@@ -9,7 +9,6 @@ import CustomImg from '../components/CustomImg'
 import CustomLink from '../components/CustomLink'
 
 export default function Template({ data }: any) {
-
   const components = {
     code: CodeBlock,
     img: CustomImg,
@@ -19,7 +18,29 @@ export default function Template({ data }: any) {
 
   const { mdx } = data
   const { body, frontmatter } = mdx
-  console.log(body)
+  console.log(mdx.fields, mdx.fileAbsolutePath)
+
+  const { slug } = mdx.fields
+
+  const chunks = slug.split('/')
+
+  const repoAndBranchIndex = chunks.indexOf('_posts' || 'docs') - 1
+
+  console.log(repoAndBranchIndex)
+
+
+  const repoAndBranchNames = chunks[repoAndBranchIndex].split('-')
+
+
+  const branchIndex = repoAndBranchNames.indexOf('main' || 'master')
+
+  if (branchIndex) {
+    const branch = repoAndBranchNames[branchIndex]
+    const repo = chunks[repoAndBranchIndex].replace(branch, '')
+
+    console.log(repo)
+  }
+
   return (
     <>
       <SidebarLayout>
@@ -52,3 +73,4 @@ export const query = graphql`
     }
   }
 `
+// const editUrl = `https://github.com/decentraland/${repository}/edit/${branch}/${pathToFile}`
