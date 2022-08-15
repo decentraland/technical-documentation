@@ -19,7 +19,6 @@ export default function Template({ data }: any) {
 
   const { mdx } = data
   const { body, frontmatter } = mdx
-  console.log(body)
   return (
     <>
       <SidebarLayout>

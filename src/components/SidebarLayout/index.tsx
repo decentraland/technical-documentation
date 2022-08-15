@@ -9,6 +9,7 @@ import Sidebar from '../../components/Sidebar'
 import ResponsiveSidebar from '../../components/ResponsiveSidebar'
 import categories from '../../mocks/categories.json'
 import './style.scss'
+import { Tabs } from 'decentraland-ui/dist/components/Tabs/Tabs'
 
 export type Props = {
   children?: JSX.Element[] | JSX.Element // verify type
@@ -29,19 +30,28 @@ export default function SidebarLayout({ children }: Props) {
     const value = path.split('/')[1]
 
     const categoryProps = categories.data.find((item) => {
-      return item.url.toLowerCase() === value
+      return item.url.toLowerCase() === '/' + value
     })
 
     const category = categoryProps ? value : 'player'
 
     setSidebarCategory(category)
     setSidebarCategoryProps(categoryProps)
-  }, [])
+  }, [sidebarCategory])
 
   return (
     <>
-      <Navbar isFullWidth activePage="docs" />
-      <Page isFullscreen className="container-full-height">
+      <Navbar isFullscreen activePage="docs" />
+      <Page className="container-full-height">
+        <Tabs>
+          {categories.data.map((item) => {
+            return (
+              <Tabs.Tab active={ '/' + sidebarCategory === item.url}>
+                <a href={item.url}>{item.title}</a>
+              </Tabs.Tab>
+            )
+          })}
+        </Tabs>
         <Section className="flex section-no-margin container-full-height">
           {sidebarCategory && (
             <Sidebar category={sidebarCategory} properties={sidebarCategoryProps ?? categories.data[0]} />
@@ -52,7 +62,7 @@ export default function SidebarLayout({ children }: Props) {
           {children}
         </Section>
       </Page>
-      <Footer isFullscreen isFullWidth />
+      <Footer isFullWidth />
     </>
   )
 }

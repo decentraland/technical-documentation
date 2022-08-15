@@ -3,10 +3,10 @@
 .responsive-sidebar-container {
   display: none;
   position: absolute;
-  width: 100vw;
   z-index: 1;
   background-color: var(--white);
   overflow: hidden;
+  margin-top: -20px;
 
   .responsive-sidebar-header {
     position: relative;
@@ -14,11 +14,10 @@
     display: flex;
     align-items: center;
     height: 60px;
-    padding: 0 20px 0;
 
     .responsive-sidebar-title {
-      font-size: 18px;
-      line-height: 34px;
+      font-size: 15px;
+      line-height: 1em;
       text-transform: capitalize;
       display: flex;
       align-items: center;
