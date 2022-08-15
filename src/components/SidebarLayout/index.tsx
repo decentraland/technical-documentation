@@ -10,6 +10,7 @@ import ResponsiveSidebar from '../../components/ResponsiveSidebar'
 import categories from '../../mocks/categories.json'
 import './style.scss'
 import { Tabs } from 'decentraland-ui/dist/components/Tabs/Tabs'
+import { Link } from 'gatsby'
 
 export type Props = {
   children?: JSX.Element[] | JSX.Element // verify type
@@ -47,7 +48,7 @@ export default function SidebarLayout({ children }: Props) {
           {categories.data.map((item) => {
             return (
               <Tabs.Tab active={ '/' + sidebarCategory === item.url}>
-                <a href={item.url}>{item.title}</a>
+                <Link to={item.url}>{item.title}</Link>
               </Tabs.Tab>
             )
           })}
