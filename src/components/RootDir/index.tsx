@@ -17,7 +17,7 @@ type Props = {
 }
 
 export default function RootDir(props: Props) {
-  const { name, children, offset, slug, isOpen, openParent } = props
+  const { name, children, offset, slug, openParent } = props
   const [open, setOpen] = useState<boolean>(false)
   const [active, setActive] = useState<boolean>(false)
   const match = /[0-9]{4}-[0-9]{2}-[0-9]{2}-/i

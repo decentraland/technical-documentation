@@ -8,6 +8,11 @@
 .code-container {
     border: 1px solid var(--gray);
     border-radius: 8px;
+    word-wrap: wrap;
+
+    span {
+        word-wrap: break-word;
+    }
 }
 
 .sequence {

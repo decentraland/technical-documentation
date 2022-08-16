@@ -24,7 +24,7 @@ const tags = [
 
 export default function WelcomeScreen() {
   return (
-    <Section>
+    <Section className="welcome-wrapper">
       <Header size="huge">Decentraland Documentation</Header>
       <p className="welcome-subheader">The first-ever virtual world owned by its users</p>
       <div className="welcome-searchbar">
