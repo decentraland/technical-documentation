@@ -54,12 +54,8 @@ export default function SidebarLayout({ children }: Props) {
           })}
         </Tabs>
         <Section className="flex section-no-margin container-full-height">
-          {sidebarCategory && (
-            <Sidebar category={sidebarCategory} properties={sidebarCategoryProps ?? categories.data[0]} />
-          )}
-          {sidebarCategory && (
-            <ResponsiveSidebar category={sidebarCategory} properties={sidebarCategoryProps ?? categories.data[0]} />
-          )}
+          <Sidebar category={sidebarCategory} properties={sidebarCategoryProps ?? categories.data[0]} />
+          <ResponsiveSidebar category={sidebarCategory} properties={sidebarCategoryProps ?? categories.data[0]} />
           {children}
         </Section>
       </Page>

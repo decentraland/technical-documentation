@@ -9,30 +9,19 @@ import algoliasearch from 'algoliasearch/lite'
 import ConnectedResultHits from '../components/ResultHits'
 import CustomSearchBox from '../components/CustomSearchBox'
 
-const searchClient = algoliasearch(
-  'ZBR370BA1A',
-  '90d39c58d1ec20ab5f315750f7894b8b'
-)
+const searchClient = algoliasearch('ZBR370BA1A', '90d39c58d1ec20ab5f315750f7894b8b')
 
 export default function ResultsPage({ location }) {
   const { search } = queryString.parse(location.search)
   const [query, setQuery] = useState(search)
 
   const SearchTitle = ({ search }) => {
-    return (
-      <h2>
-        {search ? `Search results for "${search}"` : 'No query was provided'}
-      </h2>
-    )
+    return <h2>{search ? `Search results for "${search}"` : 'No query was provided'}</h2>
   }
 
   return (
     <GeneralLayout>
-      <InstantSearch
-        searchClient={searchClient}
-        indexName="DCL_DOCS"
-        searchState={{ query }}
-      >
+      <InstantSearch searchClient={searchClient} indexName="DCL_DOCS" searchState={{ query }}>
         <div
           style={{
             display: 'flex',

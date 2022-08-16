@@ -1,3 +1,7 @@
+.welcome-wrapper {
+  margin-top: 120px;
+}
+
 .welcome-subheader {
   font-size: 21px;
   color: var(--gray);
@@ -24,6 +28,10 @@
 }
 
 @media (max-width: 768px) {
+
+  .welcome-wrapper {
+    margin-top: 60px;
+  }
 
   .welcome-subheader {
     margin-bottom: 0;

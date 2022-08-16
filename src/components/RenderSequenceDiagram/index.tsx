@@ -19,7 +19,7 @@ function RenderSequenceDiagram({ input }: Props) {
         <Suspense fallback={<div>Loading</div>}>
           <SequenceDiagram
             input={input}
-            className="prueba"
+            className="diagram-render"
             options={{
               theme: 'simple'
             }}

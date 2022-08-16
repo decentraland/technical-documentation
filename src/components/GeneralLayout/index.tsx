@@ -14,7 +14,7 @@ export default function GeneralLayout({ children }: Props) {
   return (
     <>
       <>
-        <Navbar isFullWidth activePage="docs" />
+        <Navbar isFullscreen activePage="docs" />
         <Page>
           <Page className="flex">{children}</Page>
         </Page>
