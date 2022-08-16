@@ -47,18 +47,18 @@
 .child-container {
     padding: 0;
     max-height: 1000px;
-    transition: all 700ms ease;
+    transition: height 200ms ease-in-out;
 }
 
 .child-container-collapsed {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 250ms ease;
+    transition: max-height 120ms ease-in-out;
 }
 
 @media (max-width: 768px) {
     .root-container {
-        padding: 0 20px;
+        margin-bottom: 20px;
         font-size: 1.2rem;
     }
   }

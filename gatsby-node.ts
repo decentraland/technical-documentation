@@ -26,7 +26,6 @@ exports.onCreateNode = async ({ node, getNode, actions }: any) => {
 }
 
 exports.createPages = async ({ graphql, actions }: any) => {
-  console.log('corro')
   const posts = await graphql(`
     {
       allMdx(filter: { frontmatter: { slug: { ne: null } } }) {

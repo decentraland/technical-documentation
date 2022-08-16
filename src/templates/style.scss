@@ -2,7 +2,6 @@
 
 .blog-post-container {
     width: 70%;
-    padding: 30px;
     min-height: 100vh;
 }
 
@@ -15,9 +14,28 @@
     font-family: var(--font-family) !important;
 }
 
+table {
+    width: 100%;
+    text-align: left;
+    border-spacing: 0;
+    padding: 20px 0;
+    thead th {
+        font-size: 13px;
+        line-height: 18px;
+        border-bottom: 1px solid #5C5C6E ;
+        padding: 10px 0;
+        color: #5C5C6E;
+    }
+
+    tbody td {
+        border-bottom: 1px solid #5C5C6E;
+        padding: 16px 0;
+    }
+}
+
 @media (max-width: 768px) {
     .blog-post-container {
         width: 100%;
-        padding: 70px 20px 0;
+        padding: 70px 0 0;
     }
   }
