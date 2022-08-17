@@ -36,6 +36,15 @@ button.ais-SearchBox-reset {
   }
 }
 
+.no-hits {
+  @extend .ais-Hits;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  color: var(--gray);
+  font-style: italic;
+}
+
 .ais-Snippet {
   color: var(--gray) !important;
   &::before, &::after {
