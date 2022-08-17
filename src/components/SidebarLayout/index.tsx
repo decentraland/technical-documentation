@@ -6,48 +6,60 @@ import { Page } from 'decentraland-ui/dist/components/Page/Page'
 import { Section } from 'decentraland-ui/dist/components/Section/Section'
 import { Navbar } from 'decentraland-ui/dist/components/Navbar/Navbar'
 import Sidebar from '../../components/Sidebar'
+import ResponsiveSidebar from '../../components/ResponsiveSidebar'
 import categories from '../../mocks/categories.json'
 import './style.scss'
+import { Tabs } from 'decentraland-ui/dist/components/Tabs/Tabs'
+import { Link } from 'gatsby'
 
 export type Props = {
   children?: JSX.Element[] | JSX.Element // verify type
 }
 
 export default function SidebarLayout({ children }: Props) {
-
   const [sidebarCategory, setSidebarCategory] = useState<string>('')
   const [sidebarCategoryProps, setSidebarCategoryProps] = useState<any>(null)
 
   useEffect(() => {
-
     let path = location.pathname
- 
+
     if (process.env.GATSBY_PUBLIC_URL !== '/') {
       const originUrl = new URL(process.env.GATSBY_PUBLIC_URL)
       path = path.replace(originUrl.pathname, '')
-}
+    }
 
     const value = path.split('/')[1]
-    const categoryProps = categories.data.find(
-    (item) => item.title.toLowerCase() === value 
-  )
 
-    const category = categoryProps ? value : 'legacy'
-  
+    const categoryProps = categories.data.find((item) => {
+      return item.url.toLowerCase() === '/' + value
+    })
+
+    const category = categoryProps ? value : 'player'
+
     setSidebarCategory(category)
     setSidebarCategoryProps(categoryProps)
-  }, [])
+  }, [sidebarCategory])
 
   return (
     <>
-      <Navbar isFullWidth activePage="docs" />
-      <Page isFullscreen className="container-full-height">
+      <Navbar isFullscreen activePage="docs" />
+      <Page className="container-full-height">
+        <Tabs>
+          {categories.data.map((item) => {
+            return (
+              <Tabs.Tab active={ '/' + sidebarCategory === item.url}>
+                <Link to={item.url}>{item.title}</Link>
+              </Tabs.Tab>
+            )
+          })}
+        </Tabs>
         <Section className="flex section-no-margin container-full-height">
-          {sidebarCategory && <Sidebar category={sidebarCategory} properties={ sidebarCategoryProps ?? categories.data[1]} />}
+          <Sidebar category={sidebarCategory} properties={sidebarCategoryProps ?? categories.data[0]} />
+          <ResponsiveSidebar category={sidebarCategory} properties={sidebarCategoryProps ?? categories.data[0]} />
           {children}
         </Section>
       </Page>
-      <Footer isFullscreen isFullWidth />
+      <Footer isFullWidth />
     </>
   )
 }

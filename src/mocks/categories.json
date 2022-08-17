@@ -1,18 +1,25 @@
 {
   "data": [
     {
-      "img": "./creator.png",
-      "url": "contributor",
-      "bgColor": "#EE834A",
-      "title": "Contributor",
-      "description": "A description"
+      "img": "./user.png",
+      "url": "/player",
+      "bgColor": "#FF2D55",
+      "title": "Player",
+      "description": "Discover how to experience Decentraland and get the most out of it"
     },
     {
       "img": "./creator.png",
-      "url": "legacy",
-      "bgColor": "#0c0c0c",
-      "title": "Legacy",
-      "description": "The past is not forgotten"
+      "url": "/creator",
+      "bgColor": "#4947CD",
+      "title": "Content Creator",
+      "description": "Learn how to create content for others to experience in Decentraland"
+    },
+    {
+      "img": "./creator.png",
+      "url": "/contributor",
+      "bgColor": "#EE834A",
+      "title": "Contributor",
+      "description": "Learn how you can contribute to building the tools and infrastructure of Decentraland."
     }
   ]
 }

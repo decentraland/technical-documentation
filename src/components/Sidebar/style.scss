@@ -3,14 +3,12 @@
 .sidebar-container {
   min-width: 360px;
   max-width: 360px;
-  border-right: 1px solid var(--divider);
   min-height: 100%;
   box-sizing: border-box;
 
   .sidebar-header {
     position: relative;
     height: 180px;
-    padding: 20px;
     box-sizing: border-box;
 
     h2 {
@@ -31,7 +29,6 @@
   }
 
   .sidebar-items {
-    padding: 20px 20px 0;
     box-sizing: border-box;
 
     .sidebar-home-link {
@@ -44,5 +41,11 @@
           padding-left: 10px;
           }
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar-container {
+    display: none;
   }
 }

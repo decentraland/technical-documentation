@@ -1,12 +1,12 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import './types'
 import './style.scss'
-import algoliasearch from 'algoliasearch/lite';
-import { InstantSearch, Hits, connectStateResults, Snippet } from 'react-instantsearch-dom';
-import { Link } from 'gatsby';
-import CustomSearchBox from '../CustomSearchBox';
+import algoliasearch from 'algoliasearch/lite'
+import { InstantSearch, Hits, connectStateResults, Snippet } from 'react-instantsearch-dom'
+import { Link } from 'gatsby'
+import CustomSearchBox from '../CustomSearchBox'
 
-const searchClient = algoliasearch('ZBR370BA1A', '90d39c58d1ec20ab5f315750f7894b8b');
+const searchClient = algoliasearch('WEEDAO8F9V', '6638d12be8f2b2102e68bc9a87928807')
 
 const Hit = ({ hit }) => {
   return (
@@ -16,25 +16,36 @@ const Hit = ({ hit }) => {
         <Snippet attribute="html" hit={hit} />
       </Link>
     </div>
-  )}
+  )
+}
 
-const Results = connectStateResults(({ searchState }) => {
-  return searchState && searchState.query ? 
-    <>
-      <Hits hitComponent={Hit} />
-      <div className='search-bar-more'><Link to={`/results?search=${searchState.query}`}>See more results</Link></div>
-      <div className="hit-results-grayarea" />
-    </> 
-      : null 
+const Results = connectStateResults(({ searchState, searchResults }) => {
+  console.log(searchResults, 123)
+  return searchState && searchState.query ? (
+    searchResults.nbHits ? (
+      <>
+        <Hits hitComponent={Hit} />
+        <div className="search-bar-more">
+          <Link to={`/results?search=${searchState.query}`}>See more results</Link>
+        </div>
+        <div className="hit-results-grayarea" />
+      </>
+    ) : (
+      <>
+        <div className="no-hits">there are no results for the desired query</div>
+        <div className="hit-results-grayarea" />
+      </>
+    )
+  ) : null
 })
 
 export default function Search() {
-
   const [query, setQuery] = useState()
 
   return (
-      <InstantSearch searchClient={searchClient} indexName="DCL_DOCS">
-        <CustomSearchBox getQuery={setQuery} />
-        <Results />
-      </InstantSearch>
-  )}
+    <InstantSearch searchClient={searchClient} indexName="DCL_DOCS">
+      <CustomSearchBox getQuery={setQuery} />
+      <Results />
+    </InstantSearch>
+  )
+}

@@ -8,3 +8,15 @@
     justify-content: space-between;
     padding-top: 30px
 }
+
+@media (max-width: 768px) {
+    .welcome-container {
+        padding: 70px 20px 0;
+        width: 100%;
+    }
+    
+    .section-cards-container {
+        flex-direction: column;
+        padding-top: 0;
+    }
+  }

@@ -1,17 +1,49 @@
 @import "@styles/variables.scss";
 
 .blog-post-container {
-    // box-sizing: border-box;
     width: 70%;
-    padding: 30px;
     min-height: 100vh;
 }
 
 .code-container {
     border: 1px solid var(--gray);
     border-radius: 8px;
-    
-    .code-inner-container {
+    word-wrap: wrap;
 
+    .prism-code {
+        span {
+            width: 100%;
+            white-space: normal
+        }
     }
 }
+
+.sequence {
+    font-family: var(--font-family) !important;
+}
+
+table {
+    width: 100%;
+    text-align: left;
+    border-spacing: 0;
+    padding: 20px 0;
+    thead th {
+        font-size: 13px;
+        line-height: 18px;
+        border-bottom: 1px solid #5C5C6E ;
+        padding: 10px 0;
+        color: #5C5C6E;
+    }
+
+    tbody td {
+        border-bottom: 1px solid #5C5C6E;
+        padding: 16px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-post-container {
+        width: 100%;
+        padding: 70px 0 0;
+    }
+  }

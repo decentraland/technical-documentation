@@ -5,7 +5,7 @@ slug: "contributor/sdk/documentation/about"
 
 # Contribute to docs
 
-Welcome to **Decentraland technical documentation**, the goal of this repository is to have a single point of access for  all necessary information to use, create and contribute to Decentraland.
+Welcome to **Decentraland technical documentation**, the goal of this repository is to have a single point of access for all necessary information to use, create and contribute to Decentraland.
 
 The repository will scrap a configurable list of directories and render the content of their docs folder. Sidebar stucture can be completely configured in each repository.
 
@@ -17,49 +17,76 @@ Technical documentation is divided in three major areas:
 
 ## How to
 
-### **Render your own docs:**
+**Step 1: Create and format your documentation files: :rocket:**
 
-**In this repository:**
+In your desired repository:
 
-- Simply add your repository in [repositories.json](https://github.com/decentraland/technical-documentation/blob/main/src/repositories.json).
+- Create a folder named `docs` at root level
+- Inside the `docs` folder save your documentation files. Here are some important considerations:
+- We render documentation from [markdown files](https://en.wikipedia.org/wiki/Markdown), so every file must include valid markdown in it's body and the `.md` extension. Unsure about `.md` syntax? Check [this awesome cheat sheet](https://www.markdownguide.org/cheat-sheet/)
+- If your files include local images please place them at the same folder level as the corresponding `.md` file
+- In order to be rendered all `.md` files must include the following [frontmatter](https://middlemanapp.com/basics/frontmatter/) metadata tags at the start: `title` representing the name of the article and `slug` which will be the relative path to the documentation's site url
 
-**In your repository:**
+example:
 
-- Create a docs folder at root level
-- Push your documents as .md files, please include 'title' and 'slug' frontmatter metadata at the beginning of each file, using the following syntax:
-```yaml
+```
 ---
 title: "Metaverse runtime"
 slug: "the relative slug to your page, ex: /contributor/sdk/diagrams/metaverse-runtime"
 ---
 ```
-- Create a summary.json file with the sidebar wanted structure:
-  - Example:
 
-        ```jsx
-        /*
-         This structure renders the following sidebar inside the contributor docs
-          SDK
-           - Diagrams
-             -- Metaverse runtime 
-        */
-        
-        {
-         "contributor": [{
-          "name": "SDK",
-          "children": [{
-           "name": "Diagrams",
-           "children": [{
-             "name": "Metaverse runtime",
-             "slug": "/contributor/sdk/diagrams/metaverse-runtime"
-            }
-           ]
-          }]
-         }]
-        }
-        ```
+- If using `html` tags please close every tag, specially if they are self-closing like `<img />`
+- You can find many `.md` formatters and editor online like [this one](https://stackedit.io/app#)
 
-  - See [sample summary](https://github.com/decentraland/technical-documentation/blob/main/docs/summary.json)
+**Step 2: Create a summary.json file with the sidebar desired structure**
+- The documentation site is completely agnostic to the internal structure of the `docs` folder. To provide a hierarchy for your content a `summary.json` file must be provided
+
+Example:
+
+```
+{
+  "contributor": [{
+    "name": "SDK",
+    "children": [{
+	  "name": "Diagrams",
+	    "children": [{
+	      "name": "Metaverse runtime",
+	      "slug": "/contributor/sdk/diagrams/metaverse-runtime"
+	    }]
+	  }]
+  }]
+}
+```
+
+The code above will render the following structure:
+![rendered sidebar example](/sidebar-render00.png)
+
+Is there a problem if my category is already used? No. All summary files that share the same category will be grouped when the menu is generated:
+
+![grouped categories](/sidebar-render01.png)
+
+- See [sample summary](https://github.com/decentraland/technical-documentation/blob/main/docs/summary.json)
+
+**Step 3: Add the repository to the scrap list**
+
+- Go to [Technical docs repository](https://github.com/decentraland/technical-documentation)
+- Add your repository to the list in `repositories.json`
+- Please provide the following structure:
+  - name: the name of the repository, it's just a label, has no code implications
+  - url: the repository url
+  - zipUrl: the url to the zip version of the repository you want to add
+
+  zipUrl format is:
+  for specific commits: "https://github.com/[ORGANIZATION]/[REPOSITORY_NAME]/archive/[COMMIT].zip"
+  for branches: "https://github.com/[ORGANIZATION]/[REPOSITORY-NAME]/archive/refs/heads/[BRANCH_NAME].zip"
+
+  Why do we ask for zipUrl? To provide the ability to lock the docs to a specific commit or branch. Want to prevent this repo to scrap your latest version? Provide the zip to the commit and edit your docs without fear of breaking anything
+
+### **Preview your docs**
+
+Opening a pull request against decentraland/technical-documentation will trigger the test CI pipeline which deploys a test version to the CDN. Feel free to preview your docs in the PR's generated link before merging.
+
 
 ### Contribute to the codebase
 

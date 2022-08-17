@@ -2,10 +2,13 @@
 
 .root-container {
     align-items: center;
-    padding: 8px 5px 0;
-    font-size: 1em;
-    // line-height: 24px;
+    font-size: 1rem;
+    line-height: 24px;
     text-transform: capitalize;
+
+    &:last-of-type {
+        margin-bottom: 20px;
+    }
 
     .root-title {
         font-weight: 900;
@@ -24,7 +27,7 @@
     .sidebar-dir, .sidebar-item {
         @include sidebarItem();
         color: var(--gray);
-        font-weight: 700;
+        font-weight: 400;
         display: flex;
         align-items: center;
         text-shadow:0px 0px 1px transparent;
@@ -48,11 +51,21 @@
 .child-container {
     padding: 0;
     max-height: 1000px;
-    transition: all 700ms ease;
+    transition: height 200ms ease-in-out;
 }
 
 .child-container-collapsed {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 250ms ease;
+    transition: max-height 120ms ease-in-out;
 }
+
+@media (max-width: 768px) {
+    .root-container {
+        line-height: 24px;
+
+        &:first-of-type {
+            margin-top: 0;
+        }
+    }
+  }

@@ -6,7 +6,11 @@
 
 .container-full-height {
     min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
-    margin-top: -44px;
+    // margin-top: -44px;
+
+    a {
+        color: #000;
+    }
 }
 
 .docs-header {
@@ -43,4 +47,12 @@
 .footer {
     width: 100%;
     border-top: 1px solid var(--divider);
+}
+
+@media (max-width: 768px) {
+    .dcl.tabs .dcl.tab {
+        margin-right: 22px;
+        padding: 0px 0px 0px 10px
+    }
+
 }

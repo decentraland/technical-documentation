@@ -8,11 +8,16 @@ export default function menuSplitter() {
     else {
       files.forEach((file) => {
         try {
-          const data = file != 'legacy.json' && JSON.parse(
-            fs.readFileSync('./src/menu-data/' + file, 'utf8')
-          )
+          const data =
+            file !== 'player.json' &&
+            JSON.parse(
+              fs
+                .readFileSync('./src/menu-data/' + file, 'utf8')
+                .toString()
+                .trim()
+            )
 
-          Object.keys(data).map((key) => {         
+          Object.keys(data).map((key) => {
             data[key].map((item) => {
               if (menu[key]) {
                 const categoryIndex = menu[key].findIndex((element) => {
@@ -35,11 +40,11 @@ export default function menuSplitter() {
             })
           })
 
-          menu['legacy'] = mapLegacyMenu()
+          menu['player'] = mapLegacyMenu()
 
           fs.writeFileSync('./src/repos/menu.json', JSON.stringify(menu))
         } catch (err) {
-          console.error(err)
+          console.error(err, file)
         }
       })
     }
@@ -50,42 +55,44 @@ export default function menuSplitter() {
 function mapLegacyMenu() {
   try {
     const data = JSON.parse(
-      fs.readFileSync('./src/menu-data/legacy.json', 'utf8')
+      fs.readFileSync('./src/menu-data/player.json', 'utf8')
     )
 
-    return data.map(item => {
+    return data.map((item) => {
       return generateMappedObject(item)
     })
-
-  } catch(e) {
+  } catch (e) {
     console.log(e)
   }
 }
 
 function formatName(slug) {
   const splitSlug = slug.split('/')
-  const name = splitSlug[splitSlug.length -1].replace(/([0-9]+(-[0-9]+)+)-/, '').replaceAll('-', ' ').replace('.md', '')
+  const name = splitSlug[splitSlug.length - 1]
+    .replace(/([0-9]+(-[0-9]+)+)-/, '')
+    .replaceAll('-', ' ')
+    .replace('.md', '')
   return name
 }
 
 function generateMappedObject(item) {
   let mappedItem = {}
-    if (item.title) {
-      mappedItem = {...mappedItem, name: item.title}
-    } else {
-      mappedItem = {...mappedItem, name: formatName(item.post)}
-    }
+  if (item.title) {
+    mappedItem = { ...mappedItem, name: item.title }
+  } else {
+    mappedItem = { ...mappedItem, name: formatName(item.post) }
+  }
 
-    if (item.post) {
-      mappedItem = {...mappedItem, slug: '/' + item.post.replace('.md', '')}
-    }
-    if (item.children) {
-      const children = item.children.map(child => {
-        return generateMappedObject(child)
-      })
+  if (item.post) {
+    mappedItem = { ...mappedItem, slug: '/' + item.post.replace('.md', '') }
+  }
+  if (item.children) {
+    const children = item.children.map((child) => {
+      return generateMappedObject(child)
+    })
 
-      mappedItem = {...mappedItem, children }
-    }
+    mappedItem = { ...mappedItem, children }
+  }
   return mappedItem
 }
 

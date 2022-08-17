@@ -50,30 +50,80 @@ const opts = {
     siteUrl: "https://beta-docs.decentraland.zone",
   },
   plugins: [
-    "gatsby-plugin-sitemap",
-    "gatsby-plugin-mdx",
-    "gatsby-plugin-postcss",
-    "gatsby-plugin-sass",
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-mdx`,
+    `gatsby-plugin-postcss`,
+    `gatsby-plugin-sass`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-catch-links`,
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-source-filesystem`,
       options: {
         name: "pages",
-        path: "./src/repos/",
+        path: "./src/",
       },
       __key: "pages",
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: "./src/configurable-content",
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./src/repos/player/player-documentation-main`,
+      },
+    },
+    {
+      resolve: `gatsby-remark-relative-images`,
+      options: {
+        // [Optional] The root of "media_folder" in your config.yml
+        // Defaults to "static"
+        staticFolderName: './src/repos/player/player-documentation-main/',
+        // [Optional] Include the following fields, use dot notation for nested fields
+        // All fields are included by default
+        include: ['featured'],
+        // [Optional] Exclude the following fields, use dot notation for nested fields
+        // No fields are excluded by default
+        exclude: ['featured.skip'],
+      },
+    },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-sequence`,
+            options: {
+              // see more details on https://github.com/bramp/js-sequence-diagrams
+              'theme': 'hand',
+            }
+          },
+        ]
+      }
     },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
         gatsbyRemarkPlugins: [
+          `gatsby-remark-liquid-tags`,
+          `gatsby-remark-mermaid`,
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 900,
             },
           },
+          {
+            resolve: "gatsby-remark-external-links",
+            options: {
+              target: "_self",
+              rel: "nofollow"
+            }
+          }
         ],
         extensions: [`.md`, `.mdx`],
       }
@@ -88,6 +138,7 @@ const opts = {
         ],
       },
     },
+    'gatsby-plugin-meta-redirect' // make sure this is always the last one
   ],
 };
 

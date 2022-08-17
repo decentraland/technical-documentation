@@ -1,0 +1,59 @@
+@import './../../styles/mixins.scss';
+
+.responsive-sidebar-container {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: var(--white);
+  overflow: hidden;
+  margin-top: -20px;
+
+  .responsive-sidebar-header {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    height: 60px;
+
+    .responsive-sidebar-title {
+      font-size: 15px;
+      line-height: 1em;
+      text-transform: capitalize;
+      display: flex;
+      align-items: center;
+
+      img {
+        display: inline-block;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .responsive-sidebar-items-closed {
+    height: 0;
+    transition: height 300ms ease-in-out;
+  }
+
+  .responsive-sidebar-items {
+    box-sizing: border-box;
+    height: 100vh;
+    transition: height 300ms ease-in-out;
+
+    .sidebar-home-link {
+      @include sidebarItem();
+      color: black;
+      padding: 5px 5px 5px 10px;
+      font-weight: bold;
+
+      &:hover {
+        padding-left: 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .responsive-sidebar-container {
+    display: block;
+  }
+}
