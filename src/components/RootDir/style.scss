@@ -63,9 +63,14 @@
 @media (max-width: 768px) {
     .root-container {
         line-height: 24px;
+        max-width: 90%;
 
         &:first-of-type {
             margin-top: 0;
         }
     }
+
+    .child-container-collapsed, .child-container {
+        transition: none;
+    }    
   }
