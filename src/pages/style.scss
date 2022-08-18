@@ -1,0 +1,22 @@
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+
+    .search-bar-container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .results-header {
+      flex-direction: column-reverse;
+
+      h2 {
+        margin: 20px;
+        text-align: center;
+    }
+  }
+}
+  

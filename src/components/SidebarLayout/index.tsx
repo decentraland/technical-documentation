@@ -11,6 +11,7 @@ import categories from '../../mocks/categories.json'
 import './style.scss'
 import { Tabs } from 'decentraland-ui/dist/components/Tabs/Tabs'
 import { Link } from 'gatsby'
+import Search from '../../components/Search'
 
 export type Props = {
   children?: JSX.Element[] | JSX.Element // verify type
@@ -44,15 +45,18 @@ export default function SidebarLayout({ children }: Props) {
     <>
       <Navbar isFullscreen activePage="docs" />
       <Page className="container-full-height">
-        <Tabs>
-          {categories.data.map((item) => {
-            return (
-              <Tabs.Tab active={ '/' + sidebarCategory === item.url}>
-                <Link to={item.url}>{item.title}</Link>
-              </Tabs.Tab>
-            )
-          })}
-        </Tabs>
+        <div className='tabs-header'>
+          <Tabs>
+            {categories.data.map((item) => {
+              return (
+                <Tabs.Tab active={'/' + sidebarCategory === item.url}>
+                  <Link to={item.url}>{item.title}</Link>
+                </Tabs.Tab>
+              )
+            })}
+          </Tabs>
+          <Search />
+        </div>
         <Section className="flex section-no-margin container-full-height">
           <Sidebar category={sidebarCategory} properties={sidebarCategoryProps ?? categories.data[0]} />
           <ResponsiveSidebar category={sidebarCategory} properties={sidebarCategoryProps ?? categories.data[0]} />

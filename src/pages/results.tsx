@@ -8,6 +8,7 @@ import { InstantSearch } from 'react-instantsearch-dom'
 import algoliasearch from 'algoliasearch/lite'
 import ConnectedResultHits from '../components/ResultHits'
 import CustomSearchBox from '../components/CustomSearchBox'
+import './style.scss'
 
 const searchClient = algoliasearch('ZBR370BA1A', '90d39c58d1ec20ab5f315750f7894b8b')
 
@@ -22,13 +23,7 @@ export default function ResultsPage({ location }) {
   return (
     <GeneralLayout>
       <InstantSearch searchClient={searchClient} indexName="DCL_DOCS" searchState={{ query }}>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'baseline'
-          }}
-        >
+        <div className="results-header">
           <SearchTitle search={query} />
           <CustomSearchBox getQuery={setQuery} />
         </div>

@@ -6,10 +6,22 @@
 
 .container-full-height {
     min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
-    // margin-top: -44px;
 
     a {
         color: #000;
+    }
+
+    .tabs-header {
+     position: relative;
+        .search-bar-container {
+            position: absolute;
+            right: 0;
+            top: -10px;
+
+            @media (max-width: 768px) {
+                display: none;
+            }
+        }
     }
 }
 

@@ -1,9 +1,10 @@
 import { Link } from 'gatsby'
-import { useEffect } from 'react'
+import { useEffect, useContext } from 'react'
 import React from 'react'
 import { useState } from 'react'
 import formatPaths from '../../utils/formatPaths'
 import './style.scss'
+import SidebarContext from '../../contexts/Sidebar'
 
 type Props = {
   name: string
@@ -14,10 +15,12 @@ type Props = {
   isOpen?: boolean
   openParent?: () => void
   isActive?: boolean
+  getName?: (name: string) => void
 }
 
 export default function RootDir(props: Props) {
-  const { name, children, offset, slug, openParent } = props
+  const sidebarContext = useContext(SidebarContext)
+  const { name, children, offset, slug, openParent, getName } = props
   const [open, setOpen] = useState<boolean>(false)
   const [active, setActive] = useState<boolean>(false)
   const match = /[0-9]{4}-[0-9]{2}-[0-9]{2}-/i
@@ -27,6 +30,8 @@ export default function RootDir(props: Props) {
       openParent()
       setOpen(true)
       setActive(true)
+
+      sidebarContext.updateValue(name)
     }
   }, [])
 
