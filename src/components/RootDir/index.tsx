@@ -11,19 +11,22 @@ type Props = {
   offset: number
   path?: string
   slug?: string
-  children?: JSX.Element[] // TODO - verify type
+  children?: JSX.Element[]
   isOpen?: boolean
   openParent?: () => void
   isActive?: boolean
   getName?: (name: string) => void
+  color?: string
 }
 
 export default function RootDir(props: Props) {
   const sidebarContext = useContext(SidebarContext)
-  const { name, children, offset, slug, openParent, getName } = props
+  const { name, children, offset, slug, openParent, color } = props
   const [open, setOpen] = useState<boolean>(false)
   const [active, setActive] = useState<boolean>(false)
   const match = /[0-9]{4}-[0-9]{2}-[0-9]{2}-/i
+
+  console.log(color, 'lala')
 
   useEffect(() => {
     if (location.pathname.includes(slug)) {
@@ -60,7 +63,7 @@ export default function RootDir(props: Props) {
             )
           ) : (
             slug && (
-              <Link className={active ? 'sidebar-open' : 'sidebar-item'} to={slug}>
+              <Link className={active ? 'sidebar-open' : 'sidebar-item'} to={slug} style={open ? { color: color } : {}}>
                 {name}
               </Link>
             )
@@ -71,7 +74,6 @@ export default function RootDir(props: Props) {
           style={{ paddingLeft: `${20 * offset}px` }}
         >
           {children &&
-            // TO-DO: type the objects, need to define data structure first
             children.map((item: any, key: number) => {
               return (
                 <RootDir
@@ -82,6 +84,7 @@ export default function RootDir(props: Props) {
                   key={key}
                   isOpen={open}
                   openParent={handleOpen}
+                  color={color}
                 />
               )
             })}

@@ -41,6 +41,12 @@
         display: inline-block;
         padding: 5px;
         font-weight: 600;
+        list-style: circle;
+
+        &::before {
+            content: "●";
+            padding-right: 5px;
+        }
     }
 }
 

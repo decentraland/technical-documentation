@@ -7,16 +7,16 @@ import formatPaths from 'utils/formatPaths'
 
 export default function UserTypeCard({ title, img, url, bgColor, description }: SectionCardProps) {
   return (
-    <div className="section-card" style={{ background: bgColor }}>
+    <div className="user-card" style={{ background: bgColor }}>
       <Link to={url}>
         <div className="card-img">
           <img src={formatPaths(img)} alt={title} />
         </div>
-        <div className="section-card-info">
+        <div className="user-card-info">
           <h3>{title}</h3>
           <p>{description}</p>
         </div>
-        <div className="section-card-cta">
+        <div className="user-card-cta">
           <span>VIEW MORE</span>
           <img src={formatPaths('caret.png')} alt="caret" />
         </div>
