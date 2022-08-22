@@ -21,7 +21,7 @@ if (packageJson.homepage) {
   } else {
     ENV_CONTENT['ASSET_PREFIX'] = ENV_CONTENT['GATSBY_PUBLIC_URL'];
   }
-  
+
   ENV_CONTENT['GATSBY_URL'] = url.origin
   // github action outputs. Do not touch.
   console.log('::set-output name=public_url::' + packageJson.homepage)

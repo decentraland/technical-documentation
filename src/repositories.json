@@ -11,11 +11,6 @@
           "zipUrl": "https://github.com/decentraland/unity-renderer/archive/refs/heads/master.zip"
       },
       {
-          "name": "tech-docs",
-          "url": "https://github.com/decentraland/technical-documentation",
-          "zipUrl": "https://github.com/decentraland/technical-documentation/archive/refs/heads/main.zip"
-      },
-      {
           "name": "player",
           "url": "https://github.com/decentraland/player-documentation",
           "zipUrl": "https://github.com/decentraland/player-documentation/archive/refs/heads/main.zip"
@@ -39,6 +34,11 @@
           "name": "creator",
           "url": "https://github.com/decentraland/documentation-creators",
           "zipUrl": "https://github.com/decentraland/documentation-creators/archive/refs/heads/merge-new-content.zip"
-      }
+      },
+      {
+        "name": "tech-docs",
+        "url": "https://github.com/decentraland/technical-documentation",
+        "zipUrl": "https://github.com/decentraland/technical-documentation/archive/refs/heads/main.zip"
+    },
   ]
 }

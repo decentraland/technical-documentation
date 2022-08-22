@@ -5,6 +5,7 @@ import { useState } from 'react'
 import formatPaths from '../../utils/formatPaths'
 import './style.scss'
 import SidebarContext from '../../contexts/Sidebar'
+import isExternalLink from '../../utils/isExternalLink'
 
 type Props = {
   name: string
@@ -25,8 +26,6 @@ export default function RootDir(props: Props) {
   const [open, setOpen] = useState<boolean>(false)
   const [active, setActive] = useState<boolean>(false)
   const match = /[0-9]{4}-[0-9]{2}-[0-9]{2}-/i
-
-  console.log(color, 'lala')
 
   useEffect(() => {
     if (location.pathname.includes(slug)) {
@@ -61,12 +60,14 @@ export default function RootDir(props: Props) {
                 {name}
               </span>
             )
+          ) : slug && isExternalLink(slug) ? (
+            <a className={active ? 'sidebar-open' : 'sidebar-item'} href={slug} target="_blank">
+              {name}
+            </a>
           ) : (
-            slug && (
-              <Link className={active ? 'sidebar-open' : 'sidebar-item'} to={slug} style={open ? { color: color } : {}}>
-                {name}
-              </Link>
-            )
+            <Link className={active ? 'sidebar-open' : 'sidebar-item'} to={slug} style={open ? { color: color } : {}}>
+              {name}
+            </Link>
           )}
         </div>
         <div

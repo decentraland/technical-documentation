@@ -41,17 +41,15 @@ export default function SidebarLayout({ children }: Props) {
     setSidebarCategoryProps(categoryProps)
   }, [sidebarCategory])
 
-  console.log(sidebarCategoryProps, 111)
-
   return (
     <>
       <Navbar isFullscreen activePage="docs" />
       <Page className="container-full-height">
         <div className="tabs-header">
           <Tabs>
-            {categories.data.map((item) => {
+            {categories.data.map((item, key) => {
               return (
-                <Tabs.Tab active={'/' + sidebarCategory === item.url}>
+                <Tabs.Tab active={'/' + sidebarCategory === item.url} key={key}>
                   <Link className="tabs-navigation" to={item.url} style={{ borderColor: item.bgColor }}>
                     {item.title}
                   </Link>
