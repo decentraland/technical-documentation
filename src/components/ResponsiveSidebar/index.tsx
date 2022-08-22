@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import RootDir from '../RootDir'
 import './style.scss'
 import menu from '../../repos/menu.json'
@@ -16,8 +16,6 @@ export default function ResponsiveSidebar({ category, properties }: any) {
   function updateValue(newValue: string) {
     setActiveValue(newValue)
   }
-
-  console.log(properties)
 
   return (
     <SidebarProvider value={{ activeMenu: 'Menu', updateValue }}>
@@ -43,7 +41,7 @@ export default function ResponsiveSidebar({ category, properties }: any) {
                 </h2>
                 <img
                   className="search-bar-icon"
-                  src={formatPaths('search.png')}
+                  src={formatPaths('search.svg')}
                   onClick={() => setShowSearch((prevState) => !prevState)}
                 />
               </div>

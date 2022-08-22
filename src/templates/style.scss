@@ -3,6 +3,7 @@
 .blog-post-container {
     width: 70%;
     min-height: 100vh;
+    padding-left: 20px;
 }
 
 .code-container {
@@ -13,7 +14,7 @@
     .prism-code {
         span {
             width: 100%;
-            white-space: normal
+            white-space: break-spaces;
         }
     }
 }

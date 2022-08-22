@@ -20,7 +20,6 @@ const Hit = ({ hit }) => {
 }
 
 const Results = connectStateResults(({ searchState, searchResults }) => {
-  console.log(searchResults, 123)
   return searchState && searchState.query ? (
     searchResults.nbHits ? (
       <>
@@ -32,7 +31,7 @@ const Results = connectStateResults(({ searchState, searchResults }) => {
       </>
     ) : (
       <>
-        <div className="no-hits">there are no results for the desired query</div>
+        <div className="no-hits">The searched text can’t be found in any section of the Decentraland documentation</div>
         <div className="hit-results-grayarea" />
       </>
     )

@@ -24,6 +24,29 @@
         }
     }
 }
+.active {
+    .tabs-navigation {
+        position: relative;
+        border-bottom: 3px solid #ffffff;
+        padding: 19px 0;
+        z-index: 1;
+
+        @media (max-width: 768px) {
+            border-bottom: 0;
+            padding: 0 0 0 22px;
+            border-left: 2px solid #ffffff;
+        }
+    }
+
+    @media (max-width: 768px) {
+        border-left: 2px solid yellow;
+    }
+
+    .active-bar {
+        //needed to override dcl tabs color
+        display: none;
+    }
+}
 
 .docs-header {
     display: flex;
@@ -63,8 +86,12 @@
 
 @media (max-width: 768px) {
     .dcl.tabs .dcl.tab {
-        margin-right: 22px;
-        padding: 0px 0px 0px 10px
+        margin-right: 22px !important;
+        padding: 0;
+    }
+
+    .dcl.tab.active {
+        border: none !important;
     }
 
 }

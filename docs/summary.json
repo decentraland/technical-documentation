@@ -1,16 +1,11 @@
 {
   "contributor": [
     {
-      "name": "SDK",
+      "name": "Decentraland documentation",
       "children": [
         {
-          "name": "Documentation",
-          "children": [
-            {
-              "name": "About decentraland documentation",
-              "slug": "/contributor/sdk/documentation/about"
-            }
-          ]
+          "name": "How to contribute documentation",
+          "slug": "/contributor/sdk/documentation/about"
         }
       ]
     }

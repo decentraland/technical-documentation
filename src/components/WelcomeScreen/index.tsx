@@ -49,13 +49,6 @@ export default function WelcomeScreen() {
           )
         })}
       </div>
-      <Header>Popular tags/topics</Header>
-      <div className="tag-wrapper">
-        {tags &&
-          tags.map((item, i) => {
-            return <Tags key={i} name={item.name} slug={item.slug} category={item.category} />
-          })}
-      </div>
     </Section>
   )
 }
