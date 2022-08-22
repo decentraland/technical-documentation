@@ -4,12 +4,16 @@ button.ais-SearchBox-submit {
   border: 0;
   position: absolute;
   left: 8px;
-  top: 27px;
+  top: 31px;
   background: transparent;
 }
 
 button.ais-SearchBox-reset {
-  display: none;
+  position: absolute;
+  background: transparent;
+  border: 0;
+  right: 10px;
+  top: 31px;
 }
 
 .ais-Hits {

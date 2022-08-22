@@ -3,10 +3,11 @@
 .responsive-sidebar-container {
   display: none;
   position: absolute;
-  z-index: 1;
+  z-index: 1001; //navbar is 1000
   background-color: var(--white);
   overflow: hidden;
   margin-top: -20px;
+  width: 100%;
 
   .responsive-sidebar-header {
     position: relative;
@@ -14,6 +15,7 @@
     display: flex;
     align-items: center;
     height: 60px;
+    justify-content: space-between;
 
     .responsive-sidebar-title {
       font-size: 15px;
@@ -21,6 +23,8 @@
       text-transform: capitalize;
       display: flex;
       align-items: center;
+      margin: 0;
+      padding: 0;
 
       img {
         display: inline-block;
@@ -31,13 +35,25 @@
 
   .responsive-sidebar-items-closed {
     height: 0;
-    transition: height 300ms ease-in-out;
+    // transition: height 100ms ease-out;
   }
 
   .responsive-sidebar-items {
     box-sizing: border-box;
     height: 100vh;
-    transition: height 300ms ease-in-out;
+    position: fixed;
+    background: #ffffff;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    padding: 20px;
+
+    .icon-close {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      z-index: 1;
+    }  
 
     .sidebar-home-link {
       @include sidebarItem();
@@ -48,6 +64,21 @@
       &:hover {
         padding-left: 10px;
       }
+    }
+  }
+}
+
+.responsive-sidebar-searchbox {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+
+  .search-wrapper {
+    min-width: 80%;
+    max-width: 80%;
+    .search-bar-container {
+      width: 100%;
     }
   }
 }

@@ -24,6 +24,7 @@ export default function Template({ data }: any) {
       <SidebarLayout>
         <div className="blog-post-container">
           <div className="blog-post">
+            <h1>{frontmatter.title}</h1>
             <MDXProvider components={components}>
               <MDXRenderer>{body}</MDXRenderer>
             </MDXProvider>

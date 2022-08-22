@@ -20,6 +20,7 @@ export default function Sidebar({ category, properties }: any) {
                     children={item.children}
                     slug={item.slug?.toLowerCase().replace(match, '')}
                     key={key}
+                    color={properties.bgColor}
                   />
                 )
               })}

@@ -1,23 +1,28 @@
 import { Link } from 'gatsby'
-import { useEffect } from 'react'
+import { useEffect, useContext } from 'react'
 import React from 'react'
 import { useState } from 'react'
 import formatPaths from '../../utils/formatPaths'
 import './style.scss'
+import SidebarContext from '../../contexts/Sidebar'
+import isExternalLink from '../../utils/isExternalLink'
 
 type Props = {
   name: string
   offset: number
   path?: string
   slug?: string
-  children?: JSX.Element[] // TODO - verify type
+  children?: JSX.Element[]
   isOpen?: boolean
   openParent?: () => void
   isActive?: boolean
+  getName?: (name: string) => void
+  color?: string
 }
 
 export default function RootDir(props: Props) {
-  const { name, children, offset, slug, openParent } = props
+  const sidebarContext = useContext(SidebarContext)
+  const { name, children, offset, slug, openParent, color } = props
   const [open, setOpen] = useState<boolean>(false)
   const [active, setActive] = useState<boolean>(false)
   const match = /[0-9]{4}-[0-9]{2}-[0-9]{2}-/i
@@ -27,6 +32,8 @@ export default function RootDir(props: Props) {
       openParent()
       setOpen(true)
       setActive(true)
+
+      sidebarContext.updateValue(name)
     }
   }, [])
 
@@ -53,12 +60,14 @@ export default function RootDir(props: Props) {
                 {name}
               </span>
             )
+          ) : slug && isExternalLink(slug) ? (
+            <a className={active ? 'sidebar-open' : 'sidebar-item'} href={slug} target="_blank">
+              {name}
+            </a>
           ) : (
-            slug && (
-              <Link className={active ? 'sidebar-open' : 'sidebar-item'} to={slug}>
-                {name}
-              </Link>
-            )
+            <Link className={active ? 'sidebar-open' : 'sidebar-item'} to={slug} style={open ? { color: color } : {}}>
+              {name}
+            </Link>
           )}
         </div>
         <div
@@ -66,7 +75,6 @@ export default function RootDir(props: Props) {
           style={{ paddingLeft: `${20 * offset}px` }}
         >
           {children &&
-            // TO-DO: type the objects, need to define data structure first
             children.map((item: any, key: number) => {
               return (
                 <RootDir
@@ -77,6 +85,7 @@ export default function RootDir(props: Props) {
                   key={key}
                   isOpen={open}
                   openParent={handleOpen}
+                  color={color}
                 />
               )
             })}

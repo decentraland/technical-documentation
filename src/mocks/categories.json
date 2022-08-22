@@ -1,21 +1,21 @@
 {
   "data": [
     {
-      "img": "./user.png",
+      "img": "./player.svg",
       "url": "/player",
       "bgColor": "#FF2D55",
       "title": "Player",
       "description": "Discover how to experience Decentraland and get the most out of it"
     },
     {
-      "img": "./creator.png",
+      "img": "./creator.svg",
       "url": "/creator",
       "bgColor": "#4947CD",
       "title": "Content Creator",
       "description": "Learn how to create content for others to experience in Decentraland"
     },
     {
-      "img": "./creator.png",
+      "img": "./contributor.svg",
       "url": "/contributor",
       "bgColor": "#EE834A",
       "title": "Contributor",
