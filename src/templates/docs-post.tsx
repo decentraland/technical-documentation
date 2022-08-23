@@ -9,7 +9,6 @@ import CustomImg from '../components/CustomImg'
 import CustomLink from '../components/CustomLink'
 
 export default function Template({ data }: any) {
-
   const components = {
     code: CodeBlock,
     img: CustomImg,
