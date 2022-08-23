@@ -27,10 +27,7 @@ export default function menuSplitter() {
                 })
 
                 if (menu[key][categoryIndex]) {
-                  menu[key][categoryIndex].children = [
-                    ...menu[key][categoryIndex].children,
-                    ...item.children
-                  ]
+                  menu[key][categoryIndex].children = [...menu[key][categoryIndex].children, ...item.children]
                 } else {
                   menu[key] = [...menu[key], item]
                 }
@@ -54,9 +51,7 @@ export default function menuSplitter() {
 // TODO - copy file to folder
 function mapLegacyMenu() {
   try {
-    const data = JSON.parse(
-      fs.readFileSync('./src/menu-data/player.json', 'utf8')
-    )
+    const data = JSON.parse(fs.readFileSync('./src/menu-data/player.json', 'utf8'))
 
     return data.map((item) => {
       return generateMappedObject(item)
@@ -84,7 +79,7 @@ function generateMappedObject(item) {
   }
 
   if (item.post) {
-    mappedItem = { ...mappedItem, slug: '/' + item.post.replace('.md', '') }
+    mappedItem = { ...mappedItem, slug: '/player/' + item.post.replace('.md', '') }
   }
   if (item.children) {
     const children = item.children.map((child) => {
