@@ -82,7 +82,7 @@ exports.createPages = async ({ graphql, actions }: any) => {
       path: node.fields.slug.replace(filePath, '').replace(match, ''),
       component: path.resolve(`./src/templates/docs-post.tsx`),
       context: {
-        slug: node.fields.slug.toLowerCase()
+        slug: 'player/' + node.fields.slug.toLowerCase()
       }
     })
 
@@ -90,7 +90,7 @@ exports.createPages = async ({ graphql, actions }: any) => {
       node.frontmatter.redirect_from.map((item) => {
         actions.createRedirect({
           fromPath: item + '/',
-          toPath: node.fields.slug.replace(filePath, '').replace(match, ''),
+          toPath: 'player/' + node.fields.slug.replace(filePath, '').replace(match, ''),
           isPermanent: true
         })
       })
