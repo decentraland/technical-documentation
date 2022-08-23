@@ -89,7 +89,7 @@ exports.createPages = async ({ graphql, actions }: any) => {
     if (node.frontmatter.redirect_from) {
       node.frontmatter.redirect_from.map((item) => {
         actions.createRedirect({
-          fromPath: item + '/',
+          fromPath: item,
           toPath: '/player' + node.fields.slug.replace(filePath, '').replace(match, ''),
           isPermanent: true
         })
