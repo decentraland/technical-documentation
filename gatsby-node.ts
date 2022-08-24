@@ -55,7 +55,6 @@ exports.createPages = async ({ graphql, actions }: any) => {
               slug
             }
             frontmatter {
-              redirect_from
               title
             }
           }
