@@ -55,7 +55,6 @@ exports.createPages = async ({ graphql, actions }: any) => {
               slug
             }
             frontmatter {
-              redirect_from
               title
             }
           }
@@ -72,6 +71,16 @@ exports.createPages = async ({ graphql, actions }: any) => {
         slug: node.fields.slug.toLowerCase()
       }
     })
+
+    if (node.frontmatter.redirect_from) {
+      node.frontmatter.redirect_from.map((item) => {
+        actions.createRedirect({
+          fromPath: item,
+          toPath: node.fields.slug.toLowerCase(),
+          isPermanent: true
+        })
+      })
+    }
   })
 
   legacyData.data.allMdx.edges.forEach(({ node }: any) => {
