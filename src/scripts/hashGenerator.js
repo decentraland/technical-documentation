@@ -19,7 +19,7 @@ if (packageJson.homepage) {
   if (process.env.GITHUB_BASE_REF) {
     ENV_CONTENT['GATSBY_PUBLIC_PATH'] = url.pathname
   } else {
-    ENV_CONTENT['ASSET_PREFIX'] = ENV_CONTENT['GATSBY_PUBLIC_URL'];
+    ENV_CONTENT['ASSET_PREFIX'] = ENV_CONTENT['GATSBY_PUBLIC_URL']
   }
 
   ENV_CONTENT['GATSBY_URL'] = url.origin
@@ -29,7 +29,7 @@ if (packageJson.homepage) {
 }
 
 fs.writeFileSync(
-  '.env.production',
+  `.env.${process.env.NODE_ENV}`,
   Object.entries(ENV_CONTENT)
     .map((e) => e[0] + '=' + JSON.stringify(e[1]))
     .join('\n') + '\n'
@@ -42,18 +42,17 @@ function getPublicUrls() {
     if (process.env.GITHUB_BASE_REF) {
       // Pull request
       return {
-        GATSBY_PUBLIC_URL: `https://sdk-team-cdn.decentraland.org/${packageJson.name}/branch/${process.env.GITHUB_HEAD_REF}`,
+        GATSBY_PUBLIC_URL: `https://sdk-team-cdn.decentraland.org/${packageJson.name}/branch/${process.env.GITHUB_HEAD_REF}`
       }
     } else if (process.env.CI) {
       // master/main branch, also releases
       return {
-        GATSBY_PUBLIC_URL: `https://cdn.decentraland.org/${packageJson.name}/${packageJson.version}`,
+        GATSBY_PUBLIC_URL: `https://cdn.decentraland.org/${packageJson.name}/${packageJson.version}`
       }
     }
   }
   // localhost
   return {
     GATSBY_PUBLIC_URL: ``
-
   }
 }
