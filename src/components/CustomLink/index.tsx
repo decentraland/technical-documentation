@@ -1,5 +1,6 @@
 import React from 'react'
 import './style.scss'
+import { useStaticQuery, graphql } from 'gatsby'
 
 function appendDomain(url) {
   if (url.includes(process.env.GATSBY_PUBLIC_PATH)) {
@@ -12,7 +13,23 @@ function appendDomain(url) {
 export default function CustomLink(props: any) {
   const { href, children, id } = props
 
-  console.log(process.env.GATSBY_PUBLIC_PATH, 'the path', process.env)
+  const { site } = useStaticQuery(graphql`
+    {
+      site {
+        assetPrefix
+      }
+    }
+  `)
+
+  function appendDomain(url) {
+    if (url.includes(site.assetPrefix)) {
+      return url.replace(site.assetPrefix, '')
+    } else {
+      return url
+    }
+  }
+
+  console.log(site)
 
   return (
     <a className="blog-link" href={href && appendDomain(href)} id={id && id}>
