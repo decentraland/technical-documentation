@@ -29,7 +29,7 @@ if (packageJson.homepage) {
 }
 
 fs.writeFileSync(
-  '.env',
+  '.env.production',
   Object.entries(ENV_CONTENT)
     .map((e) => e[0] + '=' + JSON.stringify(e[1]))
     .join('\n') + '\n'
@@ -38,9 +38,7 @@ fs.writeFileSync(
 fs.writeFileSync('./package.json', JSON.stringify(packageJson, null, 2))
 
 function getPublicUrls() {
-  console.log('this runs?')
   if (!process.env.GEN_STATIC_LOCAL) {
-    console.log('inside first conditional')
     if (process.env.GITHUB_BASE_REF) {
       // Pull request
       return {
@@ -53,7 +51,6 @@ function getPublicUrls() {
       }
     }
   }
-  console.log('runs localhost')
   // localhost
   return {
     GATSBY_PUBLIC_URL: ``
