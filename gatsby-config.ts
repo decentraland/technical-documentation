@@ -1,8 +1,9 @@
 import dotenv from "dotenv";
 
 dotenv.config({
-  path: `.env.${process.env.NODE_ENV}`,
+  path: `.env`,
 });
+
 /* -> Algolia integration queries */
 
 const myQuery = `{
