@@ -13,14 +13,18 @@ export default function CustomLink(props: any) {
     }
   `)
 
-  let newHref = href
-  const assetPrefix = site.assetPrefix.replace('https://', 'https:/')
-  if (href.startsWith(assetPrefix)) {
-    newHref = href.slice(assetPrefix.length)
+  function removeAppend(url) {
+    let newHref = url
+    const assetPrefix = site.assetPrefix.replace('https://', 'https:/')
+    if (href.startsWith(assetPrefix)) {
+      newHref = href.slice(assetPrefix.length)
+    }
+
+    return newHref
   }
 
   return (
-    <a className="blog-link" href={newHref} id={id && id}>
+    <a className="blog-link" href={href && removeAppend(href)} id={id && id}>
       {children}
     </a>
   )
