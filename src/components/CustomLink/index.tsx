@@ -12,7 +12,7 @@ export default function CustomLink(props: any) {
     }
   }
 
-  console.log(props, 'curtom link props', process.env)
+  console.log(process.env.GATSBY_PUBLIC_PATH, 'the path')
   
   return (
     <a className="blog-link" href={href && appendDomain(href)} id={id && id}>
