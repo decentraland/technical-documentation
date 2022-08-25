@@ -28,6 +28,8 @@ if (packageJson.homepage) {
   console.log('::set-output name=public_path::' + url.pathname)
 }
 
+console.log(ENV_CONTENT)
+
 fs.writeFileSync(
   `.env`,
   Object.entries(ENV_CONTENT)
