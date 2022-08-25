@@ -13,6 +13,7 @@ export default function CustomLink(props: any) {
   }
 
   console.log(props, 'curtom link props')
+  
   return (
     <a className="blog-link" href={href && appendDomain(href)} id={id && id}>
       {children}
