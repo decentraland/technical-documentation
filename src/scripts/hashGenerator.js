@@ -29,7 +29,7 @@ if (packageJson.homepage) {
 }
 
 fs.writeFileSync(
-  `.env.${process.env.NODE_ENV}`,
+  `.env`,
   Object.entries(ENV_CONTENT)
     .map((e) => e[0] + '=' + JSON.stringify(e[1]))
     .join('\n') + '\n'
