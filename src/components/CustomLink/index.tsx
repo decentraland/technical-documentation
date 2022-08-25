@@ -4,10 +4,17 @@ import './style.scss'
 export default function CustomLink(props: any) {
   const { href, children, id } = props
 
-  console.log(props, 123333
-    )
+  function appendDomain(url) {
+    if (url[0] === '/') {
+      return process.env.GATSBY_PUBLIC_URL + url
+    } else {
+      return url
+    }
+  }
+
+  console.log(props, 'curtom link props')
   return (
-    <a className="blog-link" href={href} id={id && id}>
+    <a className="blog-link" href={appendDomain(href)} id={id && id}>
       {children}
     </a>
   )
