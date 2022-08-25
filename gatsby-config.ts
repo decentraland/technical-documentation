@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 
 dotenv.config({
-  path: `.env`,
+  path: `.env.${process.env.NODE_ENV}`,
 });
 
 /* -> Algolia integration queries */
