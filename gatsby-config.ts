@@ -4,6 +4,7 @@ dotenv.config({
   path: `.env`,
 });
 
+console.log(process.env, 'generated env?')
 /* -> Algolia integration queries */
 
 const myQuery = `{

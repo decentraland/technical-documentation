@@ -38,15 +38,15 @@ fs.writeFileSync(
 fs.writeFileSync('./package.json', JSON.stringify(packageJson, null, 2))
 
 function getPublicUrls() {
+  console.log('this runs?')
   if (!process.env.GEN_STATIC_LOCAL) {
+    console.log('inside first conditional')
     if (process.env.GITHUB_BASE_REF) {
-      console.log('runs pr')
       // Pull request
       return {
         GATSBY_PUBLIC_URL: `https://sdk-team-cdn.decentraland.org/${packageJson.name}/branch/${process.env.GITHUB_HEAD_REF}`,
       }
     } else if (process.env.CI) {
-      console.log('runs main')
       // master/main branch, also releases
       return {
         GATSBY_PUBLIC_URL: `https://cdn.decentraland.org/${packageJson.name}/${packageJson.version}`,
@@ -56,7 +56,7 @@ function getPublicUrls() {
   console.log('runs localhost')
   // localhost
   return {
-    GATSBY_PUBLIC_URL: ``,
+    GATSBY_PUBLIC_URL: ``
 
   }
 }
