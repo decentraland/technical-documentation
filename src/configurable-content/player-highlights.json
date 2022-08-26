@@ -3,21 +3,21 @@
         {
             "title": "World",
             "img": "player-world.png",
-            "url": "/general/introduction/",
+            "url": "/player/general/introduction/",
             "bgColor": "#eb495a",
             "description": "General info for players"
         },
         {
             "title": "Market",
             "img": "player-market.png",
-            "url": "/market/marketplace",
+            "url": "/player/market/marketplace",
             "bgColor": "#da4ee0",
             "description": "Learn how to trade exclusive tokens."
         },
         {
             "title": "Ethereum Essentials",
             "img": "player-eth.png",
-            "url": "/blockchain-integration/get-a-wallet/",
+            "url": "/player/blockchain-integration/get-a-wallet/",
             "bgColor": "#392aa8",
             "description": "Learn how we use the blockchain"
         }
