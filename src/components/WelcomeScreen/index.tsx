@@ -5,7 +5,6 @@ import { Header } from 'decentraland-ui/dist/components/Header/Header'
 import { Section } from 'decentraland-ui/dist/components/Section/Section'
 import { SectionCardProps } from '../SectionCard/types'
 import UserTypeCard from '../UserTypeCard'
-import Tags from '../Tags'
 import categories from '../../mocks/categories.json'
 import Search from '../Search'
 

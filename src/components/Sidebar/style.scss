@@ -33,10 +33,16 @@
 
     .sidebar-home-link {
       @include sidebarItem();
+      text-transform: capitalize;
       color: black;
 
       a {
         font-weight: 900;
+        color: black;
+
+        &:hover {
+          color: black;
+        }
       }
     }
   }
