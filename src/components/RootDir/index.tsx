@@ -18,16 +18,21 @@ type Props = {
   isActive?: boolean
   getName?: (name: string) => void
   color?: string
+  isFirst?: boolean
 }
 
 export default function RootDir(props: Props) {
   const sidebarContext = useContext(SidebarContext)
-  const { name, children, offset, slug, openParent, color } = props
+  const { name, children, offset, slug, openParent, color, isFirst } = props
   const [open, setOpen] = useState<boolean>(false)
   const [active, setActive] = useState<boolean>(false)
   const match = /[0-9]{4}-[0-9]{2}-[0-9]{2}-/i
 
   useEffect(() => {
+    if (isFirst) {
+      setOpen(true)
+    }
+
     if (location.pathname.includes(slug)) {
       openParent()
       setOpen(true)
@@ -39,7 +44,6 @@ export default function RootDir(props: Props) {
 
   function handleOpen() {
     setOpen(true)
-
     openParent && openParent()
   }
 

@@ -65,7 +65,7 @@ export default function SidebarLayout({ children }: Props) {
           {children}
         </Section>
       </Page>
-      <Footer isFullWidth />
+      <Footer />
     </>
   )
 }

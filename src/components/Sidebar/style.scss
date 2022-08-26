@@ -34,12 +34,10 @@
     .sidebar-home-link {
       @include sidebarItem();
       color: black;
-      padding: 5px 5px 5px 10px;
-      font-weight: bold;
 
-        &:hover {
-          padding-left: 10px;
-          }
+      a {
+        font-weight: 900;
+      }
     }
   }
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import RootDir from '../RootDir'
 import './style.scss'
 import menu from '../../repos/menu.json'
+import { Link } from 'gatsby'
 
 export default function Sidebar({ category, properties }: any) {
   const match = /[0-9]{4}-[0-9]{2}-[0-9]{2}-/i
@@ -11,6 +12,9 @@ export default function Sidebar({ category, properties }: any) {
       {category && properties && (
         <>
           <div className="sidebar-items">
+            <div className="sidebar-home-link">
+              <Link to={`/${category}`}>Home</Link>
+            </div>
             {menu &&
               menu[category].map((item: any, key: number) => {
                 return (
@@ -21,6 +25,7 @@ export default function Sidebar({ category, properties }: any) {
                     slug={item.slug?.toLowerCase().replace(match, '')}
                     key={key}
                     color={properties.bgColor}
+                    isFirst
                   />
                 )
               })}

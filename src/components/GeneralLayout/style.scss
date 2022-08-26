@@ -1,0 +1,7 @@
+.flex {
+    display: flex;
+}
+
+.general-layout {
+    max-height: calc(100% - var(----navbar-height) - var(--footer-height));
+}

@@ -5,6 +5,8 @@ import { useStaticQuery, graphql } from 'gatsby'
 export default function CustomLink(props: any) {
   const { href, children, id } = props
 
+  // this is a temporal workaround, see https://github.com/gatsbyjs/gatsby/issues/21462
+
   const { site } = useStaticQuery(graphql`
     {
       site {
