@@ -3,5 +3,12 @@
 }
 
 .general-layout {
-    max-height: calc(100% - var(----navbar-height) - var(--footer-height));
+    height: calc(100% - var(----navbar-height) - var(--footer-height) - var(--footer-margin-top));
+    display: flex;
+}
+
+.dcl.page.general-layout {
+    .ui {
+        align-self: center;
+    }
 }

@@ -45,3 +45,9 @@
     color: #ffffff;
   }
 }
+
+@media (max-width: 768px) {
+  .user-card {
+    margin: 10px 0;
+  }
+}

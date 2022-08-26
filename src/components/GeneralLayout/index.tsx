@@ -4,6 +4,7 @@ import 'decentraland-ui/dist/themes/alternative/light-theme.css'
 import { Footer } from 'decentraland-ui/dist/components/Footer/Footer'
 import { Page } from 'decentraland-ui/dist/components/Page/Page'
 import { Navbar } from 'decentraland-ui/dist/components/Navbar/Navbar'
+import { Section } from 'decentraland-ui/dist/components/Section/Section'
 import './style.scss'
 
 export type Props = {
@@ -16,7 +17,7 @@ export default function GeneralLayout({ children }: Props) {
       <>
         <Navbar isFullscreen activePage="docs" />
         <Page className="general-layout">
-          <Page className="flex">{children}</Page>
+          <div>{children}</div>
         </Page>
         <Footer />
       </>
