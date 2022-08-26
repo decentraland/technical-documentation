@@ -13,7 +13,7 @@ export default function Sidebar({ category, properties }: any) {
         <>
           <div className="sidebar-items">
             <div className="sidebar-home-link">
-              <Link to={`/${category}`}>Home</Link>
+              <Link to={`/${category}`}>{`${category} home`}</Link>
             </div>
             {menu &&
               menu[category].map((item: any, key: number) => {

@@ -13,7 +13,7 @@ export default function Template({ data }: any) {
     code: CodeBlock,
     img: CustomImg,
     figure: CustomImg,
-    a: CustomLink
+    // a: CustomLink
   }
 
   const { mdx } = data

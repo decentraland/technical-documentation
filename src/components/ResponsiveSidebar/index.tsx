@@ -57,6 +57,7 @@ export default function ResponsiveSidebar({ category, properties }: any) {
                       children={item.children}
                       slug={item.slug?.toLowerCase().replace(match, '')}
                       key={key}
+                      isFirst
                     />
                   )
                 })}
