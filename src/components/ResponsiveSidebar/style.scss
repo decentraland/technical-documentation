@@ -40,13 +40,14 @@
 
   .responsive-sidebar-items {
     box-sizing: border-box;
-    height: 100vh;
     position: fixed;
     background: #ffffff;
     top: 0;
+    bottom: 0;
     left: 0;
     width: 100vw;
     padding: 20px;
+    overflow-y: scroll;
 
     .icon-close {
       position: absolute;
