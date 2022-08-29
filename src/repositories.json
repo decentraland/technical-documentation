@@ -1,11 +1,6 @@
 {
   "repositories": [
       {
-          "name": "sdk",
-          "url": "https://github.com/decentraland/sdk",
-          "zipUrl": "https://github.com/decentraland/sdk/archive/refs/heads/main.zip"
-      },
-      {
           "name": "unity-renderer",
           "url": "https://github.com/decentraland/unity-renderer",
           "zipUrl": "https://github.com/decentraland/unity-renderer/archive/refs/heads/dev.zip"
@@ -14,11 +9,6 @@
           "name": "player",
           "url": "https://github.com/decentraland/player-documentation",
           "zipUrl": "https://github.com/decentraland/player-documentation/archive/refs/heads/main.zip"
-      },
-      {
-          "name": "sdk-ecs7",
-          "url": "https://github.com/decentraland/ecs",
-          "zipUrl": "https://github.com/decentraland/ecs/archive/refs/heads/master.zip"
       },
       {
           "name": "tutorials",
@@ -39,7 +29,7 @@
         "name": "tech-docs",
         "url": "https://github.com/decentraland/technical-documentation",
         "zipUrl": "https://github.com/decentraland/technical-documentation/archive/refs/heads/main.zip"
-    }
+      }
   ]
 }
    
