@@ -11,19 +11,20 @@ function removeAppend(url) {
 
   // sanitize url for anchors if someone enters an ending slash
 
-  if (window) {
-    const { origin, pathname } = window.location
-    if (url.startsWith('#')) {
-      if (pathname.endsWith('/')) {
-        newHref = `${origin}${pathname.slice(0, -1)}${url}`
-      }
+  const { origin, pathname } = location
+  if (url.startsWith('#')) {
+    if (pathname.endsWith('/')) {
+      newHref = `${origin}${pathname.slice(0, -1)}${url}`
     }
   }
+
   return newHref
 }
 
 export default function CustomLink(props: any) {
-  const { href, children, id } = props
+  const { href, children, id, location } = props
+
+  console.log(location, 111)
 
   // this is a temporal workaround, see https://github.com/gatsbyjs/gatsby/issues/21462
 
