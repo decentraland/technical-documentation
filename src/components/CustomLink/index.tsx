@@ -1,13 +1,21 @@
 import React from 'react'
 import './style.scss'
-import { useStaticQuery, graphql } from 'gatsby'
 
 function removeAppend(url) {
   let newHref = url
+  const { origin, pathname } = window.location
 
   const assetPrefix = process.env.GATSBY_ASSET_PREFIX
   if (url.startsWith(assetPrefix)) {
     newHref = url.slice(assetPrefix.length)
+  }
+
+  // sanitize url for anchors if someone enters an ending slash
+  if (url.startsWith('#')) {
+    if (pathname.endsWith('/')) {
+      newHref = `${origin}${pathname.slice(0, -1)}${url}`
+      console.log(newHref, 5)
+    }
   }
 
   return newHref
@@ -18,11 +26,20 @@ export default function CustomLink(props: any) {
 
   // this is a temporal workaround, see https://github.com/gatsbyjs/gatsby/issues/21462
 
-  console.log(removeAppend(href))
-
   return (
-    <a className="blog-link" href={href && removeAppend(href)} id={id && id}>
-      {children}
-    </a>
+    // Conditional rendering to account for anchors with no href
+    <>
+      {href ? (
+        <a className="blog-link" href={removeAppend(href)} id={id && id}>
+          {children}
+        </a>
+      ) : (
+        id && (
+          <a className="blog-link" id={id}>
+            {children}
+          </a>
+        )
+      )}
+    </>
   )
 }
