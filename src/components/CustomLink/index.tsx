@@ -3,7 +3,6 @@ import './style.scss'
 
 function removeAppend(url) {
   let newHref = url
-  const { origin, pathname } = window.location
 
   const assetPrefix = process.env.GATSBY_ASSET_PREFIX
   if (url.startsWith(assetPrefix)) {
@@ -11,13 +10,15 @@ function removeAppend(url) {
   }
 
   // sanitize url for anchors if someone enters an ending slash
-  if (url.startsWith('#')) {
-    if (pathname.endsWith('/')) {
-      newHref = `${origin}${pathname.slice(0, -1)}${url}`
-      console.log(newHref, 5)
+
+  if (window) {
+    const { origin, pathname } = window.location
+    if (url.startsWith('#')) {
+      if (pathname.endsWith('/')) {
+        newHref = `${origin}${pathname.slice(0, -1)}${url}`
+      }
     }
   }
-
   return newHref
 }
 
