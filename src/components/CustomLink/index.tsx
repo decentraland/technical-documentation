@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.scss'
 
-function removeAppend(url) {
+function removeAppend(url, location) {
   let newHref = url
 
   const assetPrefix = process.env.GATSBY_ASSET_PREFIX
@@ -24,15 +24,13 @@ function removeAppend(url) {
 export default function CustomLink(props: any) {
   const { href, children, id, location } = props
 
-  console.log(location, 111)
-
   // this is a temporal workaround, see https://github.com/gatsbyjs/gatsby/issues/21462
 
   return (
     // Conditional rendering to account for anchors with no href
     <>
       {href ? (
-        <a className="blog-link" href={removeAppend(href)} id={id && id}>
+        <a className="blog-link" href={removeAppend(href, location)} id={id && id}>
           {children}
         </a>
       ) : (
