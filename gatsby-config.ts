@@ -7,8 +7,8 @@ dotenv.config({
 /* -> Algolia integration queries */
 
 const myQuery = `{
-  allMdx(filter: {frontmatter: {slug: {ne: null}, title: {}}}) {
-    edges {
+  allMdx(filter: {frontmatter: {slug: {ne: null} or date: {ne: null}}}) {
+       edges {
       node {
         id
         html
@@ -157,7 +157,7 @@ const algoliaOpts = {
       // optional, any index settings
       // Note: by supplying settings, you will overwrite all existing settings on the index
     },
-    enablePartialUpdates: true, // default: false
+    enablePartialUpdates: false, // default: false
     matchFields: ['slug', 'modified'], // Array<String> default: ['modified']
     concurrentQueries: false, // default: true
     // skipIndexing: true, // default: false, useful for e.g. preview deploys or local development
