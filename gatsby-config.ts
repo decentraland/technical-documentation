@@ -172,7 +172,7 @@ const algoliaOpts = {
   }
 }
 
-if (!process.env.ASSET_PREFIX) {
+if (!process.env.GATSBY_ASSET_PREFIX) {
   delete opts['assetPrefix']
 }
 
