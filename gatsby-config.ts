@@ -4,6 +4,12 @@ dotenv.config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
+const typeDefs = `
+    type Site implements Site {
+        assetPrefix: String
+    }
+`;
+
 /* -> Algolia integration queries */
 
 const myQuery = `{
@@ -38,7 +44,7 @@ const queries = [
 /* -> end algolia integratiion queries */
 
 const opts = {
-  assetPrefix: process.env.ASSET_PREFIX,
+  assetPrefix: process.env.GATSBY_ASSET_PREFIX,
   pathPrefix: process.env.GATSBY_PUBLIC_PATH,
   flags: {
     DEV_SSR: true,

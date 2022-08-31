@@ -8,12 +8,14 @@ import CodeBlock from '../components/CodeBlock'
 import CustomImg from '../components/CustomImg'
 import CustomLink from '../components/CustomLink'
 
-export default function Template({ data }: any) {
+export default function Template(props) {
+  const { location, data } = props
+
   const components = {
     code: CodeBlock,
     img: CustomImg,
     figure: CustomImg,
-    a: CustomLink
+    a: (props) => <CustomLink {...props} location={location} />
   }
 
   const { mdx } = data
