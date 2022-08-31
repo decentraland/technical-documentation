@@ -7,7 +7,7 @@ dotenv.config({
 /* -> Algolia integration queries */
 
 const myQuery = `{
-  allMdx(filter: {frontmatter: {slug: {ne: null} or date: {ne: null}}}) {
+  allMdx(filter: {frontmatter: {slug: {ne: null}, date: {ne: null}}}) {
        edges {
       node {
         id
