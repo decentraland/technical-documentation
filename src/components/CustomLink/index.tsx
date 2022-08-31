@@ -1,33 +1,45 @@
 import React from 'react'
 import './style.scss'
-import { useStaticQuery, graphql } from 'gatsby'
+
+function removeAppend(url, location) {
+  let newHref = url
+
+  const assetPrefix = process.env.GATSBY_ASSET_PREFIX
+  if (url.startsWith(assetPrefix)) {
+    newHref = url.slice(assetPrefix.length)
+  }
+
+  // sanitize url for anchors if someone enters an ending slash
+
+  const { origin, pathname } = location
+  if (url.startsWith('#')) {
+    if (pathname.endsWith('/')) {
+      newHref = `${origin}${pathname.slice(0, -1)}${url}`
+    }
+  }
+
+  return newHref
+}
 
 export default function CustomLink(props: any) {
-  const { href, children, id } = props
+  const { href, children, id, location } = props
 
   // this is a temporal workaround, see https://github.com/gatsbyjs/gatsby/issues/21462
 
-  const { site } = useStaticQuery(graphql`
-    {
-      site {
-        assetPrefix
-      }
-    }
-  `)
-
-  function removeAppend(url) {
-    let newHref = url
-    const assetPrefix = site.assetPrefix.replace('https://', 'https:/')
-    if (href.startsWith(assetPrefix)) {
-      newHref = href.slice(assetPrefix.length)
-    }
-
-    return newHref
-  }
-
   return (
-    <a className="blog-link" href={href && removeAppend(href)} id={id && id}>
-      {children}
-    </a>
+    // Conditional rendering to account for anchors with no href
+    <>
+      {href ? (
+        <a className="blog-link" href={removeAppend(href, location)} id={id && id}>
+          {children}
+        </a>
+      ) : (
+        id && (
+          <a className="blog-link" id={id}>
+            {children}
+          </a>
+        )
+      )}
+    </>
   )
 }
