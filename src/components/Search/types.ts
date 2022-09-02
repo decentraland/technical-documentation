@@ -1,7 +1,8 @@
-export type SectionCardProps = {
-  img: string
-  url: string
-  bgColor: string
-  title: string
-  description: string
+export type SearchProps = {
+  category?: string
+}
+
+export type ResultsProps = {
+  category?: string
+  query: string
 }

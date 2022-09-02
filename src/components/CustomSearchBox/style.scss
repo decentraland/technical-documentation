@@ -1,6 +1,7 @@
 .search-bar-container {
     position: relative;
     z-index: 1;
+    width: 420px;
     input {
       border-radius: 20px;
       padding: 7px 7px 7px 40px;
@@ -10,5 +11,18 @@
       margin-top: 20px;
       min-height: 40px;
       border: 1px solid var(--gray)
+    }
+
+    .search-bar-cancel {
+      position: absolute;
+      right:0;
+      top: -3px;
+      cursor: pointer;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .search-bar-container {
+      width: 100%;
     }
   }
