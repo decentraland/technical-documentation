@@ -58,7 +58,7 @@ export default function SidebarLayout({ children }: Props) {
             })}
           </Tabs>
           <div className="sidebar-search">
-            <Search category={sidebarCategory}/>
+            <Search category={sidebarCategory} color={sidebarCategoryProps && sidebarCategoryProps} />
           </div>
         </div>
         <Section className="flex section-no-margin container-full-height">

@@ -3,13 +3,16 @@ import { Snippet } from 'react-instantsearch-dom'
 import { Link } from 'gatsby'
 import './style.scss'
 import formatPaths from '../../utils/formatPaths'
+import categories from '../../mocks/categories.json'
 
 export default function Hit({ hit }) {
-  const imgIndex = hit.frontmatter.slug.split('/')
-  const img = imgIndex[0] === '/' ? imgIndex[2] : imgIndex[1]
-  return (
+  const splitSlug = hit.frontmatter.slug.split('/')
+  const postCategory = categories.data.find((item) => item.url === '/' + splitSlug[1])
+  const img = splitSlug[0] === '/' ? splitSlug[2] : splitSlug[1]
+
+  return postCategory ? (
     <div className="hit-result">
-      <div className="hit-result-icon">
+      <div className="hit-result-icon" style={{ backgroundColor: postCategory && postCategory.bgColor }}>
         <img src={formatPaths(`${img}.svg`)} />
       </div>
       <Link to={hit.frontmatter.slug}>
@@ -17,5 +20,5 @@ export default function Hit({ hit }) {
         <Snippet attribute="html" hit={hit} />
       </Link>
     </div>
-  )
+  ) : null
 }

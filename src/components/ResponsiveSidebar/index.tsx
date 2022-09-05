@@ -39,7 +39,20 @@ export default function ResponsiveSidebar({ category, properties }: any) {
                   style={{ color: `${properties.bgColor}` }}
                 >
                   {activeValue}
-                  <img src={formatPaths('responsive-caret.png')} />
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M8.55662 14C8.13481 14 7.90253 14.4901 8.16962 14.8166L11.615 19.028C11.8151 19.2725 12.189 19.2725 12.389 19.028L15.8345 14.8166C16.1015 14.4901 15.8693 14 15.4475 14H8.55662Z"
+                      fill={bgColor}
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M8.55662 9.99992C8.13481 9.99992 7.90253 9.50978 8.16962 9.18331L11.615 4.97196C11.8151 4.72744 12.189 4.72744 12.389 4.97196L15.8345 9.18331C16.1015 9.50978 15.8693 9.99992 15.4475 9.99992H8.55662Z"
+                      fill={bgColor}
+                    />
+                  </svg>
                 </h2>
                 <img
                   className="search-bar-icon"
