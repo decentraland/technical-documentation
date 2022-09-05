@@ -1,3 +1,5 @@
-.results-page-hits-wrapper {
-    background: red;
+@media (max-width: 768px) {
+ .result-page-hits-wrapper {
+    box-sizing: border-box;
+ }
 }

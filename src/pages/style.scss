@@ -7,6 +7,10 @@
     .search-bar-container {
         width: 100%;
     }
+
+    .results-searchbox {
+      width: 420px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -16,6 +20,10 @@
       h2 {
         margin: 20px;
         text-align: center;
+    }
+
+    .results-searchbox {
+      width: 90%;
     }
   }
 }
