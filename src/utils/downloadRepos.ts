@@ -10,11 +10,7 @@ export const downloadFile = async function (url: string, dest: string) {
   await writeFile(dest, Buffer.from(data))
 }
 
-export const downloadRepoZip = async function (
-  url: string,
-  dest: string,
-  name: string
-) {
+export const downloadRepoZip = async function (url: string, dest: string, name: string) {
   const zipFilePath = path.resolve(dest, `${name}.zip`)
 
   await downloadFile(url, zipFilePath)

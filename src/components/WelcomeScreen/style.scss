@@ -1,5 +1,11 @@
 .welcome-wrapper {
   padding-top: 40px;
+
+  .welcome-header {
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 56px;
+  }
 }
 
 .welcome-subheader {
@@ -15,7 +21,7 @@
 .tag-wrapper {
   display: flex;
 }
-
+z
 .welcome-searchbar {
   width: 60%;
 }
