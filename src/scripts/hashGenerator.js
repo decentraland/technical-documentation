@@ -19,7 +19,7 @@ if (packageJson.homepage) {
   if (process.env.GITHUB_BASE_REF) {
     ENV_CONTENT['GATSBY_PUBLIC_PATH'] = url.pathname
   } else {
-    ENV_CONTENT['ASSET_PREFIX'] = ENV_CONTENT['GATSBY_PUBLIC_URL']
+    ENV_CONTENT['GATSBY_ASSET_PREFIX'] = ENV_CONTENT['GATSBY_PUBLIC_URL']
   }
 
   ENV_CONTENT['GATSBY_URL'] = url.origin
@@ -60,6 +60,6 @@ function getPublicUrls() {
   }
   // localhost
   return {
-    GATSBY_PUBLIC_URL: ``
+    GATSBY_PUBLIC_URL: `/`
   }
 }

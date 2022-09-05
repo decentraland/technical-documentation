@@ -1,4 +1,8 @@
 // override Algolia Searchbox custom buttons
+.search-wrapper {
+  position: relative;
+  width: 420px;
+}
 
 button.ais-SearchBox-submit {
   border: 0;
@@ -16,6 +20,13 @@ button.ais-SearchBox-reset {
   top: 31px;
 }
 
+.hit-container {
+  position: absolute;
+  right: 0;
+  top: 60px;
+  max-width: 420px;
+}
+
 .ais-Hits {
   margin-top: 5px;
   background-color: white;
@@ -24,6 +35,9 @@ button.ais-SearchBox-reset {
   overflow: hidden;
   position: relative;
   z-index: 2;
+  padding: 16px;
+  max-height: 500px;
+  overflow: hidden;
   
   ul {
     margin: 0;
@@ -34,6 +48,9 @@ button.ais-SearchBox-reset {
 .ais-Hits-item {
   list-style-type: none;
   padding: 10px;
+  height: 120px;
+  box-sizing: border-box;
+
 
   &:hover {
     background-color: var(--light-gray);
@@ -47,11 +64,14 @@ button.ais-SearchBox-reset {
   border-radius: 10px;
   color: var(--gray);
   font-style: italic;
+  position: absolute;
+  right: 0;
+  top: 60px;
 }
 
 .ais-Snippet {
   color: var(--gray) !important;
-  &::before, &::after {
+  &::after {
     content: "...";
   }
 }
@@ -72,6 +92,7 @@ button.ais-SearchBox-reset {
   border-top: 1px solid var(--light-gray);
   padding: 15px 0;
   display: flex;
+  width: 420px;
 
   a {
     display: inline-block;
@@ -87,4 +108,21 @@ button.ais-SearchBox-reset {
   position: fixed;
   top: 0;
   left: 0;
+}
+
+@media (max-width: 768px) {
+  .hit-container {
+    position: relative;
+    top: 0;
+    width: 90vw;
+    box-sizing: border-box;
+  }
+
+  .search-wrapper {
+    width: 90vw;
+  }
+
+  .search-bar-more {
+    width: 90vw;
+  }
 }

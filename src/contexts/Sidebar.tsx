@@ -1,17 +1,17 @@
-import { createContext } from "react";
+import { createContext } from 'react'
 
 type ContextValues = {
-  activeMenu: string;
-  updateValue: (a: string) => void;
+  activeMenu: string
+  updateValue: (a: string) => void
 }
 
 const defaultValues: ContextValues = {
-  activeMenu: "Menu",
-  updateValue: (a: string) => { }
-};
+  activeMenu: 'Menu',
+  updateValue: (a: string) => {}
+}
 
-const SidebarContext = createContext(defaultValues);
+const SidebarContext = createContext(defaultValues)
 
-export const SidebarProvider = SidebarContext.Provider;
+export const SidebarProvider = SidebarContext.Provider
 
-export default SidebarContext;
+export default SidebarContext

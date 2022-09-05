@@ -4,11 +4,17 @@ dotenv.config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
+const typeDefs = `
+    type Site implements Site {
+        assetPrefix: String
+    }
+`;
+
 /* -> Algolia integration queries */
 
 const myQuery = `{
-  allMdx(filter: {frontmatter: {slug: {ne: null}, title: {}}}) {
-    edges {
+  allMdx(filter: {frontmatter: {slug: {ne: null}, date: {ne: null}}}) {
+       edges {
       node {
         id
         html
@@ -38,7 +44,7 @@ const queries = [
 /* -> end algolia integratiion queries */
 
 const opts = {
-  assetPrefix: process.env.ASSET_PREFIX,
+  assetPrefix: process.env.GATSBY_ASSET_PREFIX,
   pathPrefix: process.env.GATSBY_PUBLIC_PATH,
   flags: {
     DEV_SSR: true,
@@ -157,7 +163,7 @@ const algoliaOpts = {
       // optional, any index settings
       // Note: by supplying settings, you will overwrite all existing settings on the index
     },
-    enablePartialUpdates: true, // default: false
+    enablePartialUpdates: false, // default: false
     matchFields: ['slug', 'modified'], // Array<String> default: ['modified']
     concurrentQueries: false, // default: true
     // skipIndexing: true, // default: false, useful for e.g. preview deploys or local development
@@ -166,7 +172,7 @@ const algoliaOpts = {
   }
 }
 
-if (!process.env.ASSET_PREFIX) {
+if (!process.env.GATSBY_ASSET_PREFIX) {
   delete opts['assetPrefix']
 }
 

@@ -11,7 +11,7 @@ import categories from '../../mocks/categories.json'
 import './style.scss'
 import { Tabs } from 'decentraland-ui/dist/components/Tabs/Tabs'
 import { Link } from 'gatsby'
-import Search from '../../components/Search'
+import Search from '../Search'
 
 export type Props = {
   children?: JSX.Element[] | JSX.Element // verify type
@@ -57,7 +57,9 @@ export default function SidebarLayout({ children }: Props) {
               )
             })}
           </Tabs>
-          <Search />
+          <div className="sidebar-search">
+            <Search category={sidebarCategory}/>
+          </div>
         </div>
         <Section className="flex section-no-margin container-full-height">
           <Sidebar category={sidebarCategory} properties={sidebarCategoryProps ?? categories.data[0]} />

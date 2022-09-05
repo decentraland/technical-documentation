@@ -10,16 +10,20 @@ type CustomSearchBoxProps = {
 
 export default function CustomSearchBox({ getQuery }: CustomSearchBoxProps) {
   const glass = <img className="search-bar-icon" src={formatPaths('search.svg')} />
-  const reset = <img className="search-bar-cancel" src={formatPaths('close.svg')} />
+  const reset = <img className="search-bar-cancel" src={formatPaths('erase.svg')} />
 
-
-  function handleQuery(query: any) {
+  function handleQuery(e: any) {
+    const query = e.target.value
     return getQuery(query)
+  }
+
+  function resetInput() {
+    return getQuery('')
   }
 
   return (
     <div className="search-bar-container">
-      <SearchBox submit={glass} onChange={(e) => handleQuery(e.target.value)} />
+      <SearchBox submit={glass} reset={reset} onChange={handleQuery} />
     </div>
   )
 }
