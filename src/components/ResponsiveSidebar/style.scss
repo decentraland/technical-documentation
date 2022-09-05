@@ -3,7 +3,7 @@
 .responsive-sidebar-container {
   display: none;
   position: absolute;
-  z-index: 1001; //navbar is 1000
+  z-index: 999; //navbar is 1000
   background-color: var(--white);
   overflow: hidden;
   margin-top: -20px;
