@@ -10,6 +10,8 @@ function removeAppend(url, location) {
     newHref = url.slice(assetPrefix.length)
   }
 
+  console.log(assetPrefix, 'el prefix')
+  console.log(url, 'old ref')
   console.log(newHref, 'new ref')
 
   // sanitize url for anchors if someone enters an ending slash
@@ -33,7 +35,7 @@ export default function CustomLink(props: any) {
     // Conditional rendering to account for anchors with no href
     <>
       {href ? (
-        <a className="blog-link" href={removeAppend(href, location)} id={id && id}>
+        <a className="blog-link" href={removeAppend(href, location)} id={id && id} target="_blank">
           {children}
         </a>
       ) : (
