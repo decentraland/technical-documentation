@@ -32,7 +32,7 @@ jobs:
           only-update-versions: true
 
       - name: log
-        run: echo "${{ env.GATSBY_ALGOLIA_API_KEY }} - ${{ secrets.GATSBY_ALGOLIA_API_KEY }}"
+        run: echo "${{ github.ref }} - ${{ secrets.GATSBY_ALGOLIA_API_KEY }} - ${{ GITHUB_REF#refs/*/ }} - ${{ github.head_ref }}"
         
       - id: install
         name: install
