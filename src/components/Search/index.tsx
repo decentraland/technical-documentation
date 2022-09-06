@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './types'
 import './style.scss'
 import algoliasearch from 'algoliasearch/lite'
@@ -6,8 +6,6 @@ import { InstantSearch, Hits, connectStateResults, Snippet } from 'react-instant
 import { Link } from 'gatsby'
 import CustomSearchBox from '../CustomSearchBox'
 import { ResultsProps, SearchProps } from './types'
-
-const searchClient = algoliasearch('WEEDAO8F9V', '6638d12be8f2b2102e68bc9a87928807')
 
 const Hit = ({ hit }) => {
   return (
@@ -49,18 +47,25 @@ function Results({ category, query }: ResultsProps) {
 
 export default function Search({ category }: SearchProps) {
   const [query, setQuery] = useState()
+  const [searchClient, setSearchClient] = useState<any>()
+
+  useEffect(() => {
+    setSearchClient(algoliasearch(process.env.GATSBY_ALGOLIA_APPID, process.env.GATSBY_ALGOLIA_APIKEY))
+  }, [])
 
   return (
     <div className="search-wrapper">
-      <InstantSearch searchClient={searchClient} indexName="DCL_DOCS">
-        <CustomSearchBox getQuery={setQuery} />
-        {query && (
-          <>
-            <WrappedResults category={category} />
-            <div className="hit-results-grayarea" onClick={(e) => setQuery(undefined)} />
-          </>
-        )}
-      </InstantSearch>
+      {searchClient && (
+        <InstantSearch searchClient={searchClient} indexName="DCL_DOCS">
+          <CustomSearchBox getQuery={setQuery} />
+          {query && (
+            <>
+              <WrappedResults category={category} />
+              <div className="hit-results-grayarea" onClick={() => setQuery(undefined)} />
+            </>
+          )}
+        </InstantSearch>
+      )}
     </div>
   )
 }

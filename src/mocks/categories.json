@@ -4,21 +4,21 @@
       "img": "./player.svg",
       "url": "/player",
       "bgColor": "#FF2D55",
-      "title": "Player",
+      "title": "For Players",
       "description": "Discover how to experience Decentraland and get the most out of it"
     },
     {
       "img": "./creator.svg",
       "url": "/creator",
       "bgColor": "#4947CD",
-      "title": "Content Creator",
+      "title": "For Content Creators",
       "description": "Learn how to create content for others to experience in Decentraland"
     },
     {
       "img": "./contributor.svg",
       "url": "/contributor",
       "bgColor": "#EE834A",
-      "title": "Contributor",
+      "title": "For Contributors",
       "description": "Learn how you can contribute to building the tools and infrastructure of Decentraland."
     }
   ]
