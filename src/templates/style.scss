@@ -16,10 +16,30 @@
         line-height: 30px;
     }
 
-    li, p {
+    li, p, ol {
         font-size: 15px;
         line-height: 24px;
+
+        code {
+            display: inline-block;
+            background-color: rgba(27,31,35,.05);
+            border-radius: 3px;
+            padding: 1px 0.4em!important;
+        }
     }
+
+    li {
+        line-height: 36px;
+    }
+
+    blockquote {
+        padding: 0 16px;
+        margin: 16px 0 16px 6px;
+        color: #777;
+        position: relative;
+        border-left: 3px solid #DCDCE0;
+    }
+    
 }
 
 .code-container {
