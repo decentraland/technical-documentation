@@ -50,7 +50,7 @@ export default function Search({ category }: SearchProps) {
   const [searchClient, setSearchClient] = useState<any>()
 
   useEffect(() => {
-    setSearchClient(algoliasearch(process.env.GATSBY_ALGOLIA_APPID, process.env.GATSBY_ALGOLIA_APIKEY))
+    setSearchClient(algoliasearch(process.env.GATSBY_ALGOLIA_APPID, process.env.GATSBY_ALGOLIA_SEARCH_ONLY_KEY))
   }, [])
 
   return (
