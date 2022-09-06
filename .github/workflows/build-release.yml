@@ -31,7 +31,8 @@ jobs:
           only-update-versions: true
 
       - name: log
-        run: echo "${{ env.GATSBY_ALGOLIA_API_KEY }}"
+        environment: testing
+        run: echo "${{ env.GATSBY_ALGOLIA_API_KEY }} - ${{ secrets.GATSBY_ALGOLIA_API_KEY }}"
         
       - id: install
         name: install
