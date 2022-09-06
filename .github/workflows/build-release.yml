@@ -16,7 +16,6 @@ jobs:
       public_path: ${{ steps.install.outputs.public_path }}
       docs_s3_bucket_key: ${{ steps.publish_docs.outputs.s3-bucket-key }}
     runs-on: ubuntu-latest
-    environment: testing
     steps:
       - uses: actions/checkout@master
       - name: Use Node.js 16.x
@@ -32,7 +31,10 @@ jobs:
           only-update-versions: true
 
       - name: log
-        run: echo "${{ github.ref }} - ${{ secrets.GATSBY_ALGOLIA_API_KEY }} - ${{ github.head_ref }}"
+        env:
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          GATSBY_ALGOLIA_API_KEY: ${{ secrets.GATSBY_ALGOLIA_API_KEY }}
+        run: echo "${{ github.ref }} - ${{ secrets.GATSBY_ALGOLIA_API_KEY }} - ${{ github.head_ref }} - ${{ env.GATSBY_ALGOLIA_API_KEY }}"
         
       - id: install
         name: install
