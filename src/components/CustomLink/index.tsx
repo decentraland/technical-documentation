@@ -5,9 +5,12 @@ function removeAppend(url, location) {
   let newHref = url
 
   const assetPrefix = process.env.GATSBY_ASSET_PREFIX
+  console.log(assetPrefix, 'prefix')
   if (url.startsWith(assetPrefix)) {
     newHref = url.slice(assetPrefix.length)
   }
+
+  console.log(newHref, 'new ref')
 
   // sanitize url for anchors if someone enters an ending slash
 
