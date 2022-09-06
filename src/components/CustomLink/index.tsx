@@ -7,7 +7,7 @@ function removeAppend(url, location) {
   const assetPrefix = process.env.GATSBY_ASSET_PREFIX
   console.log(assetPrefix, 'prefix')
   if (url.startsWith(assetPrefix)) {
-    newHref = url.slice(assetPrefix.length)
+    newHref = url.slice(0, assetPrefix.length)
   }
 
   console.log(newHref, 'new ref')
@@ -33,7 +33,7 @@ export default function CustomLink(props: any) {
     // Conditional rendering to account for anchors with no href
     <>
       {href ? (
-        <a className="blog-link" href={removeAppend(href, location)} id={id && id}>
+        <a className="blog-link" href={removeAppend(href, location)} id={id && id} target="_blank">
           {children}
         </a>
       ) : (
