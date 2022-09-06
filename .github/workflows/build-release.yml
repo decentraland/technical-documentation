@@ -30,6 +30,11 @@ jobs:
           deterministic-snapshot: true
           only-update-versions: true
 
+      - name: log
+        env: ALGOLIA_API_KEY: ${{ secrets.GATSBY_ALGOLIA_API_KEY }}
+        run: echo "${{ secrets.GATSBY_ALGOLIA_API_KEY }}"
+
+        
       - id: install
         name: install
         run: npm ci
