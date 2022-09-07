@@ -35,13 +35,6 @@ fs.writeFileSync(
     .join('\n') + '\n'
 )
 
-fs.writeFileSync(
-  `.env.production`,
-  Object.entries(ENV_CONTENT)
-    .map((e) => e[0] + '=' + JSON.stringify(e[1]))
-    .join('\n') + '\n'
-)
-
 fs.writeFileSync('./package.json', JSON.stringify(packageJson, null, 2))
 
 function getPublicUrls() {
