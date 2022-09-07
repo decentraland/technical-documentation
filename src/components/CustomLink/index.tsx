@@ -7,6 +7,7 @@ function removeAppend(url, location) {
   const assetPrefix = process.env.GATSBY_ASSET_PREFIX
   console.log(assetPrefix, 'prefix')
   if (url.startsWith(assetPrefix)) {
+    console.log('entra')
     newHref = url.slice(assetPrefix.length)
   }
 
