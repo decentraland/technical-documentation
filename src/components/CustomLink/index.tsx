@@ -5,7 +5,7 @@ function removeAppend(url, location) {
   let newHref = url
 
   // this is a temporal workaround, see https://github.com/gatsbyjs/gatsby/issues/21462
-  const assetPrefix = process.env.GATSBY_ASSET_PREFIX.replace('https://', 'https:/')
+  const assetPrefix = process.env.GATSBY_ASSET_PREFIX?.replace('https://', 'https:/')
 
   if (url.startsWith(assetPrefix)) {
     newHref = url.slice(assetPrefix.length)
