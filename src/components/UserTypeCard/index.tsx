@@ -13,7 +13,7 @@ export default function UserTypeCard({ title, img, url, bgColor, description }: 
           <img src={formatPaths(img)} alt={title} />
         </div>
         <div className="user-card-info">
-          <h3>{title}</h3>
+          <h3>For {title}</h3>
           <p>{description}</p>
         </div>
         <div className="user-card-cta">
