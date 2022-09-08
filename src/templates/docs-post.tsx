@@ -36,7 +36,7 @@ export default function Template(props) {
       const text = typeof children === 'string' ? children : children[0]
       return (
         <h3>
-          <a id={`${text.toLowerCase().replace(' ', '-')}`}>{text}</a>
+          <a id={`${text?.toLowerCase().replace(' ', '-')}`}>{text}</a>
         </h3>
       )
     }
