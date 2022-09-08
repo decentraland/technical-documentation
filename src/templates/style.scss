@@ -25,6 +25,7 @@
             background-color: rgba(27,31,35,.05);
             border-radius: 3px;
             padding: 1px 5px;
+            margin: 10px 0;
         }
     }
 
@@ -38,6 +39,14 @@
         color: #777;
         position: relative;
         border-left: 3px solid #DCDCE0;
+    }
+
+    h1, h2, h3 {
+        a {
+            &:hover {
+                color: black;
+            }
+        }
     }
     
 }

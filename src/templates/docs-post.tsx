@@ -15,7 +15,31 @@ export default function Template(props) {
     code: CodeBlock,
     img: CustomImg,
     figure: CustomImg,
-    a: (props) => <CustomLink {...props} location={location} />
+    a: (props) => <CustomLink {...props} location={location} />,
+    h1: ({ children }) => {
+      const text = typeof children === 'string' ? children : children[0]
+      return (
+        <h1>
+          <a id={`${text.toLowerCase().replace(' ', '-')}`}>{text}</a>
+        </h1>
+      )
+    },
+    h2: ({ children }) => {
+      const text = typeof children === 'string' ? children : children[0]
+      return (
+        <h2>
+          <a id={`${text.toLowerCase().replaceAll(' ', '-')}`}>{text}</a>
+        </h2>
+      )
+    },
+    h3: ({ children }) => {
+      const text = typeof children === 'string' ? children : children[0]
+      return (
+        <h3>
+          <a id={`${text.toLowerCase().replace(' ', '-')}`}>{text}</a>
+        </h3>
+      )
+    }
   }
 
   const { mdx } = data
@@ -35,7 +59,6 @@ export default function Template(props) {
     </>
   )
 }
-
 export const query = graphql`
   query ($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
