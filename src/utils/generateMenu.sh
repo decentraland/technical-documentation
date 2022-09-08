@@ -16,4 +16,4 @@ echo "]"
 
 mv ./src/repos/player/player-documentation-main/_data/menu.json ./src/menu-data/player.json
 cp -v -R ./src/repos/player/player-documentation-main/images/ ./static/images
-cp -v -R ./src/repos/creator/documentation-creators-main/images/ ./static/images
+cp -v -R ./src/repos/creator/documentation-creators-main/images/ ./static/
