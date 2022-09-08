@@ -16,8 +16,6 @@ export default function HTML(props) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
         <title>Decentraland Technical Documentation</title>
-        <script src="/scripts/rollbar.js" />
-        <script src="/scripts/segment.js" />
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
