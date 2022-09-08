@@ -4,15 +4,12 @@ import './style.scss'
 function removeAppend(url, location) {
   let newHref = url
 
-  const assetPrefix = process.env.GATSBY_ASSET_PREFIX
-  console.log(assetPrefix, 'prefix')
+  // this is a temporal workaround, see https://github.com/gatsbyjs/gatsby/issues/21462
+  const assetPrefix = process.env.GATSBY_ASSET_PREFIX.replace('https://', 'https:/')
+
   if (url.startsWith(assetPrefix)) {
     newHref = url.slice(assetPrefix.length)
   }
-
-  console.log(assetPrefix, 'el prefix')
-  console.log(url, 'old ref')
-  console.log(newHref, 'new ref')
 
   // sanitize url for anchors if someone enters an ending slash
 
@@ -28,14 +25,19 @@ function removeAppend(url, location) {
 
 export default function CustomLink(props: any) {
   const { href, children, id, location } = props
-
-  // this is a temporal workaround, see https://github.com/gatsbyjs/gatsby/issues/21462
+  const isAnchor = href && href.startsWith('#')
+  
 
   return (
     // Conditional rendering to account for anchors with no href
     <>
       {href ? (
-        <a className="blog-link" href={removeAppend(href, location)} id={id && id} target="_blank">
+        <a
+          className="blog-link"
+          href={removeAppend(href, location)}
+          id={id && id}
+          target={isAnchor ? '_self' : '_blank'}
+        >
           {children}
         </a>
       ) : (
