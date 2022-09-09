@@ -13,13 +13,11 @@ export type Props = {
 export default function GeneralLayout({ children }: Props) {
   return (
     <>
-      <>
-        <Navbar isFullscreen activePage="docs" />
-        <Page className="general-layout">
-          <div>{children}</div>
-        </Page>
-        <Footer />
-      </>
+      <Navbar isFullscreen activePage="docs" />
+      <Page className="general-layout">
+        <div>{children}</div>
+      </Page>
+      <Footer />
     </>
   )
 }
