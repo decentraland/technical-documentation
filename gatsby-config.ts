@@ -176,8 +176,6 @@ const algoliaOpts = {
   }
 }
 
-opts.plugins.push(algoliaOpts)
-
 if (!process.env.GATSBY_ASSET_PREFIX) {
   delete opts['assetPrefix']
 }

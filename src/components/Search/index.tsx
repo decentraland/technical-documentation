@@ -2,21 +2,10 @@ import React, { useEffect, useState } from 'react'
 import './types'
 import './style.scss'
 import algoliasearch from 'algoliasearch/lite'
-import { InstantSearch, Hits, connectStateResults, connectHighlight, Snippet } from 'react-instantsearch-dom'
+import { InstantSearch, Hits, connectStateResults, Snippet } from 'react-instantsearch-dom'
 import { Link } from 'gatsby'
 import CustomSearchBox from '../CustomSearchBox'
 import { ResultsProps, SearchProps } from './types'
-
-// 1. Create a React component
-const SnippetAll = (props) => {
-  return <div dangerouslySetInnerHTML={{ __html: props.hit._highlightResult.html.value }}></div>
-}
-
-// 2. Connect the component using the connector
-const CustomSnippet = connectHighlight(SnippetAll)
-
-// 3. Use your connected widget
-;<CustomSnippet />
 
 const Hit = ({ hit }) => {
   return (
@@ -24,7 +13,6 @@ const Hit = ({ hit }) => {
       <Link to={hit.frontmatter.slug}>
         <h4>{hit.frontmatter.title}</h4>
         <Snippet attribute="html" hit={hit} />
-        {/* <CustomSnippet hit={hit} attribute="html" /> */}
       </Link>
     </div>
   )
