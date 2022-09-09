@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import * as sanitizeHtml from 'sanitize-html';
+import { convert } from 'html-to-text'
 
 dotenv.config({
   path: ".env",
@@ -34,9 +34,8 @@ const queries = [
   {
     query: myQuery,
     transformer: ({ data }) => data.allMdx.edges.map(edge => {
-      const sanitizedHtml = sanitizeHtml(edge.node.html, { allowedTags: false
-    })
-      return {...edge.node, html: sanitizedHtml}
+      const sanitizedText = convert(edge.node.html)
+      return {...edge.node, html: sanitizedText}
     }),
     settings: {
       // optional, any index settings
