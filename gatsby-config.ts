@@ -34,10 +34,7 @@ const queries = [
   {
     query: myQuery,
     transformer: ({ data }) => data.allMdx.edges.map(edge => {
-      const sanitizedHtml = sanitizeHtml(edge.node.html, { allowedTags: [
-       "p"
-      ],
-      disallowedTagsMode: 'discard',
+      const sanitizedHtml = sanitizeHtml(edge.node.html, { allowedTags: false
     })
       return {...edge.node, html: sanitizedHtml}
     }),
