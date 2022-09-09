@@ -35,7 +35,7 @@ const queries = [
     query: myQuery,
     transformer: ({ data }) => data.allMdx.edges.map(edge => {
       const sanitizedHtml = sanitizeHtml(edge.node.html, { allowedTags: [
-       "h1", "h2", "h3", "h4","h5", "h6", "hgroup", "blockquote", "dd", "div","dl", "dt", "figcaption", "figure", "hr", "li", "ol", "p","ul", "a", "abbr", "b", "br", "cite","em", "i", "kbd", "mark", "q","small", "span", "strong", "sub", "sup", "time", "u", "var", "caption","col", "colgroup", "table", "tbody", "td", "tfoot", "th", "thead", "tr"
+       "p"
       ],
       disallowedTagsMode: 'discard',
     })
