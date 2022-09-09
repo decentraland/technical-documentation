@@ -1,4 +1,5 @@
 import dotenv from "dotenv";
+import * as sanitizeHtml from 'sanitize-html';
 
 dotenv.config({
   path: ".env",
@@ -13,7 +14,7 @@ const typeDefs = `
 /* -> Algolia integration queries */
 
 const myQuery = `{
-  allMdx(filter: {frontmatter: {slug: {ne: null}, date: {ne: null}}}) {
+  allMdx(filter: {frontmatter: {title: {ne: null}}}) {
        edges {
       node {
         id
@@ -32,7 +33,10 @@ const myQuery = `{
 const queries = [
   {
     query: myQuery,
-    transformer: ({ data }) => data.allMdx.edges.map(edge => edge.node),
+    transformer: ({ data }) => data.allMdx.edges.map(edge => {
+      const sanitizedHtml = sanitizeHtml(edge.node.html)
+      return {...edge.node, html: sanitizedHtml}
+    }),
     settings: {
       // optional, any index settings
       // Note: by supplying settings, you will overwrite all existing settings on the index
@@ -172,12 +176,10 @@ const algoliaOpts = {
   }
 }
 
+opts.plugins.push(algoliaOpts)
+
 if (!process.env.GATSBY_ASSET_PREFIX) {
   delete opts['assetPrefix']
-  // just testing - remove
-  if (process.env.GITHUB_ACTIONS) {
-    opts.plugins.push(algoliaOpts)
-  }
 }
 
 if (!process.env.GATSBY_PUBLIC_PATH) {

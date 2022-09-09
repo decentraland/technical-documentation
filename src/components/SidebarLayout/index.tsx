@@ -15,9 +15,10 @@ import Search from '../Search'
 
 export type Props = {
   children?: JSX.Element[] | JSX.Element // verify type
+  customSearch?: JSX.Element
 }
 
-export default function SidebarLayout({ children }: Props) {
+export default function SidebarLayout({ children, customSearch }: Props) {
   const [sidebarCategory, setSidebarCategory] = useState<string>('')
   const [sidebarCategoryProps, setSidebarCategoryProps] = useState<any>(null)
 
@@ -58,7 +59,11 @@ export default function SidebarLayout({ children }: Props) {
             })}
           </Tabs>
           <div className="sidebar-search">
-            <Search category={sidebarCategory} color={sidebarCategoryProps && sidebarCategoryProps} />
+            {customSearch ? (
+              customSearch
+            ) : (
+              <Search category={sidebarCategory} color={sidebarCategoryProps && sidebarCategoryProps} />
+            )}
           </div>
         </div>
         <Section className="flex section-no-margin container-full-height">
