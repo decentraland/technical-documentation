@@ -174,6 +174,10 @@ const algoliaOpts = {
 
 if (!process.env.GATSBY_ASSET_PREFIX) {
   delete opts['assetPrefix']
+  // just testing - remove
+  if (process.env.GITHUB_ACTIONS) {
+    opts.plugins.push(algoliaOpts)
+  }
 }
 
 if (!process.env.GATSBY_PUBLIC_PATH) {
