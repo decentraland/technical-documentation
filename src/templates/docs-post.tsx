@@ -11,6 +11,8 @@ import CustomLink from '../components/CustomLink'
 export default function Template(props) {
   const { location, data } = props
 
+  console.log(data, 123)
+
   const components = {
     code: CodeBlock,
     img: CustomImg,

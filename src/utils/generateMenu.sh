@@ -14,6 +14,6 @@ done
                                              
 echo "]"
 
-mv ./src/repos/player/player-documentation-main/_data/menu.json ./src/menu-data/player.json
-cp -R ./src/repos/player/player-documentation-main/images/ ./static/images
+mv ./src/repos/player/player-documentation-feat-slug/_data/menu.json ./src/menu-data/player.json
+cp -R ./src/repos/player/player-documentation-feat-slug/images/ ./static/images
 cp -R ./src/repos/creator/documentation-creators-main/images/ ./static/
