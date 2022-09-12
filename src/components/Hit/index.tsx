@@ -7,7 +7,9 @@ import categories from '../../mocks/categories.json'
 
 export default function Hit({ hit }) {
   const splitSlug = hit.frontmatter.slug.split('/')
-  const postCategory = categories.data.find((item) => item.url === '/' + splitSlug[1])
+  const postCategory = hit.frontmatter.slug
+    ? categories.data.find((item) => item.url === '/' + splitSlug[1])
+    : categories.data[0]
   const img = splitSlug[0] === '/' ? splitSlug[2] : splitSlug[1]
 
   return postCategory ? (

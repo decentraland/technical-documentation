@@ -8,8 +8,9 @@ import algoliasearch from 'algoliasearch/lite'
 import ConnectedResultHits from '../../components/ResultHits'
 import './style.scss'
 import SidebarLayout from '../../components/SidebarLayout'
+import CustomSearchBox from '../../components/CustomSearchBox'
 
-const searchClient = algoliasearch('ZBR370BA1A', '90d39c58d1ec20ab5f315750f7894b8b')
+const searchClient = algoliasearch(process.env.GATSBY_ALGOLIA_APP_ID, process.env.GATSBY_ALGOLIA_SEARCH_ONLY_KEY)
 
 export default function ResultsPage({ location }) {
   const { search } = queryString.parse(location.search)
@@ -19,14 +20,16 @@ export default function ResultsPage({ location }) {
     return <h2>{search ? `Search results for "${search}"` : 'No query was provided'}</h2>
   }
 
+  const customSearch = <CustomSearchBox getQuery={setQuery} />
+
   return (
-    <SidebarLayout>
-      <InstantSearch searchClient={searchClient} indexName="DCL_DOCS" searchState={{ query }}>
+    <InstantSearch searchClient={searchClient} indexName="DCL_DOCS" searchState={{ query }}>
+      <SidebarLayout customSearch={customSearch}>
         <div className="category-results-header">
           <SearchTitle search={query} />
           {query && <ConnectedResultHits />}
         </div>
-      </InstantSearch>
-    </SidebarLayout>
+      </SidebarLayout>
+    </InstantSearch>
   )
 }

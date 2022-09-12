@@ -1,4 +1,5 @@
 import dotenv from "dotenv";
+import { convert } from 'html-to-text'
 
 dotenv.config({
   path: ".env",
@@ -13,7 +14,7 @@ const typeDefs = `
 /* -> Algolia integration queries */
 
 const myQuery = `{
-  allMdx(filter: {frontmatter: {slug: {ne: null}, date: {ne: null}}}) {
+  allMdx(filter: {frontmatter: {slug: {ne: null}}}) {
        edges {
       node {
         id
@@ -32,7 +33,10 @@ const myQuery = `{
 const queries = [
   {
     query: myQuery,
-    transformer: ({ data }) => data.allMdx.edges.map(edge => edge.node),
+    transformer: ({ data }) => data.allMdx.edges.map(edge => {
+      const sanitizedText = convert(edge.node.html)
+      return {...edge.node, html: sanitizedText}
+    }),
     settings: {
       // optional, any index settings
       // Note: by supplying settings, you will overwrite all existing settings on the index

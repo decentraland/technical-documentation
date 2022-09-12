@@ -1,4 +1,3 @@
-console.log('run')
 var _rollbarConfig = {
     accessToken: 'dc29ac3c672f4367af0ce51671f2aa27',
     captureUncaught: true,
