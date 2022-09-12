@@ -8,7 +8,6 @@ import CustomSearchBox from '../CustomSearchBox'
 import { ResultsProps, SearchProps } from './types'
 
 const Hit = ({ hit }) => {
-  console.log(hit)
   return (
     <div className="hit-result-container">
       <Link to={hit.frontmatter.slug}>

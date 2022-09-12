@@ -84,7 +84,7 @@ const opts = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `./src/repos/player/player-documentation-feat-slug`,
+        path: `./src/repos/player/player-documentation-main`,
       },
     },
     {
@@ -92,7 +92,7 @@ const opts = {
       options: {
         // [Optional] The root of "media_folder" in your config.yml
         // Defaults to "static"
-        staticFolderName: './src/repos/player/player-documentation-feat-slug/',
+        staticFolderName: './src/repos/player/player-documentation-main/',
         // [Optional] Include the following fields, use dot notation for nested fields
         // All fields are included by default
         include: ['featured'],
@@ -177,8 +177,6 @@ const algoliaOpts = {
 }
 
 if (!process.env.GATSBY_ASSET_PREFIX) {
-  // todo - remove
-  opts.plugins.push(algoliaOpts)
   delete opts['assetPrefix']
 }
 

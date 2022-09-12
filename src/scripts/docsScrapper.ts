@@ -6,8 +6,8 @@ async function main() {
   await downloadRepos()
   await cleanUpDependencies(process.cwd(), './src/repos')
   await yamlToJson(
-    './src/repos/player/player-documentation-feat-slug/_data/menu.yml',
-    './src/repos/player/player-documentation-feat-slug/_data/menu.json'
+    './src/repos/player/player-documentation-main/_data/menu.yml',
+    './src/repos/player/player-documentation-main/_data/menu.json'
   )
 }
 
