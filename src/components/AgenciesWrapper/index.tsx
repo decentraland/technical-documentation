@@ -13,12 +13,13 @@ export default function Agencies() {
     <div>
       <h3>Verified partners</h3>
       {data.map((partner) => {
+        const image = partner.image.substring(1)
         return (
           <div className="providerContainer">
             <div
               className="providerImage"
               style={{
-                background: `url(${formatPaths(partner.image)})`,
+                background: `url(${formatPaths(image)})`,
                 backgroundSize: 'contain',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat'
