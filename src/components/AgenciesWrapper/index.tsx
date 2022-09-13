@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import data from './../../configurable-content/partners.yml'
 import icons from '/static/icons/icons.json'
 import './style.scss'
+import formatPaths from 'utils/formatPaths'
 
 function Icon({ path }) {
   return <img src={`data:image/svg+xml;utf8,${encodeURIComponent(path)}`} />
@@ -17,7 +18,7 @@ export default function Agencies() {
             <div
               className="providerImage"
               style={{
-                background: `url(${partner.image})`,
+                background: `url(${formatPaths(partner.image)})`,
                 backgroundSize: 'contain',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat'
