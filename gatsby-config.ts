@@ -14,12 +14,11 @@ const typeDefs = `
 /* -> Algolia integration queries */
 
 const myQuery = `{
-  allMdx(filter: {frontmatter: {slug: {ne: null}}}) {
+  allMdx(filter: {frontmatter: {title: {ne: null}, slug: {ne: null}}}){
        edges {
       node {
         id
         html
-        slug
         frontmatter {
           slug
           title
