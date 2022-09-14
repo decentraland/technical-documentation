@@ -21,6 +21,6 @@ jobs:
           packageVersion: ${{ github.event.deployment.payload.packageVersion }}
 
           # Rollout information
-          deploymentDomain: "tech-docs.decentraland.org"
+          deploymentDomain: "docs.decentraland.org"
           deploymentName: "_site"
           percentage: 100
