@@ -19,6 +19,7 @@ const myQuery = `{
       node {
         id
         html
+        slug
         frontmatter {
           slug
           title
