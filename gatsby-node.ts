@@ -13,6 +13,21 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   })
 }
 
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = `
+    type Mdx implements Node {
+      frontmatter: Frontmatter
+    }
+    type Frontmatter {
+        slug: String
+        title: String
+        redirect_from: [String]
+      }
+  `
+  createTypes(typeDefs)
+}
+
 exports.onCreateNode = async ({ node, getNode, actions }: any) => {
   const { createNodeField } = actions
   if (node.internal.type === `Mdx`) {
@@ -38,24 +53,7 @@ exports.createPages = async ({ graphql, actions }: any) => {
             frontmatter {
               slug
               title
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  const legacyData = await graphql(`
-    {
-      allMdx(filter: { frontmatter: { date: { ne: null } } }) {
-        edges {
-          node {
-            fileAbsolutePath
-            fields {
-              slug
-            }
-            frontmatter {
-              title
+              redirect_from
             }
           }
         }
@@ -76,30 +74,7 @@ exports.createPages = async ({ graphql, actions }: any) => {
       node.frontmatter.redirect_from.map((item) => {
         actions.createRedirect({
           fromPath: item,
-          toPath: node.fields.slug.toLowerCase(),
-          isPermanent: true
-        })
-      })
-    }
-  })
-
-  legacyData.data.allMdx.edges.forEach(({ node }: any) => {
-    const filePath = 'repos/player/player-documentation-main/_posts/'
-    const match = /[0-9]{4}-[0-9]{2}-[0-9]{2}-/i
-
-    actions.createPage({
-      path: '/player' + node.fields.slug.replace(filePath, '').replace(match, ''),
-      component: path.resolve(`./src/templates/docs-post.tsx`),
-      context: {
-        slug: node.fields.slug.toLowerCase()
-      }
-    })
-
-    if (node.frontmatter.redirect_from) {
-      node.frontmatter.redirect_from.map((item) => {
-        actions.createRedirect({
-          fromPath: item,
-          toPath: '/player' + node.fields.slug.replace(filePath, '').replace(match, ''),
+          toPath: node.frontmatter.slug.toLowerCase(),
           isPermanent: true
         })
       })
