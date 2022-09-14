@@ -10,8 +10,8 @@ The repository will scrap a configurable list of directories and render the cont
 
 Technical documentation is divided in three major areas:
 
-- User: Everything related to the use of the platform
-- Creator: Information for people wanting to create content inside Decentraland
+- Player: Everything related to the use of the platform
+- Content Creator: Information for people wanting to create content inside Decentraland
 - Contributor: Code documentation for developers wanting to contribute to the project
 
 ## How to
