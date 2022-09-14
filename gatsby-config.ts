@@ -14,7 +14,7 @@ const typeDefs = `
 /* -> Algolia integration queries */
 
 const myQuery = `{
-  allMdx(filter: {frontmatter: {title: {ne: null}, slug: {ne: null}}}){
+  allMdx(filter: {frontmatter: {title: {ne: null}, slug: {ne: null}, skip: {ne: true}}}){
        edges {
       node {
         id
