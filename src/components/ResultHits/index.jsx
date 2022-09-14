@@ -7,8 +7,8 @@ export default function ConnectedResultHits() {
   const ResultHits = ({ hits }) => {
     return (
       <div className="result-page-hits-wrapper">
-        {hits.map((hit) => {
-          return <Hit hit={hit} />
+        {hits.map((hit, i) => {
+          return <Hit hit={hit} key={i} />
         })}
       </div>
     )
