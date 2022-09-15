@@ -1,5 +1,6 @@
 import path from 'path'
 import { createFilePath } from 'gatsby-source-filesystem'
+import redirects from './src/redirects.json'
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -41,6 +42,7 @@ exports.onCreateNode = async ({ node, getNode, actions }: any) => {
 }
 
 exports.createPages = async ({ graphql, actions }: any) => {
+  // Creates all pages
   const posts = await graphql(`
     {
       allMdx(filter: { frontmatter: { slug: { ne: null } } }) {
@@ -61,6 +63,13 @@ exports.createPages = async ({ graphql, actions }: any) => {
     }
   `)
 
+  redirects.forEach((redirect) => {
+    actions.createRedirect({
+      fromPath: redirect.fromPath,
+      toPath: redirect.toPath
+    })
+  })
+
   posts.data.allMdx.edges.forEach(({ node }: any) => {
     actions.createPage({
       path: node.frontmatter.slug,
@@ -70,6 +79,7 @@ exports.createPages = async ({ graphql, actions }: any) => {
       }
     })
 
+    // generates all redirects for pages
     if (node.frontmatter.redirect_from) {
       node.frontmatter.redirect_from.map((item) => {
         actions.createRedirect({
