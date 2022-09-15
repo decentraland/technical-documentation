@@ -16,4 +16,4 @@ echo "]"
 
 mv ./src/repos/player/player-documentation-main/_data/menu.json ./src/menu-data/player.json
 cp -R ./src/repos/player/player-documentation-main/images/ ./static/images
-cp -R ./src/repos/creator/documentation-creators-revert-10-Emotes/images/ ./static/
+cp -R ./src/repos/creator/documentation-creators-emotes/images/ ./static/
