@@ -27,7 +27,7 @@ export default function WelcomeScreen() {
       <h1 className="welcome-header">Decentraland Documentation</h1>
       <p className="welcome-subheader">The first-ever virtual world owned by its users</p>
       <div className="welcome-searchbar">
-        <Search />
+        {/* <Search /> */}
       </div>
       <p className="welcome-description">
         This site is maintained by the Decentraland Foundation. <br />
