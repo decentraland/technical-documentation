@@ -5,7 +5,7 @@ import './style.scss'
 export default function CustomImg(props: any) {
   let formattedSrc = props.src
 
-  if (!props.src.startsWith('https://')) {
+  if (!formattedSrc?.startsWith('https://')) {
     formattedSrc = props.src && formatPaths(props.src.replace('{{ site.baseurl }}/', '').replace('/', ''))
   }
 
