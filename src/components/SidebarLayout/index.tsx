@@ -58,13 +58,13 @@ export default function SidebarLayout({ children, customSearch }: Props) {
               )
             })}
           </Tabs>
-          {/* <div className="sidebar-search">
+          <div className="sidebar-search">
             {customSearch ? (
               customSearch
             ) : (
               <Search category={sidebarCategory} color={sidebarCategoryProps && sidebarCategoryProps} />
             )}
-          </div> */}
+          </div>
         </div>
         <Section className="flex section-no-margin container-full-height">
           <Sidebar category={sidebarCategory} properties={sidebarCategoryProps ?? categories.data[0]} />
