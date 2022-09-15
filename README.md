@@ -104,3 +104,4 @@ Implements all the pipeline stages of this document:
 3. Every time a package is published, the gitlab pipeline pipelines/static-sites-pipeline is triggered. That pipeline uploads the content of the published package to `https://cdn.decentraland.org`
 
 4. The then pipeline starts a rollout pipeline. Which is out of scope of this documentation.
+
