@@ -182,10 +182,11 @@ if (!process.env.GATSBY_ASSET_PREFIX) {
 
 if (!process.env.GATSBY_PUBLIC_PATH) {
   delete opts['pathPrefix']
-  
-  if (process.env.GITHUB_ACTIONS) {
-    opts.plugins.push(algoliaOpts)
-  }
+
+  // TODO - Re-enable search
+  // if (process.env.GITHUB_ACTIONS) {
+  //   opts.plugins.push(algoliaOpts)
+  // }
   
 }
 
