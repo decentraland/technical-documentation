@@ -1,0 +1,18 @@
+[
+    { 
+        "fromPath": "/search/",
+        "toPath": "/results/"
+    },
+    { 
+        "fromPath": "/examples/tutorials/",
+        "toPath": "https://github.com/decentraland-scenes/Awesome-Repository#Tutorials"
+    },
+    { 
+        "fromPath": "/examples/builder-video-tutorials/",
+        "toPath": "https://www.youtube.com/channel/UCLXcTgzr05cFZaN972nuEXw/videos"
+    },
+    { 
+        "fromPath": "/examples/sample-scenes/",
+        "toPath": "https://github.com/decentraland-scenes/Awesome-Repository#Examples"
+    }
+  ]
