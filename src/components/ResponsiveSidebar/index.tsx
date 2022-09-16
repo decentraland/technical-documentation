@@ -25,7 +25,7 @@ export default function ResponsiveSidebar({ category, properties }: any) {
             {showSearch ? (
               <div className="responsive-sidebar-searchbox">
                 <div className="search-wrapper">
-                  {/* <Search /> */}
+                  <Search />
                 </div>
                 <span onClick={() => setShowSearch((prevState) => !prevState)} style={{ color: bgColor }}>
                   cancel
