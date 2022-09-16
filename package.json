@@ -45,6 +45,7 @@
     "gatsby-plugin-compile-es6-packages": "^2.1.1",
     "gatsby-plugin-env-variables": "^2.2.0",
     "gatsby-plugin-image": "^2.9.0",
+    "gatsby-plugin-lunr": "^1.5.2",
     "gatsby-plugin-mdx": "3.13.0",
     "gatsby-plugin-meta-redirect": "^1.1.1",
     "gatsby-plugin-postcss": "^5.6.0",

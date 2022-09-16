@@ -1,71 +1,58 @@
-import React, { useEffect, useState } from 'react'
-import './types'
-import './style.scss'
-import algoliasearch from 'algoliasearch/lite'
-import { InstantSearch, Hits, connectStateResults, Snippet } from 'react-instantsearch-dom'
+import React, { Component } from 'react'
 import { Link } from 'gatsby'
-import CustomSearchBox from '../CustomSearchBox'
-import { ResultsProps, SearchProps } from './types'
 
-const Hit = ({ hit }) => {
-  return (
-    <div className="hit-result-container">
-      <Link to={hit.frontmatter.slug}>
-        <h4>{hit.frontmatter.title}</h4>
-        <Snippet attribute="html" hit={hit} />
-      </Link>
-    </div>
-  )
+declare const window: {
+  __LUNR__: {
+    en: { index: any; store: any }
+  }
 }
 
-const WrappedResults = connectStateResults(({ searchState, searchResults, ...props }) => {
-  const { category } = props
-  return searchState && searchState.query ? (
-    searchResults.nbHits ? (
-      <Results category={category} query={searchState.query} />
-    ) : (
-      <>
-        <div className="no-hits">The searched text can’t be found in any section of the Decentraland documentation</div>
-        <div className="hit-results-grayarea" />
-      </>
-    )
-  ) : null
-})
+function getLunr() {
+  return window.__LUNR__ && window.__LUNR__.en
+}
 
-function Results({ category, query }: ResultsProps) {
-  return (
-    <div className="hit-container">
-      <Hits hitComponent={Hit} />
-      <div className="search-bar-more">
-        <Link to={category ? `/${category}/results?search=${query}` : `/results?search=${query}`}>
-          See more results
-        </Link>
+class Search extends Component {
+  state = {
+    query: '',
+    results: []
+  }
+
+  render() {
+    return (
+      <div className="ui-search">
+        <input
+          className="search__input"
+          type="text"
+          value={this.state.query}
+          onChange={this.search}
+          placeholder={'Search'}
+        />
+        <ul className="search__list">
+          {this.state.results.map((page) => (
+            <li key={page.url}>
+              <Link className="search__list_white search__list_non-decoration" to={page.url}>
+                {JSON.stringify(page, null, 4)}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
-    </div>
-  )
+    )
+  }
+
+  getSearchResults(query: any) {
+    if (!query || !window.__LUNR__) return []
+    const lunr = getLunr()
+    const results = lunr.index.search(`${query}~1`)
+    console.log(results[0])
+    return results.map(({ ref }) => lunr.store[ref])
+  }
+
+  search = (event: any) => {
+    const query = event.target.value
+    const results = this.getSearchResults(query)
+    this.setState({ results, query })
+  }
 }
 
-export default function Search({ category }: SearchProps) {
-  const [query, setQuery] = useState()
-  const [searchClient, setSearchClient] = useState<any>()
-
-  useEffect(() => {
-    setSearchClient(algoliasearch(process.env.GATSBY_ALGOLIA_APP_ID, process.env.GATSBY_ALGOLIA_SEARCH_ONLY_KEY))
-  }, [])
-
-  return (
-    <div className="search-wrapper">
-      {searchClient && (
-        <InstantSearch searchClient={searchClient} indexName="DCL_DOCS">
-          <CustomSearchBox getQuery={setQuery} />
-          {query && (
-            <>
-              <WrappedResults category={category} />
-              <div className="hit-results-grayarea" onClick={() => setQuery(undefined)} />
-            </>
-          )}
-        </InstantSearch>
-      )}
-    </div>
-  )
-}
+export default Search
