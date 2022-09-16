@@ -1,4 +1,4 @@
-# Contribute to Decentraland Documentation 🚀
+# Contribute to Decentraland Documentation ✨🚀
 
 Welcome to **Decentraland technical documentation**, the goal of this repository is to have a single point of access for all necessary information to use, create and contribute to Decentraland.
 
@@ -104,4 +104,3 @@ Implements all the pipeline stages of this document:
 3. Every time a package is published, the gitlab pipeline pipelines/static-sites-pipeline is triggered. That pipeline uploads the content of the published package to `https://cdn.decentraland.org`
 
 4. The then pipeline starts a rollout pipeline. Which is out of scope of this documentation.
-
