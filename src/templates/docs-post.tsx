@@ -8,6 +8,11 @@ import CodeBlock from '../components/CodeBlock'
 import CustomImg from '../components/CustomImg'
 import CustomLink from '../components/CustomLink'
 
+function retrieveText(item) {
+  const text = typeof item === 'string' ? item : item[0]
+  return { text, id: text.toLowerCase().replace(' ', '-') }
+}
+
 export default function Template(props) {
   const { location, data } = props
 
@@ -17,28 +22,46 @@ export default function Template(props) {
     figure: CustomImg,
     a: (props) => <CustomLink {...props} location={location} />,
     h1: ({ children }) => {
-      const text = typeof children === 'string' ? children : children[0]
-      return (
-        <h1>
-          <a id={`${text.toLowerCase().replace(' ', '-')}`}>{text}</a>
-        </h1>
-      )
+      let render = null
+      if (typeof children === 'object') {
+        render = children
+      } else {
+        const { text, id } = retrieveText(children)
+        render = (
+          <h1>
+            <a id={id}>{text}</a>
+          </h1>
+        )
+      }
+      return render
     },
     h2: ({ children }) => {
-      const text = typeof children === 'string' ? children : children[0]
-      return (
-        <h2>
-          <a id={`${text.toLowerCase().replaceAll(' ', '-')}`}>{text}</a>
-        </h2>
-      )
+      let render = null
+      if (typeof children === 'object') {
+        render = children
+      } else {
+        const { text, id } = retrieveText(children)
+        render = (
+          <h2>
+            <a id={id}>{text}</a>
+          </h2>
+        )
+      }
+      return render
     },
     h3: ({ children }) => {
-      const text = typeof children === 'string' ? children : children[0]
-      return (
-        <h3>
-          <a id={`${text?.toLowerCase().replace(' ', '-')}`}>{text}</a>
-        </h3>
-      )
+      let render = null
+      if (typeof children === 'object') {
+        render = children
+      } else {
+        const { text, id } = retrieveText(children)
+        render = (
+          <h3>
+            <a id={id}>{text}</a>
+          </h3>
+        )
+      }
+      return render
     }
   }
 

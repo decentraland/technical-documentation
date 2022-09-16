@@ -3,7 +3,6 @@ import './style.scss'
 
 export default function CustomLink(props: any) {
   const { href, children, id, location } = props
-  // const isAnchor = href && href.startsWith('#')
 
   const [sanitizedUrl, setSanitizedUrl] = useState<string>()
   const [isInternal, setIsInternal] = useState(false)
@@ -45,7 +44,7 @@ export default function CustomLink(props: any) {
     // Conditional rendering to account for anchors with no href
     <>
       {href ? (
-        <a className="blog-link" href={sanitizedUrl} id={id && id} target={isInternal ? '_self' : '_blank'}>
+        <a className="blog-link" href={sanitizedUrl} target={isInternal ? '_self' : '_blank'}>
           {children}
         </a>
       ) : (

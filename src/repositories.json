@@ -21,6 +21,11 @@
         "zipUrl": "https://github.com/decentraland/catalyst-owner/archive/refs/heads/master.zip"
       },
       {
+        "name": "architecture",
+        "url": "https://github.com/decentraland/architecture",
+        "zipUrl": "https://github.com/decentraland/architecture/archive/refs/heads/main.zip"
+      },
+      {
           "name": "creator",
           "url": "https://github.com/decentraland/documentation-creators",
           "zipUrl": "https://github.com/decentraland/documentation-creators/archive/refs/heads/emotes.zip"
