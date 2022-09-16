@@ -5,6 +5,7 @@ categories:
 slug: /creator/
 redirect_from:
   - /content-intro/
+  - /development-guide/content-intro/
 ---
 
 Decentraland is made up of _parcels_ of LAND, each 16 meters by 16 meters. A _scene_ is an experience that is built on one or several parcels.
