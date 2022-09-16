@@ -155,16 +155,19 @@ const opts = {
           {
             name: 'en',
             // A function for filtering nodes. () => true by default
-            filterNodes: node => !!node.frontmatter.slug,
+            filterNodes: node => !!node?.frontmatter?.slug,
             // Add to index custom entries, that are not actually extracted from gatsby nodes
             // customEntries: [{ title: 'Pictures', content: 'awesome pictures', url: '/pictures' }],
+            plugins: [() => (builder) => {
+              builder.metadataWhitelist = ['position']
+            }]
           }
         ],
         // Fields to index. If store === true value will be stored in index file.
         // Attributes for custom indexing logic. See https://lunrjs.com/docs/lunr.Builder.html for details
         fields: [
             { name: 'title', store: true, attributes: { boost: 20 } },
-            { name: 'content', s },
+            { name: 'content', store: true },
             { name: 'slug', store: true },
         ],
         // How to resolve each field's value for a supported node type

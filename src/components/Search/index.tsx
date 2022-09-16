@@ -1,56 +1,55 @@
 import React, { Component } from 'react'
-import { Link } from 'gatsby'
+import Hit from './Hit'
+import { getLunr, Metadata } from './utils'
 
-declare const window: {
-  __LUNR__: {
-    en: { index: any; store: any }
-  }
-}
-
-function getLunr() {
-  return window.__LUNR__ && window.__LUNR__.en
+interface StateTypes {
+  query: string
+  results: { ref: string; metadata: Metadata }[]
 }
 
 class Search extends Component {
-  state = {
+  state: StateTypes = {
     query: '',
     results: []
   }
 
   render() {
+    const { results } = this.state
+    console.log(results)
     return (
-      <div className="ui-search">
-        <input
-          className="search__input"
-          type="text"
-          value={this.state.query}
-          onChange={this.search}
-          placeholder={'Search'}
-        />
-        <ul className="search__list">
-          {this.state.results.map((page) => (
-            <li key={page.url}>
-              <Link className="search__list_white search__list_non-decoration" to={page.url}>
-                {JSON.stringify(page, null, 4)}
-              </Link>
-            </li>
-          ))}
-        </ul>
+      <div className="search-wrapper">
+        <div className="search-bar-container">
+          <input type="search" placeholder="Search here…" className="ais-SearchBox-input" onChange={this.search} />
+        </div>
+        <div className="hit-container">
+          {results.map((result) => {
+            console.log({ result })
+            return <Hit key={result.ref} lunrRef={result.ref} metadata={result.metadata} />
+          })}
+        </div>
       </div>
     )
   }
 
-  getSearchResults(query: any) {
-    if (!query || !window.__LUNR__) return []
+  getSearchResults(query: string): StateTypes['results'] {
+    if (!query || !getLunr()) return []
     const lunr = getLunr()
-    const results = lunr.index.search(`${query}~1`)
-    console.log(results[0])
-    return results.map(({ ref }) => lunr.store[ref])
+    const results = lunr.index.search(`${query}`)
+    // TODO: query right now works only for one word.
+    // We have to split the string into ' ', and add a +
+    // i.e SDK Components => +sdk +components.
+    // And also fix the metadata Types
+    // results.metadata = { sdk : { title: [10, 1 ] }, components: { slug: [15, 5 ] } }
+    return results.slice(0, 2).map(({ ref, matchData }) => ({
+      ref,
+      metadata: matchData.metadata[query.toLocaleLowerCase().trim()]
+    }))
   }
 
-  search = (event: any) => {
-    const query = event.target.value
+  search = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const query = e.target.value
     const results = this.getSearchResults(query)
+    console.log({ query, results })
     this.setState({ results, query })
   }
 }

@@ -17,10 +17,6 @@ export default function CustomSearchBox({ getQuery }: CustomSearchBoxProps) {
     return getQuery(query)
   }
 
-  function resetInput() {
-    return getQuery('')
-  }
-
   return (
     <div className="search-bar-container">
       <SearchBox submit={glass} reset={reset} onChange={handleQuery} />
