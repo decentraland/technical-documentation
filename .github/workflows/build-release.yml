@@ -27,7 +27,7 @@ jobs:
       - name: set package.json version
         uses: menduz/oddish-action@master
         with:
-          deterministic-snapshot: false
+          deterministic-snapshot: true
           only-update-versions: true
 
       - id: install
@@ -59,7 +59,7 @@ jobs:
           cwd: './public'
 
           ## use action runId instead of current date to generate snapshot numbers
-          deterministic-snapshot: false
+          deterministic-snapshot: true
 
           ## inform gitlab after publishing to proceed with CDN propagation and rollouts
           # 104 == https://dcl.tools/pipelines/static-sites-pipeline
