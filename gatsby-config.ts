@@ -54,10 +54,10 @@ const opts = {
     DEV_SSR: true,
   },
   siteMetadata: {
-    title: "docs-beta",
+    title: "Decentraland Documentation",
     description: "Decentraland technical documentation",
     author: "@decentraland",
-    siteUrl: "https://beta-docs.decentraland.zone",
+    siteUrl: "https://docs.decentraland.org",
   },
   plugins: [
     `gatsby-plugin-sitemap`,
