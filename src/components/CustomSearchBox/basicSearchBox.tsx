@@ -33,9 +33,7 @@ const SearchBox = ({ currentRefinement, refine, handleQuery }) => {
         onChange={(e) => e.target.value.length > 3 && setSearchTerm(e.target.value)}
         className="custom-search-input"
       />
-      {searchTerm.length > 3 && (
-        <img className="search-bar-icon" onClick={() => performSearch(searchTerm)} src={formatPaths('search.svg')} />
-      )}
+      <img className="search-bar-icon" onClick={() => performSearch(searchTerm)} src={formatPaths('search.svg')} />
       {searchTerm && (
         <img className="search-bar-cancel" onClick={() => setSearchTerm('')} src={formatPaths('erase.svg')} />
       )}
