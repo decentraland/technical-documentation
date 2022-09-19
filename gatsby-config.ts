@@ -159,7 +159,7 @@ const opts = {
         // if you have a development env for your segment account, paste that key here
         // when process.env.NODE_ENV === 'development'
         // optional; non-empty string
-        devKey: process.env.GATSBY_SEGMENT_API_KEY,
+        devKey: process.env.GATSBY_SEGMENT_API_KEY_DEV,
 
         trackPage: true,
 
