@@ -13,7 +13,7 @@ Object.assign(ENV_CONTENT, getPublicUrls())
 
 packageJson.homepage = ENV_CONTENT['GATSBY_PUBLIC_URL']
 
-if (packageJson.homepage) {
+if (packageJson.homepage && packageJson.homepage !== '/') {
   const url = new URL(packageJson.homepage)
 
   if (process.env.GITHUB_BASE_REF) {

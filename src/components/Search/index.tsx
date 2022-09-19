@@ -1,71 +1,57 @@
-import React, { useEffect, useState } from 'react'
-import './types'
-import './style.scss'
-import algoliasearch from 'algoliasearch/lite'
-import { InstantSearch, Hits, connectStateResults, Snippet } from 'react-instantsearch-dom'
-import { Link } from 'gatsby'
-import CustomSearchBox from '../CustomSearchBox'
-import { ResultsProps, SearchProps } from './types'
+import React, { Component } from 'react'
+import Hit from './Hit'
+import { getLunr, Metadata } from './utils'
 
-const Hit = ({ hit }) => {
-  return (
-    <div className="hit-result-container">
-      <Link to={hit.frontmatter.slug}>
-        <h4>{hit.frontmatter.title}</h4>
-        <Snippet attribute="html" hit={hit} />
-      </Link>
-    </div>
-  )
+interface StateTypes {
+  query: string
+  results: { ref: string; metadata: Metadata }[]
 }
 
-const WrappedResults = connectStateResults(({ searchState, searchResults, ...props }) => {
-  const { category } = props
-  return searchState && searchState.query ? (
-    searchResults.nbHits ? (
-      <Results category={category} query={searchState.query} />
-    ) : (
-      <>
-        <div className="no-hits">The searched text can’t be found in any section of the Decentraland documentation</div>
-        <div className="hit-results-grayarea" />
-      </>
-    )
-  ) : null
-})
+class Search extends Component {
+  state: StateTypes = {
+    query: '',
+    results: []
+  }
 
-function Results({ category, query }: ResultsProps) {
-  return (
-    <div className="hit-container">
-      <Hits hitComponent={Hit} />
-      <div className="search-bar-more">
-        <Link to={category ? `/${category}/results?search=${query}` : `/results?search=${query}`}>
-          See more results
-        </Link>
+  render() {
+    const { results } = this.state
+    console.log(results)
+    return (
+      <div className="search-wrapper">
+        <div className="search-bar-container">
+          <input type="search" placeholder="Search here…" className="ais-SearchBox-input" onChange={this.search} />
+        </div>
+        <div className="hit-container">
+          {results.map((result) => {
+            console.log({ result })
+            return <Hit key={result.ref} lunrRef={result.ref} metadata={result.metadata} />
+          })}
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
+
+  getSearchResults(query: string): StateTypes['results'] {
+    if (!query || !getLunr()) return []
+    const lunr = getLunr()
+    const results = lunr.index.search(`${query}`)
+    // TODO: query right now works only for one word.
+    // We have to split the string into ' ', and add a +
+    // i.e SDK Components => +sdk +components.
+    // And also fix the metadata Types
+    // results.metadata = { sdk : { title: [10, 1 ] }, components: { slug: [15, 5 ] } }
+    return results.slice(0, 2).map(({ ref, matchData }) => ({
+      ref,
+      metadata: matchData.metadata[query.toLocaleLowerCase().trim()]
+    }))
+  }
+
+  search = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const query = e.target.value
+    const results = this.getSearchResults(query)
+    console.log({ query, results })
+    this.setState({ results, query })
+  }
 }
 
-export default function Search({ category }: SearchProps) {
-  const [query, setQuery] = useState()
-  const [searchClient, setSearchClient] = useState<any>()
-
-  useEffect(() => {
-    setSearchClient(algoliasearch(process.env.GATSBY_ALGOLIA_APP_ID, process.env.GATSBY_ALGOLIA_SEARCH_ONLY_KEY))
-  }, [])
-
-  return (
-    <div className="search-wrapper">
-      {searchClient && (
-        <InstantSearch searchClient={searchClient} indexName="DCL_DOCS">
-          <CustomSearchBox getQuery={setQuery} />
-          {query && (
-            <>
-              <WrappedResults category={category} />
-              <div className="hit-results-grayarea" onClick={() => setQuery(undefined)} />
-            </>
-          )}
-        </InstantSearch>
-      )}
-    </div>
-  )
-}
+export default Search

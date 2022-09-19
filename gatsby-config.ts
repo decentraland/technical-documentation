@@ -15,7 +15,7 @@ const typeDefs = `
 
 const myQuery = `{
   allMdx(filter: {frontmatter: {title: {ne: null}, slug: {ne: null}, skip: {ne: true}}}){
-       edges {
+    edges {
       node {
         id
         html
@@ -146,6 +146,46 @@ const opts = {
           `./src/utils/cloneRepos.ts`,
           `./src/utils/shellCommands.js`,
         ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-lunr`,
+      options: {
+        languages: [
+          {
+            name: 'en',
+            // A function for filtering nodes. () => true by default
+            filterNodes: node => !!node?.frontmatter?.slug,
+            // Add to index custom entries, that are not actually extracted from gatsby nodes
+            // customEntries: [{ title: 'Pictures', content: 'awesome pictures', url: '/pictures' }],
+            plugins: [() => (builder) => {
+              builder.metadataWhitelist = ['position']
+            }]
+          }
+        ],
+        // Fields to index. If store === true value will be stored in index file.
+        // Attributes for custom indexing logic. See https://lunrjs.com/docs/lunr.Builder.html for details
+        fields: [
+            { name: 'title', store: true, attributes: { boost: 20 } },
+            { name: 'content', store: true },
+            { name: 'slug', store: true },
+        ],
+        // How to resolve each field's value for a supported node type
+        resolvers: {
+            // For any node of type MarkdownRemark, list how to resolve the fields' values
+          MarkdownRemark: {
+            title: node => node.frontmatter.title,
+            content: node => node.rawMarkdownBody,
+            // url: node => node.fields.url,
+            slug: node => node.frontmatter.slug
+          },
+        },
+        //custom index file name, default is search_index.json
+        filename: 'search_index.json',
+        //custom options on fetch api call for search_ındex.json
+        fetchOptions: {
+            credentials: 'same-origin'
+        },
       },
     },
     'gatsby-plugin-meta-redirect' // make sure this is always the last one
