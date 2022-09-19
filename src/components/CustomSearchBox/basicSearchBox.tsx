@@ -1,42 +1,35 @@
 import React, { useEffect, useState } from 'react'
 import { connectSearchBox } from 'react-instantsearch-dom'
 import formatPaths from 'utils/formatPaths'
+import debounce from 'utils/debounce'
 
-/**
- * https://www.algolia.com/doc/api-reference/widgets/search-box/react/
- * https://dev.to/gabe_ragland/debouncing-with-react-hooks-jci
- */
+const SearchBox = ({ refine, handleQuery }) => {
+  const [value, setValue] = useState('')
 
-const SearchBox = ({ currentRefinement, refine, handleQuery }) => {
-  const [searchTerm, setSearchTerm] = useState('')
-  const debouncedSearchTerm = setTimeout(() => {
-    return searchTerm
-  }, 200)
-
-  useEffect(() => {
-    if (debouncedSearchTerm) {
-      performSearch(searchTerm)
-      handleQuery(searchTerm)
-    }
-  }, [debouncedSearchTerm])
+  useEffect(
+    debounce(() => {
+      if (value.length > 3) {
+        performSearch(value)
+        handleQuery(value)
+      }
+    }, 100),
+    [value]
+  )
 
   function performSearch(search) {
-    if (search.length > 3) {
-      refine(search)
-    }
+    refine(search)
   }
 
   return (
     <div className="custom-search-input-wrapper">
       <input
         type="search"
-        onChange={(e) => e.target.value.length > 3 && setSearchTerm(e.target.value)}
+        value={value}
+        onChange={(e) => setValue(e.target.value as string)}
         className="custom-search-input"
       />
-      <img className="search-bar-icon" onClick={() => performSearch(searchTerm)} src={formatPaths('search.svg')} />
-      {searchTerm && (
-        <img className="search-bar-cancel" onClick={() => setSearchTerm('')} src={formatPaths('erase.svg')} />
-      )}
+      <img className="search-bar-icon" onClick={() => performSearch(value)} src={formatPaths('search.svg')} />
+      {value && <img className="search-bar-cancel" onClick={() => setValue('')} src={formatPaths('erase.svg')} />}
     </div>
   )
 }
