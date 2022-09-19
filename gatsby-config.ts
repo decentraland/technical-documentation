@@ -148,6 +148,32 @@ const opts = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-segment-js`,
+      options: {
+        // your segment write key for your production environment
+        // when process.env.NODE_ENV === 'production'
+        // required; non-empty string
+        prodKey: process.env.GATSBY_SEGMENT_API_KEY,
+
+        // if you have a development env for your segment account, paste that key here
+        // when process.env.NODE_ENV === 'development'
+        // optional; non-empty string
+        devKey: process.env.GATSBY_SEGMENT_API_KEY,
+
+        trackPage: true,
+
+        // number (defaults to 50); time to wait after a route update before it should
+        // track the page change, to implement this, make sure your `trackPage` property is set to `true`
+        trackPageDelay: 50,
+
+        delayLoad: false,
+        manualLoad: false,
+
+
+        // customSnippet: '!function(){var analytics=window.analytics||[];...;analytics.load("${writeKey}");analytics.page();}}();'
+      },
+    },
     'gatsby-plugin-meta-redirect' // make sure this is always the last one
   ],
 };
