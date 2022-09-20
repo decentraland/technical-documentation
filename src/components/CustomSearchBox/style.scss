@@ -21,6 +21,35 @@
       cursor: pointer;
     }
   }
+  
+  .custom-search-input-wrapper {
+    position: relative;
+    input {
+      border-radius: 20px;
+      padding: 7px 7px 7px 40px;
+      width: 100%;
+      border: 0;
+      z-index: 2;
+      margin-top: 20px;
+      min-height: 40px;
+      border: 1px solid rgba(115, 110, 125, 0.24);
+      font-size: 17px;
+    }
+
+    .search-bar-cancel {
+      position: absolute;
+      right:10px;
+      top: 27px;
+      cursor: pointer;
+    }
+
+    .search-bar-icon {
+      position: absolute;
+      top: 32px;
+      left: 10px;
+      cursor: pointer;
+    }
+  }
 
   @media (max-width: 768px) {
     .search-bar-container {

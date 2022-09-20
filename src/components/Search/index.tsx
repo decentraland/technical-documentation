@@ -50,8 +50,24 @@ export default function Search({ category }: SearchProps) {
   const [searchClient, setSearchClient] = useState<any>()
 
   useEffect(() => {
-    setSearchClient(algoliasearch(process.env.GATSBY_ALGOLIA_APP_ID, process.env.GATSBY_ALGOLIA_SEARCH_ONLY_KEY))
+    setSearchClient(customSearchClient)
   }, [])
+
+  const algoliaClient = algoliasearch(process.env.GATSBY_ALGOLIA_APP_ID, process.env.GATSBY_ALGOLIA_SEARCH_ONLY_KEY)
+
+  // this should prevent initial empty searches which Algolia enables by default
+  const customSearchClient = {
+    search(requests) {
+      const shouldSearch = requests.some(({ params: { query } }) => query !== '')
+      if (shouldSearch) {
+        return algoliaClient.search(requests)
+      }
+      return Promise.resolve({
+        results: [{ hits: [] }]
+      })
+    },
+    searchForFacetValues: algoliaClient.searchForFacetValues
+  }
 
   return (
     <div className="search-wrapper">
