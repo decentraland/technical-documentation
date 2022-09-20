@@ -10,7 +10,7 @@ import CustomLink from '../components/CustomLink'
 
 function retrieveText(item) {
   const text = typeof item === 'string' ? item : item[0]
-  return { text, id: text.toLowerCase().replace(' ', '-') }
+  return { text, id: text.toLowerCase().replaceAll(' ', '-') }
 }
 
 export default function Template(props) {
