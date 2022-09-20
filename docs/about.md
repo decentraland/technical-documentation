@@ -12,7 +12,7 @@ Technical documentation is divided in three major areas:
 
 - Player: Everything related to the use of the platform
 - Content Creator: Information for people wanting to create content inside Decentraland
-- Contributor: Code documentation for developers wanting to contribute to the project
+- Contributor: Code documentation for developers that wish to contribute to the project
 
 ## How to
 
