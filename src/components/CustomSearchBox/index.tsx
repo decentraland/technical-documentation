@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import formatPaths from 'utils/formatPaths'
-import { SearchBox } from 'react-instantsearch-dom'
+import React from 'react'
 import SearchBoxBasic from './basicSearchBox'
 
 import './style.scss'

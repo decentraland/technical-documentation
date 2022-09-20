@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { connectSearchBox } from 'react-instantsearch-dom'
 import formatPaths from 'utils/formatPaths'
-import debounce from 'utils/debounce'
+import { useDebounce } from './../../hooks/useDebounce'
 
 const SearchBox = ({ refine, handleQuery }) => {
   const [value, setValue] = useState('')
+  const debouncedSearch = useDebounce(value, 250)
 
-  useEffect(
-    debounce(() => {
-      if (value.length > 3) {
-        performSearch(value)
-        handleQuery(value)
-      }
-    }, 100),
-    [value]
-  )
+  useEffect(() => {
+    if (value.length > 2) {
+      performSearch(debouncedSearch)
+      handleQuery(debouncedSearch)
+    }
+  }, [debouncedSearch])
 
   function performSearch(search) {
     refine(search)
