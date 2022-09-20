@@ -54,10 +54,10 @@ const opts = {
     DEV_SSR: true,
   },
   siteMetadata: {
-    title: "docs-beta",
+    title: "Decentraland Documentation",
     description: "Decentraland technical documentation",
     author: "@decentraland",
-    siteUrl: "https://beta-docs.decentraland.zone",
+    siteUrl: "https://docs.decentraland.org",
   },
   plugins: [
     `gatsby-plugin-sitemap`,
@@ -146,6 +146,32 @@ const opts = {
           `./src/utils/cloneRepos.ts`,
           `./src/utils/shellCommands.js`,
         ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-segment-js`,
+      options: {
+        // your segment write key for your production environment
+        // when process.env.NODE_ENV === 'production'
+        // required; non-empty string
+        prodKey: process.env.GATSBY_SEGMENT_API_KEY,
+
+        // if you have a development env for your segment account, paste that key here
+        // when process.env.NODE_ENV === 'development'
+        // optional; non-empty string
+        devKey: process.env.GATSBY_SEGMENT_API_KEY_DEV,
+
+        // trackPage: true,
+
+        // number (defaults to 50); time to wait after a route update before it should
+        // track the page change, to implement this, make sure your `trackPage` property is set to `true`
+        // trackPageDelay: 50,
+
+        delayLoad: false,
+        manualLoad: false,
+
+
+        customSnippet: '!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics._writeKey="${writeKey}";;analytics.SNIPPET_VERSION="4.15.3";analytics.load("${writeKey}");analytics.page();}}();'
       },
     },
     'gatsby-plugin-meta-redirect' // make sure this is always the last one
