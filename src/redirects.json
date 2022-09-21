@@ -14,5 +14,13 @@
     { 
         "fromPath": "/examples/sample-scenes/",
         "toPath": "https://github.com/decentraland-scenes/Awesome-Repository#Examples"
-    }
+    },
+    { 
+        "fromPath": "/decentraland/community-voting/",
+        "toPath": "/player/general/dao/overview/how-does-the-dao-work"
+    },
+    {
+        "fromPath": "/releases/sdk/6.0/",
+        "toPath": "https://github.com/decentraland/js-sdk-toolchain/releases"
+    } 
   ]
