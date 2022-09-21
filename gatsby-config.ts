@@ -59,7 +59,7 @@ const opts = {
     author: "@decentraland",
     siteUrl: "https://docs.decentraland.org",
   },
-  trailingSlash: true,
+  trailingSlash: 'always',
   plugins: [
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-mdx`,
