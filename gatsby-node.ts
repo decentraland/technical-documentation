@@ -64,8 +64,7 @@ exports.createPages = async ({ graphql, actions }: any) => {
   `)
 
   const redirectOptions = {
-    isPermanent: true,
-    statusCode: 301
+    isPermanent: true
   }
 
   redirects.forEach((redirect) => {
