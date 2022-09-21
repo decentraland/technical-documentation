@@ -63,10 +63,16 @@ exports.createPages = async ({ graphql, actions }: any) => {
     }
   `)
 
+  const redirectOptions = {
+    isPermanent: true,
+    statusCode: 301
+  }
+
   redirects.forEach((redirect) => {
     actions.createRedirect({
       fromPath: redirect.fromPath,
-      toPath: redirect.toPath
+      toPath: redirect.toPath,
+      ...redirectOptions
     })
   })
 
@@ -85,7 +91,7 @@ exports.createPages = async ({ graphql, actions }: any) => {
         actions.createRedirect({
           fromPath: item,
           toPath: node.frontmatter.slug.toLowerCase(),
-          isPermanent: true
+          ...redirectOptions
         })
       })
     }
