@@ -48,7 +48,7 @@
     "gatsby-plugin-mdx": "3.13.0",
     "gatsby-plugin-meta-redirect": "^1.1.1",
     "gatsby-plugin-postcss": "^5.6.0",
-    "gatsby-plugin-react-helmet": "^5.22.0",
+    "gatsby-plugin-react-helmet": "^5.23.0",
     "gatsby-plugin-sass": "^5.9.0",
     "gatsby-plugin-segment-js": "^3.7.1",
     "gatsby-plugin-sharp": "^4.14.1",
@@ -75,10 +75,12 @@
     "query-string": "^7.1.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1",
     "react-instantsearch-dom": "^6.23.3",
     "react-sequence-diagram": "^0.0.12",
-    "sass": "^1.49.9"
+    "sass": "^1.49.9",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@dcl/eslint-config": "^1.0.1-20211208155836.commit-63a2880",

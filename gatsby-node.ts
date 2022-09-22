@@ -29,6 +29,11 @@ exports.createSchemaCustomization = ({ actions }) => {
   createTypes(typeDefs)
 }
 
+function normalizeUrl(url) {
+  const normalizedUrl = url.slice(-1) === '/' ? url : url + '/'
+  return normalizedUrl.toLowerCase()
+}
+
 exports.onCreateNode = async ({ node, getNode, actions }: any) => {
   const { createNodeField } = actions
   if (node.internal.type === `Mdx`) {
@@ -36,7 +41,7 @@ exports.onCreateNode = async ({ node, getNode, actions }: any) => {
     createNodeField({
       node,
       name: `slug`,
-      value: slug.toLowerCase()
+      value: normalizeUrl(slug)
     })
   }
 }
@@ -66,7 +71,8 @@ exports.createPages = async ({ graphql, actions }: any) => {
   redirects.forEach((redirect) => {
     actions.createRedirect({
       fromPath: redirect.fromPath,
-      toPath: redirect.toPath
+      toPath: redirect.toPath,
+      isPermanent: true
     })
   })
 
@@ -83,8 +89,8 @@ exports.createPages = async ({ graphql, actions }: any) => {
     if (node.frontmatter.redirect_from) {
       node.frontmatter.redirect_from.map((item) => {
         actions.createRedirect({
-          fromPath: item,
-          toPath: node.frontmatter.slug.toLowerCase(),
+          fromPath: normalizeUrl(item),
+          toPath: normalizeUrl(node.frontmatter.slug),
           isPermanent: true
         })
       })

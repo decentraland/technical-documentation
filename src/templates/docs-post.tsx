@@ -7,6 +7,7 @@ import { MDXProvider } from '@mdx-js/react'
 import CodeBlock from '../components/CodeBlock'
 import CustomImg from '../components/CustomImg'
 import CustomLink from '../components/CustomLink'
+import { Helmet } from 'react-helmet'
 
 function retrieveText(item) {
   const text = typeof item === 'string' ? item : item[0]
@@ -69,6 +70,9 @@ export default function Template(props) {
   const { body, frontmatter } = mdx
   return (
     <>
+      <Helmet>
+        <title>{frontmatter.title} | Decentraland Technical Documentation</title>
+      </Helmet>
       <SidebarLayout>
         <div className="blog-post-container">
           <div className="blog-post">
@@ -82,6 +86,7 @@ export default function Template(props) {
     </>
   )
 }
+
 export const query = graphql`
   query ($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
