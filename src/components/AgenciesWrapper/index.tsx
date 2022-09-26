@@ -3,12 +3,18 @@ import data from './../../configurable-content/partners.yml'
 import icons from '/static/icons/icons.json'
 import './style.scss'
 import formatPaths from 'utils/formatPaths'
+import { useVerifiedPartnersData } from '../../hooks/useVerifiedPartnersData'
 
 function Icon({ path }) {
   return <img src={`data:image/svg+xml;utf8,${encodeURIComponent(path)}`} />
 }
 
 export default function Agencies() {
+  const partners = useVerifiedPartnersData()
+  useEffect(() => {
+    console.log(partners)
+  }, [partners])
+
   return (
     <div>
       <h3>Verified partners</h3>
