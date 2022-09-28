@@ -85,7 +85,7 @@ const opts = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `./src/repos/player/player-documentation-main`,
+        path: `./src/repos/player/player-documentation-louiseDecentraland-patch-1`,
       },
     },
     {
@@ -93,7 +93,7 @@ const opts = {
       options: {
         // [Optional] The root of "media_folder" in your config.yml
         // Defaults to "static"
-        staticFolderName: './src/repos/player/player-documentation-main/',
+        staticFolderName: './src/repos/player/player-documentation-louiseDecentraland-patch-1/',
         // [Optional] Include the following fields, use dot notation for nested fields
         // All fields are included by default
         include: ['featured'],
@@ -210,11 +210,11 @@ if (!process.env.GATSBY_ASSET_PREFIX) {
 
 if (!process.env.GATSBY_PUBLIC_PATH) {
   delete opts['pathPrefix']
-  
+
   if (process.env.GITHUB_ACTIONS) {
     opts.plugins.push(algoliaOpts)
   }
-  
+
 }
 
 module.exports = opts
