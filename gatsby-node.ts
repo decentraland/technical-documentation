@@ -31,7 +31,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 
 function normalizeUrl(url) {
   const normalizedUrl = url.slice(-1) === '/' ? url : url + '/'
-  return normalizedUrl.toLowerCase()
+  return normalizedUrl
 }
 
 exports.onCreateNode = async ({ node, getNode, actions }: any) => {
@@ -41,7 +41,7 @@ exports.onCreateNode = async ({ node, getNode, actions }: any) => {
     createNodeField({
       node,
       name: `slug`,
-      value: normalizeUrl(slug)
+      value: normalizeUrl(slug).toLowerCase()
     })
   }
 }
@@ -89,8 +89,8 @@ exports.createPages = async ({ graphql, actions }: any) => {
     if (node.frontmatter.redirect_from) {
       node.frontmatter.redirect_from.map((item) => {
         actions.createRedirect({
-          fromPath: normalizeUrl(item),
-          toPath: normalizeUrl(node.frontmatter.slug),
+          fromPath: item,
+          toPath: normalizeUrl(node.frontmatter.slug).toLowerCase(),
           isPermanent: true
         })
       })
