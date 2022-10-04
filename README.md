@@ -1,4 +1,4 @@
-# Contribute to Decentraland Documentation ✨🚀.
+# Contribute to Decentraland Documentation ✨🚀
 
 Welcome to **Decentraland technical documentation**, the goal of this repository is to have a single point of access for all necessary information to use, create and contribute to Decentraland.
 
