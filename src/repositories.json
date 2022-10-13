@@ -20,6 +20,11 @@
         "url": "https://github.com/decentraland/catalyst-owner",
         "zipUrl": "https://github.com/decentraland/catalyst-owner/archive/refs/heads/master.zip"
       },
+        {
+        "name": "SDK",
+        "url": "https://github.com/decentraland/js-sdk-toolchain",
+        "zipUrl": "https://github.com/decentraland/js-sdk-toolchain/archive/refs/heads/main.zip"
+      },
       {
         "name": "architecture",
         "url": "https://github.com/decentraland/architecture",
